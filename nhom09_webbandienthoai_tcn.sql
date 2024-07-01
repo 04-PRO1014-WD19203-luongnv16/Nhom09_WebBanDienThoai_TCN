@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Jun 30, 2024 at 07:05 AM
+-- Generation Time: Jul 01, 2024 at 02:25 AM
 -- Server version: 8.0.30
 -- PHP Version: 8.1.10
 
@@ -48,6 +48,7 @@ CREATE TABLE `chi_tiet_don_hangs` (
   `id` int NOT NULL,
   `id_don_hangs` int NOT NULL,
   `id_bien_thes` int NOT NULL,
+  `id_san_phams` int NOT NULL,
   `so_luong` int NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
@@ -110,6 +111,7 @@ CREATE TABLE `don_hangs` (
 
 CREATE TABLE `gio_hangs` (
   `id` int NOT NULL,
+  `id_san_phams` int NOT NULL,
   `id_bien_thes` int NOT NULL,
   `so_luong` int NOT NULL,
   `id_tai_khoans` int NOT NULL
@@ -244,7 +246,8 @@ ALTER TABLE `bien_thes`
 ALTER TABLE `chi_tiet_don_hangs`
   ADD PRIMARY KEY (`id`),
   ADD KEY `id_don_hangs` (`id_don_hangs`),
-  ADD KEY `chi_tiet_don_hangs_ibfk_2` (`id_bien_thes`);
+  ADD KEY `chi_tiet_don_hangs_ibfk_2` (`id_bien_thes`),
+  ADD KEY `id_san_phams` (`id_san_phams`);
 
 --
 -- Indexes for table `danh_gias`
@@ -276,7 +279,8 @@ ALTER TABLE `don_hangs`
 ALTER TABLE `gio_hangs`
   ADD PRIMARY KEY (`id`),
   ADD KEY `id_tai_khoans` (`id_tai_khoans`),
-  ADD KEY `id_san_phams` (`id_bien_thes`);
+  ADD KEY `id_san_phams` (`id_bien_thes`),
+  ADD KEY `id_san_phams_2` (`id_san_phams`);
 
 --
 -- Indexes for table `ma_giam_gias`
@@ -298,6 +302,7 @@ ALTER TABLE `tai_khoans`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `email` (`email`),
   ADD UNIQUE KEY `email_2` (`email`),
+  ADD UNIQUE KEY `tai_khoan` (`tai_khoan`),
   ADD KEY `trang_thai` (`trang_thai`);
 
 --
@@ -409,7 +414,8 @@ ALTER TABLE `bien_thes`
 --
 ALTER TABLE `chi_tiet_don_hangs`
   ADD CONSTRAINT `chi_tiet_don_hangs_ibfk_1` FOREIGN KEY (`id_don_hangs`) REFERENCES `don_hangs` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT,
-  ADD CONSTRAINT `chi_tiet_don_hangs_ibfk_2` FOREIGN KEY (`id_bien_thes`) REFERENCES `bien_thes` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT;
+  ADD CONSTRAINT `chi_tiet_don_hangs_ibfk_2` FOREIGN KEY (`id_bien_thes`) REFERENCES `bien_thes` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT,
+  ADD CONSTRAINT `chi_tiet_don_hangs_ibfk_3` FOREIGN KEY (`id_san_phams`) REFERENCES `san_phams` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT;
 
 --
 -- Constraints for table `danh_gias`
@@ -432,7 +438,8 @@ ALTER TABLE `don_hangs`
 --
 ALTER TABLE `gio_hangs`
   ADD CONSTRAINT `gio_hangs_ibfk_1` FOREIGN KEY (`id_tai_khoans`) REFERENCES `tai_khoans` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT,
-  ADD CONSTRAINT `gio_hangs_ibfk_2` FOREIGN KEY (`id_bien_thes`) REFERENCES `bien_thes` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT;
+  ADD CONSTRAINT `gio_hangs_ibfk_2` FOREIGN KEY (`id_bien_thes`) REFERENCES `bien_thes` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT,
+  ADD CONSTRAINT `gio_hangs_ibfk_3` FOREIGN KEY (`id_san_phams`) REFERENCES `san_phams` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT;
 
 --
 -- Constraints for table `san_phams`
