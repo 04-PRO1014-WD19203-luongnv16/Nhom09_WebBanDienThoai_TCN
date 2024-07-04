@@ -1,5 +1,6 @@
 <?php
 
+use MVC\Controllers\DashboardController;
 use MVC\Controllers\TrangChuController;
 use MVC\Router;
 use MVC\Controllers\UserController;
@@ -29,7 +30,7 @@ $router->addRoute('/', TrangChuController::class, 'index');
 
 
 //Route thuộc Quản trị viên
-
+$router->addRoute('/admin', DashboardController::class, 'index');
 
 
 
