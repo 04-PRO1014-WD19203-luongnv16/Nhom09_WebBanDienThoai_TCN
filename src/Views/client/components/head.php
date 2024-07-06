@@ -20,12 +20,12 @@
  <link rel="stylesheet" href="/asset/winkel-master/css/style.css">
  <style>
     .logo{
-        width: 13%;
+        width: 12%;
     }
     .logo-img{
         width: 100%;
         object-fit: cover;
-        max-height: 30px;
+        max-height: 40px;
     }
     .validate-text{
         font-size: 13px;

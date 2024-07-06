@@ -28,6 +28,11 @@
                                 <?php if ($validate['mat_khau']) : ?>
                                     <div class="form-text validate-text">Vui lòng điền mật khẩu</div>
                                 <?php endif ?>
+                                <?php if (!$validate['mat_khau'] || !$validate['tai_khoan']) : ?>
+                                    <?php if ($checkForm) : ?>
+                                        <div class="form-text validate-text">Tài khoản hoặc mật khẩu không chính xác</div>
+                                    <?php endif ?>
+                                <?php endif ?>
                             </div>
                             <div class="form-group text-center">
                                 <input name="btn-submit" style="border-radius: 0px;" type="submit" value="Đăng nhập" class="btn btn-primary py-3 px-5 w-50">

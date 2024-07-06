@@ -24,6 +24,7 @@
                 <li class="nav-item"><a href="/" class="nav-link">Liên hệ</a></li>
                 <?php if (isset($_SESSION['tai_khoan'])) :?>
                     <li class="nav-item"><a href="/" class="nav-link">Tài khoản</a></li>
+                    <li class="nav-item"><a href="/logout" class="nav-link">Đăng xuất</a></li>
                     <?php endif?>
                 <?php if (!isset($_SESSION['tai_khoan'])) :?>
                     <li class="nav-item"><span class="nav-link">

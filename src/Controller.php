@@ -26,7 +26,7 @@ class Controller {
             return false;
         }
     }
-    protected function renderAdmin($view, $data = []) {
+    protected function renderAdmin($view = "thongke", $data = []) {
         $data['view'] = $view;
         include_once "Views/admin/dashboard.php";
         die();
