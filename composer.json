@@ -14,5 +14,7 @@
             "email": "ductuyen772@gmail.com"
         }
     ],
-    "require": {}
+    "require": {
+        "phroute/phroute": "^2.2"
+    }
 }

@@ -4,7 +4,47 @@ namespace MVC\Controllers;
 use MVC\Controller;
 use MVC\Models\TaiKhoan;
 
-class LoginController extends Controller {
+class LoginController extends Controller { 
+    protected $taikhoan;
+    public function __construct(){
+        $this->taikhoan = new TaiKhoan;
+    }
+    public function dangky(){
+        if(isset($_POST['submit'])){
+            $errors=[];
+            $tai_khoan = $_POST['tai_khoan'];
+            $mat_khau = $_POST['mat_khau'];
+            $email = $_POST['email'];
+            $dia_chi = $_POST['dia_chi'];
+            $gioi_tinh = $_POST['gioi_tinh'] ?? 1;
+            $ngay_sinh = $_POST['ngay_sinh'];
+
+            if(empty(trim($tai_khoan))){
+                $errors['tai_khoan']='Không được để trống tài khoản';
+            }
+            if(empty($mat_khau)){
+                $errors['mat_khau'] = 'Không được để trống mật khẩu';
+            }
+            if(empty($email)){
+                $errors['email'] = 'Không được để trống email';
+            }
+            if(empty($dia_chi)){
+                $errors['dia_chi'] = 'Không được để trống địa chỉ';
+            }
+
+            // var_dump($tai_khoan,$mat_khau,$email,$dia_chi,$gioi_tinh,$ngay_sinh);
+            if(!$errors){
+               $this->taikhoan->insert_taikhoan($tai_khoan,$mat_khau,$email,$dia_chi,$gioi_tinh,$ngay_sinh);
+               echo "<script>alert('Đăng ký thành công')</script>";
+               return $this->render('dangky');
+            }else{
+                return $this->render('dangky',compact('errors'));  
+            }
+        }
+        return $this->render('dangky');
+    }
+
+
     public function index() {
         if (isset($_SESSION['id'])) {
             return header("location: /");
@@ -59,5 +99,7 @@ class LoginController extends Controller {
         session_destroy();
         return header("location: /");
     }
+
+   
 }
 ?>

@@ -28,7 +28,7 @@
                     <?php endif?>
                 <?php if (!isset($_SESSION['tai_khoan'])) :?>
                     <li class="nav-item"><span class="nav-link">
-                    <a href="/login" class="text-dark">Đăng nhâp</a> | <a href="/" class="text-dark">Đăng nhâp</a>
+                    <a href="/login" class="text-dark">Đăng nhâp</a> | <a href="/dang_ky" class="text-dark">Đăng Ký</a>
                 </span></li>
                     <?php endif?>
                 <li class="nav-item cta cta-colored"><a href="/" class="nav-link"><span
