@@ -5,6 +5,18 @@ namespace MVC;
 class Controller {
     protected function render($view, $data = []) {
         extract($data);
+        if (isset($_SESSION['trang_thai'])) {
+            if ($_SESSION['trang_thai'] == 1) {
+                include "Views/".$view.".php";
+                die();
+            }
+            elseif($_SESSION['trang_thai'] == 2) {
+                $view = "";
+                include_once "Views/admin/dashboard.php";
+                die();
+            }
+        }
+        extract($data);
         include "Views/".$view.".php";
     }
     protected function checkTai_khoan() {
@@ -28,8 +40,6 @@ class Controller {
     }
     protected function renderAdmin($view = "thongke", $data = []) {
         $data['view'] = $view;
-        include_once "Views/admin/dashboard.php";
-        die();
         extract($data);
         if (isset($_SESSION['tai_khoan']) && $_SESSION['trang_thai'] == 2) {
             include_once "Views/admin/dashboard.php";
