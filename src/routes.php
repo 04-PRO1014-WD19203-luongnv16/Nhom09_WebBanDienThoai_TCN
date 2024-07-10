@@ -1,5 +1,6 @@
 <?php
 
+use MVC\Controllers\DanhMucController;
 use MVC\Controllers\DashboardController;
 use MVC\Controllers\LoginController;
 use MVC\Controllers\TrangChuController;
@@ -34,8 +35,10 @@ $router->addRoute('/logout', LoginController::class, 'logout');
 
 //Route thuộc Quản trị viên
 $router->addRoute('/admin', DashboardController::class, 'index');
-
-
+$router->addRoute('/admin-danhmuc', DanhMucController::class, 'index');
+$router->addRoute('/add-danh-muc', DanhMucController::class, 'addDanhMuc');
+$router->addRoute('/sua-danh-muc', DanhMucController::class, 'suaDanhMuc');
+$router->addRoute('/delete-danh-muc', DanhMucController::class, 'deleteDanhMuc');
 
 
 
