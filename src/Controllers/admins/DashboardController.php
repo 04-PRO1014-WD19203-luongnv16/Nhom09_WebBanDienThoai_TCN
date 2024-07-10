@@ -1,5 +1,5 @@
 <?php 
-namespace MVC\Controllers;
+namespace MVC\Controllers\admins;
 
 use MVC\Controller;
 

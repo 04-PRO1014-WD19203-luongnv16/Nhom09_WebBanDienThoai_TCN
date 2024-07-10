@@ -1,5 +1,5 @@
 <?php 
-namespace MVC\Controllers;
+namespace MVC\Controllers\clients;
 
 use MVC\Controller;
 use MVC\Models\TaiKhoan;

@@ -13,7 +13,7 @@
                     <?php endif?>
                     <?php if (!$check) :?>
                         <?php if ($checkForm) :?>
-                            <div class='form-text text-danger' style='font-size: 15px;'>Tên danh muc bị trùng lặp</div>
+                            <div class='form-text text-danger' style='font-size: 15px;'>Danh mục đã tồn tại</div>
                         <?php endif?>
                     <?php endif?>
                 </div>

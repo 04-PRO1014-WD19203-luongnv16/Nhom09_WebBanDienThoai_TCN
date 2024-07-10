@@ -1,5 +1,5 @@
 <?php 
-namespace MVC\Controllers;
+namespace MVC\Controllers\admins;
 
 use MVC\Controller;
 use MVC\Models\DanhMuc;
@@ -19,16 +19,6 @@ class DanhMucController extends Controller {
         $isUpdating = isset($_POST['submit']); 
     
         if ($isUpdating) {
-            $danhmucs = (new DanhMuc)->all();
-            foreach ($danhmucs as $key => $danhmuc) {
-                if ($danhmuc['id'] == $_GET['id'] && $danhmuc['ten_danh_muc'] == $_POST['ten_danh_muc']) {
-                    $checkForm = false;
-                    break;
-                }
-                else {
-                    $checkForm = true;
-                }
-            }
             if ($_POST['ten_danh_muc']=="") {
                 $check = true;
             } else {
