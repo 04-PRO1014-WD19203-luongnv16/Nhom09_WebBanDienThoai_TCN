@@ -15,9 +15,9 @@ class TaiKhoan extends Model {
         $this->setQuery($sql);
         return $this->GetOne($sql);
     }
-    public function insert_taikhoan($tai_khoan,$mat_khau,$email,$dia_chi,$gioi_tinh,$ngay_sinh){
-        $sql = "INSERT INTO `tai_khoans`(`tai_khoan`, `mat_khau`, `email`, `dia_chi`, `gioi_tinh`, `ngay_sinh`,`trang_thai`)
-        VALUES ('$tai_khoan','$mat_khau','$email','$dia_chi','$gioi_tinh','$ngay_sinh',1)";
+    public function insert_taikhoan($tai_khoan,$mat_khau,$email,$dia_chi,$gioi_tinh,$so_dien_thoai){
+        $sql = "INSERT INTO `tai_khoans`(`tai_khoan`, `mat_khau`, `email`, `dia_chi`, `gioi_tinh`, `so_dien_thoai`,`trang_thai`)
+        VALUES ('$tai_khoan','$mat_khau','$email','$dia_chi','$gioi_tinh','$so_dien_thoai',1)";
         $this->setQuery($sql);
         $this->Execute();
     }

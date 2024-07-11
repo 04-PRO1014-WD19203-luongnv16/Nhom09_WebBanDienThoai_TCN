@@ -9,7 +9,7 @@ class LoginController extends Controller {
     public function __construct(){
         $this->taikhoan = new TaiKhoan;
     }
-    public function dangky(){
+     public function dangky(){
         if(isset($_POST['submit'])){
             $errors=[];
             $tai_khoan = $_POST['tai_khoan'];
@@ -17,7 +17,7 @@ class LoginController extends Controller {
             $email = $_POST['email'];
             $dia_chi = $_POST['dia_chi'];
             $gioi_tinh = $_POST['gioi_tinh'] ?? 1;
-            $ngay_sinh = $_POST['ngay_sinh'];
+            $so_dien_thoai = $_POST['so_dien_thoai'];
 
             if(empty(trim($tai_khoan))){
                 $errors['tai_khoan']='Không được để trống tài khoản';
@@ -31,10 +31,13 @@ class LoginController extends Controller {
             if(empty($dia_chi)){
                 $errors['dia_chi'] = 'Không được để trống địa chỉ';
             }
+            if(empty($so_dien_thoai)){
+                $errors['so_dien_thoai'] = 'Không được để trống số điện thoại';
+            }
 
             // var_dump($tai_khoan,$mat_khau,$email,$dia_chi,$gioi_tinh,$ngay_sinh);
             if(!$errors){
-               $this->taikhoan->insert_taikhoan($tai_khoan,$mat_khau,$email,$dia_chi,$gioi_tinh,$ngay_sinh);
+               $this->taikhoan->insert_taikhoan($tai_khoan,$mat_khau,$email,$dia_chi,$gioi_tinh,$so_dien_thoai);
                echo "<script>alert('Đăng ký thành công')</script>";
                return $this->render('dangky');
             }else{

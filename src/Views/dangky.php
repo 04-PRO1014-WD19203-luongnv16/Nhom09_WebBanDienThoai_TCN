@@ -1,10 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
 <style>
-    .error{
+    .error {
         color: red;
     }
 </style>
+
 <head>
     <title>Login</title>
     <!-- Head -->
@@ -27,10 +28,8 @@
                             <div class="form-group">
                                 <input type="text" class="form-control" name="tai_khoan" placeholder="Tài khoản">
                                 <div class="error">
-                                    <?php if (isset($errors)) {
-                                        echo $errors['tai_khoan'];
-                                    }else{
-                                       
+                                    <?php if (isset($errors) && isset($errors['tai_khoan'])) {
+                                        echo "không được để trống";
                                     }
                                     ?>
                                 </div>
@@ -38,19 +37,21 @@
                             <div class="form-group">
                                 <input type="password" class="form-control" name="mat_khau" placeholder="Mật khẩu">
                                 <div class="error">
-                                <?php if (isset($errors)) {
-                                        echo $errors['mat_khau'];
+                                    <?php if (isset($errors) && isset($errors['mat_khau'])) {
+                                        echo "không được để trống";
                                     }
+
                                     ?>
                                 </div>
-                               
+
                             </div>
                             <div class="form-group">
                                 <input type="email" class="form-control" name="email" placeholder="Email">
                                 <div class="error">
-                                <?php if (isset($errors)) {
-                                        echo $errors['email'];
+                                    <?php if (isset($errors) && isset($errors['email'])) {
+                                        echo "không được để trống";
                                     }
+
                                     ?>
                                 </div>
                             </div>
@@ -58,9 +59,10 @@
                                 <input type="diachi" class="form-control" name="dia_chi" placeholder="Địa chỉ">
                                 <div class="error">
                                     <?php
-                                        if(isset($errors)){
-                                            echo $errors['dia_chi'];
-                                        }
+                                    if (isset($errors) && isset($errors['dia_chi'])) {
+                                        echo "không được để trống";
+                                    }
+
                                     ?>
                                 </div>
                             </div>
@@ -77,9 +79,18 @@
                                     </label>
                                 </div>
                             </div>
-                            <label>Ngày sinh</label>
+
                             <div class="form-group">
-                                <input type="date" class="form-control" name="ngay_sinh" >
+                                <input type="text" class="form-control" name="so_dien_thoai"
+                                    placeholder="Số điện thoại">
+                                <div class="error">
+                                    <?php
+                                    if (isset($errors) && isset($errors['so_dien_thoai'])) {
+                                        echo "không được để trống";
+                                    }
+
+                                    ?>
+                                </div>
                             </div>
                             <div class="form-group text-center">
                                 <input style="border-radius: 0px;" type="submit" value="Đăng ký"
@@ -87,7 +98,7 @@
                             </div>
                         </form>
 
-                        
+
                     </div>
                 </div>
 
