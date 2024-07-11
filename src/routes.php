@@ -3,6 +3,7 @@
 use MVC\Controllers\admins\DanhMucController;
 use MVC\Controllers\admins\DashboardController;
 use MVC\Controllers\admins\SanPhamController;
+use MVC\Controllers\clients\CuaHangController;
 use MVC\Controllers\clients\LoginController;
 use MVC\Controllers\clients\TrangChuController;
 use MVC\Router;
@@ -22,8 +23,7 @@ $router->addRoute('/dang_ky', LoginController::class, 'dangky');
 //Route thuộc người dùng
 // $router->addRoute('/list-san_pham', SanPhamController::class, 'index');
 $route->post('/dang_ky',[LoginController::class, 'dangky']);    
-
-
+$router->addRoute('/cua-hang', CuaHangController::class, 'index');
 
 
 
