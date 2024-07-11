@@ -11,6 +11,10 @@ class ComposerStaticInitf19ae2f200afaf6daeca0692607ebcbf
     );
 
     public static $prefixLengthsPsr4 = array (
+        'P' => 
+        array (
+            'Phroute\\Phroute\\' => 16,
+        ),
         'M' => 
         array (
             'MVC\\' => 4,
@@ -18,6 +22,10 @@ class ComposerStaticInitf19ae2f200afaf6daeca0692607ebcbf
     );
 
     public static $prefixDirsPsr4 = array (
+        'Phroute\\Phroute\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/phroute/phroute/src/Phroute',
+        ),
         'MVC\\' => 
         array (
             0 => __DIR__ . '/../..' . '/src',

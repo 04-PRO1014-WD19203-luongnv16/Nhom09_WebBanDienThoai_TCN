@@ -13,7 +13,11 @@
         <!-- Content -->
         <div class="content">
             <div class="animated fadeIn">
-<!---->
+                <?php
+                    if (isset($view) && $view != "") {
+                        include_once $view.".php";
+                    }
+                ?>
             </div>
         </div>
         <div class="clearfix"></div>
