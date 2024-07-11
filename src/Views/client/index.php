@@ -14,7 +14,7 @@
     <?php include_once "./src/Views/client/components/navbar.php";?>
     <!-- Content -->
 
-   
+   <h1>abc</h1>
 
     <!-- Footer -->
     <?php include_once "./src/Views/client/components/footer.php"?>
