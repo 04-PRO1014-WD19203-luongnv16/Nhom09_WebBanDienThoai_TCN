@@ -9,7 +9,7 @@ use MVC\Controllers\clients\TrangChuController;
 use MVC\Router;
 use Phroute\Phroute\RouteCollector;
 
-$route=new RouteCollector();
+$route = new RouteCollector();
 
 $router = new Router();
 
@@ -22,7 +22,7 @@ $router->addRoute('/dang_ky', LoginController::class, 'dangky');
 
 //Route thuộc người dùng
 // $router->addRoute('/list-san_pham', SanPhamController::class, 'index');
-$route->post('/dang_ky',[LoginController::class, 'dangky']);    
+$route->post('/dang_ky', [LoginController::class, 'dangky']);
 $router->addRoute('/cua-hang', CuaHangController::class, 'index');
 
 
@@ -47,6 +47,10 @@ $router->addRoute('/sua-danh-muc', DanhMucController::class, 'suaDanhMuc');
 $router->addRoute('/delete-danh-muc', DanhMucController::class, 'deleteDanhMuc');
 // Quản lý sản phẩm
 $router->addRoute('/admin-san-pham', SanPhamController::class, 'index');
+$router->addRoute('/add-san-pham', SanPhamController::class, 'addSanPham');
+$router->addRoute('/sua-san-pham', SanPhamController::class, 'suaSanPham');
+$router->addRoute('/delete-san-pham', SanPhamController::class, 'deleteSanPham');
+$router->addRoute('/detail-san-pham', SanPhamController::class, 'detailSanPham');
 
 
 
@@ -62,4 +66,3 @@ $router->addRoute('/admin-san-pham', SanPhamController::class, 'index');
 
 
 return $router;
-    
