@@ -2,11 +2,19 @@
 namespace MVC\Controllers\clients;
 
 use MVC\Controller;
+use MVC\Models\TrangChu;
 
 class TrangChuController extends Controller {
-    public function index() {
-        $title = "trang chủ";
-        $this->render('client/index',['title'=>$title]);
+    protected $home;
+    public function __construct(){
+        $this->home = new TrangChu();
     }
+
+    public function index() {
+        $trangchu=$this->home->get_sanphamHome();
+        $this->render('client/index',compact('trangchu'));
+    }
+
+    
 }
 ?>
