@@ -25,7 +25,9 @@ $router->addRoute('/logout', LoginController::class, 'logout');
 //dang ky
 $router->addRoute('/dang_ky', LoginController::class, 'dangky');
 $route->post('/dang_ky',[LoginController::class, 'dangky']);    
+// SanPham
 $router->addRoute('/cua-hang', CuaHangController::class, 'index');
+$router->addRoute('/detail-san-pham', CuaHangController::class, 'detail');
 
 
 
@@ -49,6 +51,7 @@ $router->addRoute('/sua-danh-muc', DanhMucController::class, 'suaDanhMuc');
 $router->addRoute('/delete-danh-muc', DanhMucController::class, 'deleteDanhMuc');
 // Quản lý sản phẩm
 $router->addRoute('/admin-san-pham', SanPhamController::class, 'index');
+
 
 
 

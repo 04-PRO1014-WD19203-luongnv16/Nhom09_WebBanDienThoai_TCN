@@ -42,13 +42,13 @@
                             <?php foreach ($sanphams as $sanpham) : ?>
                                 <div class="col-sm-3 col-md-3 col-lg-3 ftco-animate">
                                     <div class="product">
-                                        <a href="#" class="img-prod"><img style="min-height: 250px;object-fit: cover;" class="img-fluid" src="/public/images/sanphams/<?= $sanpham['anh_chinh'] ?>.jpg" alt="<?= $sanpham['ten_san_pham'] ?>">
+                                        <a href="/detail-san-pham?id=<?=$sanpham['id']?>" class="img-prod"><img style="min-height: 250px;object-fit: cover;" class="img-fluid" src="/public/images/sanphams/<?= $sanpham['anh_chinh'] ?>.jpg" alt="<?= $sanpham['ten_san_pham'] ?>">
                                         </a>
                                         <div class="text py-3 px-3" style="height: 150px;">
-                                            <h3 style="height: 50px;"><a href="#"><?= $sanpham['ten_san_pham'] ?></a></h3>
+                                            <h3 style="height: 50px;"><a href="/detail-san-pham?id=<?=$sanpham['id']?>"><?= $sanpham['ten_san_pham'] ?></a></h3>
                                             <div class="">
                                                 <div class="mb-3">
-                                                    <p class="price"><span class="mr-2 price-sale"><?= $sanpham['gia_thap_nhat']; ?> VNĐ</span>
+                                                    <p class="price"><span class="mr-2 price-sale"><?= $sanpham['gia_thap_nhat']; ?><span style="font-size: 10px;">₫</span></span>
                                                 </div>
                                                 <div class="rating" style="float: right;">
                                                     <p class="text-right">
@@ -61,7 +61,7 @@
                                                 </div>
                                             </div>
                                             <p class="bottom-area d-flex px-3">
-                                                <a href="#" class="buy-now text-center py-2">Mua sản phẩm<span><i class="ion-ios-cart ml-1"></i></span></a>
+                                                <a href="/detail-san-pham?id=<?=$sanpham['id']?>" class="buy-now text-center py-2">Mua sản phẩm<span><i class="ion-ios-cart ml-1"></i></span></a>
                                             </p>
                                         </div>
                                     </div>
