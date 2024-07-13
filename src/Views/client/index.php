@@ -258,6 +258,8 @@
         </div>
     </footer>
 
+    <?php include_once "./src/Views/client/components/footer.php"?
+
 
 
     <!-- loader -->
