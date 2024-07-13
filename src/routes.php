@@ -29,7 +29,7 @@ $router->addRoute('/dang_ky', LoginController::class, 'dangky');
 // SanPham
 
 $router->addRoute('/cua-hang', CuaHangController::class, 'index');
-$router->addRoute('/detail-san-pham', CuaHangController::class, 'detail');
+$router->addRoute('/chi-tiet-san-pham', CuaHangController::class, 'detail');
 
 
 
