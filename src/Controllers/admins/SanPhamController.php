@@ -11,5 +11,6 @@ class SanPhamController extends Controller {
         $data['sanphams'] = (new SanPham)->all();
         return $this->renderAdmin('sanpham/index',$data);
     }
+
 }
 ?>

@@ -10,7 +10,7 @@
         <div class="collapse navbar-collapse" id="ftco-nav">
             <ul class="navbar-nav ml-auto" style="align-items: center;">
                 <li class="nav-item active"><a href="/" class="nav-link">Trang chủ</a></li>
-                <li class="nav-item"><a href="/" class="nav-link">Cửa hàng</a></li>
+                <li class="nav-item"><a href="/cua-hang" class="nav-link">Cửa hàng</a></li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="/" id="dropdown04" data-toggle="dropdown"
                         aria-haspopup="true" aria-expanded="false">Danh mục</a>

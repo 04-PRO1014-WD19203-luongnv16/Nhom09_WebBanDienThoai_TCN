@@ -333,6 +333,8 @@
     <!-- Footer -->
     <?php include_once "./src/Views/client/components/footer.php"; ?>
 
+    <?php include_once "./src/Views/client/components/footer.php"?
+
 
 
     <!-- loader -->
