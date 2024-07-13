@@ -18,12 +18,18 @@ $router->addRoute('/', TrangChuController::class, 'index');
 //Định dang đường dẫn Route: $router->addRoute('[đường dẫn]',[Class],'[tên function]')
 $router->addRoute('/login', LoginController::class, 'index');
 $router->addRoute('/logout', LoginController::class, 'logout');
-$router->addRoute('/dang_ky', LoginController::class, 'dangky');
 
 //Route thuộc người dùng
 // $router->addRoute('/list-san_pham', SanPhamController::class, 'index');
 $route->post('/dang_ky', [LoginController::class, 'dangky']);
+
+//dang ky
+$router->addRoute('/dang_ky', LoginController::class, 'dangky');
+$route->post('/dang_ky',[LoginController::class, 'dangky']);    
+// SanPham
+
 $router->addRoute('/cua-hang', CuaHangController::class, 'index');
+$router->addRoute('/detail-san-pham', CuaHangController::class, 'detail');
 
 
 
@@ -51,6 +57,7 @@ $router->addRoute('/add-san-pham', SanPhamController::class, 'addSanPham');
 $router->addRoute('/sua-san-pham', SanPhamController::class, 'suaSanPham');
 $router->addRoute('/delete-san-pham', SanPhamController::class, 'deleteSanPham');
 $router->addRoute('/detail-san-pham', SanPhamController::class, 'detailSanPham');
+
 
 
 

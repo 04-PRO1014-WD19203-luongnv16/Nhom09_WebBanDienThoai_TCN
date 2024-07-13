@@ -99,4 +99,5 @@ class SanPhamController extends Controller
         }
         return $this->renderAdmin('sanpham/add', ['title' => $title, 'check' => $check, 'checkForm' => $checkForm, 'danhmucs' => $danhmucs]);
     }
+
 }
