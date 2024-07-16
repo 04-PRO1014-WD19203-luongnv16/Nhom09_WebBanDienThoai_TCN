@@ -18,7 +18,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-lg-6 mb-5 ftco-animate">
-                        <a href="images/menu-2.jpg" class="image-popup"><img src="/public/images/sanphams/<?=$sanpham['anh_chinh']?>.jpg" class="img-fluid" alt=""></a>
+                        <a href="images/menu-2.jpg" class="image-popup"><img src="<?=$sanpham['anh_chinh']?>" class="img-fluid" alt=""></a>
                     </div>
                     <div class="col-lg-6 product-details pl-md-5 ftco-animate">
                         <h3><?= $sanpham['ten_san_pham']?></h3>
@@ -40,6 +40,7 @@
                                     <?php endif?>
                                 <?php endforeach?>
                             </p>
+                            <p class="text-left mr-4">Số lượng: <?=$sanpham['so_luong_tong']?></p>
                         </div>
                         <p class="price">
                             <span style="font-size: 20px;"><?=$sanpham['gia_thap_nhat']?></span>

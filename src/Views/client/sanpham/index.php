@@ -42,13 +42,7 @@
                             <?php foreach ($sanphams as $sanpham) : ?>
                                 <div class="col-sm-3 col-md-3 col-lg-3 ftco-animate">
                                     <div class="product">
-
-                                        <a href="/detail-san-pham?id=<?=$sanpham['id']?>" class="img-prod"><img style="min-height: 250px;object-fit: cover;" class="img-fluid" 
-                                        src="/public/images/sanphams/<?= $sanpham['anh_chinh'] ?>.jpg" alt="<?= $sanpham['ten_san_pham'] ?>">
-                                          
-                                        <a href="/chi-tiet-san-pham?id=<?=$sanpham['id']?>" class="img-prod"><img style="min-height: 250px;object-fit: cover;" class="img-fluid" src="/public/images/sanphams/<?= $sanpham['anh_chinh'] ?>.jpg" alt="<?= $sanpham['ten_san_pham'] ?>">
-
-                                        </a>
+                                        <a href="/chi-tiet-san-pham?id=<?=$sanpham['id']?>" class="img-prod"><img style="min-height: 250px;object-fit: cover;" class="img-fluid" src="<?= $sanpham['anh_chinh'] ?>" alt="<?= $sanpham['ten_san_pham'] ?>"></a>
                                         <div class="text py-3 px-3" style="height: 150px;">
                                             <h3 style="height: 50px;"><a href="/chi-tiet-san-pham?id=<?=$sanpham['id']?>"><?= $sanpham['ten_san_pham'] ?></a></h3>
                                             <div class="">
