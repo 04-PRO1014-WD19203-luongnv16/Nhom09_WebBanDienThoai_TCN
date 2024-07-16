@@ -89,24 +89,20 @@
 
         <div class="container">
 
-
-
             <div class="row">
                 <?php
                     foreach ($trangchu as $h) {
                        
                         echo '<div class="col-sm col-md-6 col-lg ftco-animate">
                     <div class="product">
-                        <a href="#" class="img-prod"><img class="img-fluid" src="'.$h['anh_chinh'].'" width="796px" height="800px" alt="Colorlib Template">
-                           
+                        <a href="/detail-san-pham?id='.$h['id'].'" class="img-prod"><img class="img-fluid" src="/public/images/sanphams/'.$h['anh_chinh'].'.jpg" width="796px" height="800px" alt="Colorlib Template">                 
                             <div class="overlay"></div>
                         </a>
                         <div class="text py-3 px-3">
                             <h3><a href="#">'.$h['ten_san_pham'].'</a></h3>
                             <div class="d-flex">
                                 <div class="pricing">
-                                    <p class="price"><span class="mr-2 price-dc"></span><span
-                                            class="price-sale"></span></p>
+                                    <p class="price"><span class="mr-2 price-dc"></span><span></p>
                                 </div>
                                 <div class="rating">
                                     <p class="text-right">
@@ -126,11 +122,8 @@
                             </p>
                         </div>
                     </div>
-                </div>
-                        
-                        ';
-                    }
-                
+                </div>';
+                    }              
                 ?>
 
                 <!-- <div class="col-sm col-md-6 col-lg ftco-animate">
@@ -333,7 +326,7 @@
     <!-- Footer -->
     <?php include_once "./src/Views/client/components/footer.php"; ?>
 
-    <?php include_once "./src/Views/client/components/footer.php"?
+    <?php include_once "./src/Views/client/components/footer.php"; ?>
 
 
 
