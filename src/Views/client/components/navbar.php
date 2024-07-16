@@ -15,7 +15,7 @@
                     <a class="nav-link dropdown-toggle" href="/" id="dropdown04" data-toggle="dropdown"
                         aria-haspopup="true" aria-expanded="false">Danh mục</a>
                     <div class="dropdown-menu" aria-labelledby="/">
-                        <a class="dropdown-item" href="/">Cửa hàng</a>
+                        <a class="dropdown-item" href="/cua-hang">Cửa hàng</a>
                         <a class="dropdown-item" href="/">Single Product</a>
                         <a class="dropdown-item" href="/">Cart</a>
                         <a class="dropdown-item" href="/">Checkout</a>

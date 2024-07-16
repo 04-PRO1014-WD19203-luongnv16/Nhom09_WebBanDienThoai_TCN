@@ -89,24 +89,20 @@
 
         <div class="container">
 
-
-
             <div class="row">
                 <?php
                     foreach ($trangchu as $h) {
                        
                         echo '<div class="col-sm col-md-6 col-lg ftco-animate">
                     <div class="product">
-                        <a href="#" class="img-prod"><img class="img-fluid" src="'.$h['anh_chinh'].'" width="796px" height="800px" alt="Colorlib Template">
-                           
+                        <a href="/detail-san-pham?id='.$h['id'].'" class="img-prod"><img class="img-fluid" src="/public/images/sanphams/'.$h['anh_chinh'].'.jpg" width="796px" height="800px" alt="Colorlib Template">                 
                             <div class="overlay"></div>
                         </a>
                         <div class="text py-3 px-3">
                             <h3><a href="#">'.$h['ten_san_pham'].'</a></h3>
                             <div class="d-flex">
                                 <div class="pricing">
-                                    <p class="price"><span class="mr-2 price-dc"></span><span
-                                            class="price-sale"></span></p>
+                                    <p class="price"><span class="mr-2 price-dc"></span><span></p>
                                 </div>
                                 <div class="rating">
                                     <p class="text-right">
@@ -126,11 +122,8 @@
                             </p>
                         </div>
                     </div>
-                </div>
-                        
-                        ';
-                    }
-                
+                </div>';
+                    }              
                 ?>
 
                 <!-- <div class="col-sm col-md-6 col-lg ftco-animate">
@@ -166,18 +159,178 @@
                     </div>
                 </div> -->
             </div>
-
-
-
         </div>
+    </section>
 
-
-
+    <section class="ftco-section ftco-counter img" id="section-counter" style="background-image: url(public/images/selfie-la-gi.jpg);">
+    	<div class="container">
+    		<div class="row justify-content-center py-5">
+    			<div class="col-md-10">
+		    		<div class="row">
+		          <div class="col-md-3 d-flex justify-content-center counter-wrap ftco-animate">
+		            <div class="block-18 text-center">
+		              <div class="text">
+		                <strong class="number" data-number="10000">0</strong>
+		                <span>Khách hàng hài lòng</span>
+		              </div>
+		            </div>
+		          </div>
+		          <div class="col-md-3 d-flex justify-content-center counter-wrap ftco-animate">
+		            <div class="block-18 text-center">
+		              <div class="text">
+		                <strong class="number" data-number="100">0</strong>
+		                <span>Chi nhánh</span>
+		              </div>
+		            </div>
+		          </div>
+		          <div class="col-md-3 d-flex justify-content-center counter-wrap ftco-animate">
+		            <div class="block-18 text-center">
+		              <div class="text">
+		                <strong class="number" data-number="1000">0</strong>
+		                <span>Cộng sự</span>
+		              </div>
+		            </div>
+		          </div>
+		          <div class="col-md-3 d-flex justify-content-center counter-wrap ftco-animate">
+		            <div class="block-18 text-center">
+		              <div class="text">
+		                <strong class="number" data-number="100">0</strong>
+		                <span>Giải thưởng</span>
+		              </div>
+		            </div>
+		          </div>
+		        </div>
+	        </div>
+        </div>
+    	</div>
     </section>
 
 
+
+
+<section class="ftco-section testimony-section">
+  <div class="container">
+    <div class="row justify-content-center mb-5 pb-3">
+      <div class="col-md-7 heading-section ftco-animate">
+        <h2 class="mb-4">Khách hàng hài lòng của chúng tôi nói</h2>
+        <p>Điện thoại này có chất lượng tuyệt vời với màn hình sắc nét và hiệu suất mạnh mẽ. Tôi rất hài lòng với lựa chọn của mình.</p>
+      </div>
+    </div>
+    <div class="row ftco-animate">
+      <div class="col-md-12">
+        <div class="carousel-testimony owl-carousel">
+          <div class="item">
+            <div class="testimony-wrap p-4 pb-5">
+              <div class="user-img mb-5" style="background-image: url(public/images/congnt.png)">
+                <span class="quote d-flex align-items-center justify-content-center">
+                  <i class="icon-quote-left"></i>
+                </span>
+              </div>
+              <div class="text">
+                <p class="mb-5 pl-4 line">Điện thoại này có chất lượng tuyệt vời với màn hình sắc nét và hiệu suất mạnh mẽ. Tôi rất hài lòng với lựa chọn của mình.</p>
+                <p class="name">Nguyễn Thành Công</p>
+                <span class="position">Giám đốc Tiếp thị</span>
+              </div>
+            </div>
+          </div>
+          <div class="item">
+            <div class="testimony-wrap p-4 pb-5">
+              <div class="user-img mb-5" style="background-image: url(public/images/tuyendh.png)">
+                <span class="quote d-flex align-items-center justify-content-center">
+                  <i class="icon-quote-left"></i>
+                </span>
+              </div>
+              <div class="text">
+                <p class="mb-5 pl-4 line">Thiết kế của điện thoại rất đẹp và sang trọng. Giao diện người dùng dễ sử dụng và mượt mà. Đây là một sản phẩm đáng giá.</p>
+                <p class="name">Hoàng Đức Tuyến</p>
+                <span class="position">Nhà thiết kế giao diện</span>
+              </div>
+            </div>
+          </div>
+          <div class="item">
+            <div class="testimony-wrap p-4 pb-5">
+              <div class="user-img mb-5" style="background-image: url(public/images/congnt.png)">
+                <span class="quote d-flex align-items-center justify-content-center">
+                  <i class="icon-quote-left"></i>
+                </span>
+              </div>
+              <div class="text">
+                <p class="mb-5 pl-4 line">Giá cả hợp lý, tính năng đầy đủ và chất lượng tốt. Tôi rất hài lòng với sự lựa chọn này và sẽ giới thiệu cho bạn bè và người thân.</p>
+                <p class="name">Nguyễn Thành Công</p>
+                <span class="position">Nhà thiết kế giao diện người dùng</span>
+              </div>
+            </div>
+          </div>
+          <div class="item">
+            <div class="testimony-wrap p-4 pb-5">
+              <div class="user-img mb-5" style="background-image: url(public/images/tuyendh.png)">
+                <span class="quote d-flex align-items-center justify-content-center">
+                  <i class="icon-quote-left"></i>
+                </span>
+              </div>
+              <div class="text">
+                <p class="mb-5 pl-4 line">Hiệu năng của điện thoại này thật sự ấn tượng, xử lý mọi tác vụ nhanh chóng và không gặp bất kỳ trở ngại nào. Pin cũng rất bền.</p>
+                <p class="name">Hoàng Đức Tuyến</p>
+                <span class="position">Nhà phát triển web</span>
+              </div>
+            </div>
+          </div>
+          <div class="item">
+            <div class="testimony-wrap p-4 pb-5">
+              <div class="user-img mb-5" style="background-image: url(public/images/congnt.png)">
+                <span class="quote d-flex align-items-center justify-content-center">
+                  <i class="icon-quote-left"></i>
+                </span>
+              </div>
+              <div class="text">
+                <p class="mb-5 pl-4 line">Camera chụp ảnh rất đẹp, sắc nét và chân thực. Tôi rất thích khả năng chụp đêm của nó. Đây chắc chắn là một sản phẩm chất lượng cao.</p>
+                <p class="name">Nguyễn Thành Công</p>
+                <span class="position">Nhà phân tích hệ thống</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+
+
+<section class="ftco-section-parallax">
+      <div class="parallax-img d-flex align-items-center">
+        <div class="container">
+          <div class="row d-flex justify-content-center py-5">
+            <div class="col-md-7 text-center heading-section ftco-animate">
+              <h2>Theo dõi chúng tôi</h2>
+              <div class="row d-flex justify-content-center mt-5">
+                <div class="col-md-8">
+                  <form action="#" class="subscribe-form">
+                    <div class="form-group d-flex">
+                      <input type="text" class="form-control" placeholder="Nhập email của bạn!">
+                      <input type="submit" value="Gửi" class="submit px-3">
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+
+
+    <!-- Footer -->
+    <?php include_once "./src/Views/client/components/footer.php"; ?>
+
+    <?php include_once "./src/Views/client/components/footer.php"; ?>
     <!-- Footer -->
     <?php include_once "./src/Views/client/components/footer.php"?>
+
 
 
 
