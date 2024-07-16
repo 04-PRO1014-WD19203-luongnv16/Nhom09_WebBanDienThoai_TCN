@@ -20,11 +20,13 @@ $router->addRoute('/login', LoginController::class, 'index');
 $router->addRoute('/logout', LoginController::class, 'logout');
 
 //Route thuộc người dùng
+
 $router->addRoute('/list-san_pham', SanPhamController::class, 'index');
 // $route->post('/dang_ky', [LoginController::class, 'dangky']);
 
 //dang ky
 $router->addRoute('/dang_ky', LoginController::class, 'dangky');
+
 // $route->post('/dang_ky',[LoginController::class, 'dangky']);    
 // SanPham
 
