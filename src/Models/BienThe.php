@@ -15,4 +15,11 @@ class BienThe extends Model
         $this->setQuery($sql);
         return $this->GetAll();
     }
+    public function add($idSps, $id_dung_luongs, $id_mau_sacs, $so_luong, $gia_goc, $gia_ban)
+    {
+        $sql = "INSERT INTO $this->table(id_san_phams,id_dung_luongs,id_mau_sacs,so_luong,gia_goc,gia_ban) 
+        VALUES('$idSps','$id_dung_luongs','$id_mau_sacs','$so_luong','$gia_goc','$gia_ban')";
+        $this->setQuery($sql);
+        return $this->Execute();
+    }
 }
