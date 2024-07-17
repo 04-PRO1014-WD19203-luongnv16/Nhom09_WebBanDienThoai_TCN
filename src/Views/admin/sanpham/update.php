@@ -63,12 +63,7 @@
                                 echo '<option value=" ' . $danhmuc['id'] . '">' . $danhmuc['ten_danh_muc'] . ' </option>';
                         }
                         ?>
-                        <!-- <?php foreach ($danhmucs as $key => $danhmuc) : ?>
-                            <?php if ($sanpham['id_danh_mucs'] == $danhmuc['id']) ?>
-                            <option selected value="<?= $danhmuc['id'] ?>"><?= $danhmuc['ten_danh_muc'] ?></option>
 
-
-                        <?php endforeach ?> -->
                     </select>
 
                 </div>

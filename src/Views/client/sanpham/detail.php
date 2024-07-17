@@ -19,7 +19,7 @@
                 <div class="row">
                     <div class="col-lg-6 mb-5 ftco-animate">
 
-                        <a href="images/menu-2.jpg" class="image-popup"><img src="<?= $sanpham['anh_chinh'] ?>" class="img-fluid" alt=""></a>
+                        <a href="images/menu-2.jpg" class="image-popup"><img src="<?= $sanpham['anh_chinh'] ?>" class="" alt="ảnh chính"></a>
                     </div>
                     <div class="col-lg-6 product-details pl-md-5 ftco-animate">
                         <h3><?= $sanpham['ten_san_pham'] ?></h3>
