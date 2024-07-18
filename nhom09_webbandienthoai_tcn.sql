@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Jul 11, 2024 at 08:19 AM
+-- Generation Time: Jul 13, 2024 at 08:15 AM
 -- Server version: 8.0.30
 -- PHP Version: 8.1.10
 
@@ -43,7 +43,13 @@ CREATE TABLE `bien_thes` (
 
 INSERT INTO `bien_thes` (`id`, `id_san_phams`, `id_mau_sacs`, `id_dung_luongs`, `so_luong`, `gia_goc`, `gia_ban`) VALUES
 (1, 1, 5, 3, 20, 25000000, 24000000),
-(2, 1, 6, 4, 20, 37000000, 34000000);
+(2, 1, 6, 4, 20, 37000000, 34000000),
+(3, 1, 5, 4, 20, 37000000, 34000000),
+(4, 1, 6, 3, 20, 25000000, 24000000),
+(5, 2, 3, 3, 20, 30000000, 28000000),
+(6, 2, 3, 4, 20, 37000000, 31000000),
+(7, 3, 6, 4, 20, 35000000, 30000000),
+(8, 4, 6, 3, 20, 9000000, 8900000);
 
 -- --------------------------------------------------------
 
@@ -123,14 +129,14 @@ CREATE TABLE `don_hangs` (
 
 CREATE TABLE `dung_luongs` (
   `id` int NOT NULL,
-  `ten_danh_muc` varchar(255) NOT NULL
+  `ten_dung_luong` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Dumping data for table `dung_luongs`
 --
 
-INSERT INTO `dung_luongs` (`id`, `ten_danh_muc`) VALUES
+INSERT INTO `dung_luongs` (`id`, `ten_dung_luong`) VALUES
 (1, '64 GB'),
 (2, '128 GB'),
 (3, '256 GB'),
@@ -213,7 +219,10 @@ CREATE TABLE `san_phams` (
 --
 
 INSERT INTO `san_phams` (`id`, `ten_san_pham`, `anh_chinh`, `anh_phu_1`, `anh_phu_2`, `anh_phu_3`, `mo_ta_ngan`, `mo_ta`, `ngay_tao`, `id_danh_mucs`) VALUES
-(1, 'Samsung Galaxy S23 Ultra', 'null', 'null', 'null', 'null', 'Hệ điều hành: Android.\r\nChip: Snapdragon 8 Gen 2 for Galaxy.\r\nRam: 8 GB\r\nDung lượng: 256 GB ||512 GB\r\nPin: 5000 mAh\r\nHãng: Samsung\r\n', 'Samsung Galaxy S23 Ultra 5G 256GB là chiếc smartphone cao cấp nhất của nhà Samsung, sở hữu cấu hình không tưởng với con chip khủng được Qualcomm tối ưu riêng cho dòng Galaxy và camera lên đến 200 MP, xứng danh là chiếc flagship Android được mong đợi nhất trong năm 2023.', '2024-07-10', 2);
+(1, 'Samsung Galaxy S23 Ultra', 'samsung-galaxy-s23-ultra', 'null', 'null', 'null', 'Hệ điều hành: Android.\r\nChip: Snapdragon 8 Gen 2 for Galaxy.\r\nRam: 8 GB\r\nDung lượng: 256 GB ||512 GB\r\nPin: 5000 mAh\r\nHãng: Samsung\r\n', 'Samsung Galaxy S23 Ultra 5G 256GB là chiếc smartphone cao cấp nhất của nhà Samsung, sở hữu cấu hình không tưởng với con chip khủng được Qualcomm tối ưu riêng cho dòng Galaxy và camera lên đến 200 MP, xứng danh là chiếc flagship Android được mong đợi nhất trong năm 2023.', '2024-07-10', 2),
+(2, 'Samsung Galaxy S24 Ultra', 'samsung-galaxy-s24-ultra', 'null', 'null', 'null', 'Hệ điều hành: Android\r\nRAM: 8GB\r\nDung lượng: 256 GB || 512 GB || 1GB\r\nPin: 5000 mAh\r\nHãng: Samsung', 'Samsung Galaxy S24 Ultra 5G 512GB khi ra mắt đã tạo nên cơn sốt thị trường, đặc điểm nổi bật là chip Snapdragon 8 Gen 3 for Galaxy và camera 200 MP tích hợp AI. Mẫu điện thoại này hứa hẹn làm nổi bật trong năm 2024 với sức mạnh và nhiều tính năng đỉnh cao.', '2024-07-11', 2),
+(3, 'iPhone 15 Pro Max', 'iphone-15-pro-max', 'null', 'null', 'null', 'Hệ điều hành: IOS\r\nRAM: 8 GB\r\nDung lượng: 256 GB || 512 GB || 1 TB\r\nPin: 4422 mAh\r\nHãng: Iphone', 'iPhone 15 Pro Max mẫu điện thoại mới nhất của Apple cuối cùng cũng đã chính thức được ra mắt vào tháng 09/2023. Mẫu điện thoại này sở hữu một con chip với hiệu năng mạnh mẽ Apple A17 Pro, màn hình đẹp mắt và cụm camera vô cùng chất lượng.', '2024-07-11', 1),
+(4, 'OPPO Reno11 F', 'oppo-reno-11f-tim-1', 'null', 'null', 'null', 'Hệ điều hành: Android\r\nRAM: 8 GB\r\nDung lượng: 256 GB || 512 GB\r\nPin: 5000 mAh\r\nHãng: OPPO', 'OPPO Reno11 F 5G là một chiếc điện thoại tầm trung mới được OPPO ra mắt trong thời gian gần đây. Máy sở hữu nhiều ưu điểm nổi bật như thiết kế trẻ trung, màn hình đẹp, hiệu năng mạnh mẽ nhờ chip Dimensity 7050 5G, hứa hẹn mang đến trải nghiệm tốt khi sử dụng.', '2024-07-11', 5);
 
 -- --------------------------------------------------------
 
@@ -415,7 +424,7 @@ ALTER TABLE `trang_thai_tai_khoans`
 -- AUTO_INCREMENT for table `bien_thes`
 --
 ALTER TABLE `bien_thes`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `chi_tiet_don_hangs`
@@ -469,7 +478,7 @@ ALTER TABLE `ma_giam_gias`
 -- AUTO_INCREMENT for table `san_phams`
 --
 ALTER TABLE `san_phams`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `tai_khoans`
