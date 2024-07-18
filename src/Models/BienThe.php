@@ -15,7 +15,6 @@ class BienThe extends Model
         $this->setQuery($sql);
         return $this->GetAll();
     }
-
     // SELECT by id
     public function one($id) {
         $sql = "SELECT bien_thes.id,bien_thes.id_san_phams,bien_thes.id_mau_sacs,mau_sacs.ten_mau_sac,bien_thes.id_dung_luongs,dung_luongs.ten_dung_luong,bien_thes.so_luong,bien_thes.gia_goc,bien_thes.gia_ban FROM $this->table
@@ -39,5 +38,12 @@ class BienThe extends Model
         $sql = "SELECT * FROM $this->table WHERE id_san_phams = '$id_san_phams' AND id_mau_sacs = '$id_mau_sacs' AND id_dung_luongs = '$id_dung_luongs'";
         $this->setQuery($sql);
         return $this->GetOne();
+    }
+    public function add($idSps, $id_dung_luongs, $id_mau_sacs, $so_luong, $gia_goc, $gia_ban)
+    {
+        $sql = "INSERT INTO $this->table(id_san_phams,id_dung_luongs,id_mau_sacs,so_luong,gia_goc,gia_ban) 
+        VALUES('$idSps','$id_dung_luongs','$id_mau_sacs','$so_luong','$gia_goc','$gia_ban')";
+        $this->setQuery($sql);
+        return $this->Execute();
     }
 }

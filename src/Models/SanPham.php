@@ -42,7 +42,8 @@ class SanPham extends Model
     public function sanPham()
     {
 
-        $sql = "SELECT san_phams.*, MIN(bien_thes.gia_ban) AS gia_thap_nhat, MAX(bien_thes.gia_ban) AS gia_cao_nhat, SUM(bien_thes.so_luong) AS so_luong_ton FROM san_phams JOIN bien_thes ON san_phams.id = bien_thes.id_san_phams GROUP BY san_phams.id";
+        $sql = "SELECT san_phams.*, MIN(bien_thes.gia_ban) AS gia_thap_nhat, MAX(bien_thes.gia_ban) AS gia_cao_nhat, SUM(bien_thes.so_luong) AS so_luong_ton FROM san_phams
+        JOIN bien_thes ON san_phams.id = bien_thes.id_san_phams GROUP BY san_phams.id";
         $this->setQuery($sql);
         return $this->GetAll();
     }
@@ -62,5 +63,12 @@ class SanPham extends Model
         $sql = "SELECT bien_thes.id_san_phams, bien_thes.id_dung_luongs, dung_luongs.ten_dung_luong FROM bien_thes JOIN dung_luongs ON bien_thes.id_dung_luongs = dung_luongs.id WHERE id_san_phams = $id GROUP BY bien_thes.id_san_phams, bien_thes.id_dung_luongs";
         $this->setQuery($sql);
         return $this->GetAll();
+    }
+    // tìm id sản phẩm mới nhất
+    public function idSanPham()
+    {
+        $sql = "SELECT MAX(id) AS id_san_pham FROM san_phams";
+        $this->setQuery($sql);
+        return $this->GetOne();
     }
 }
