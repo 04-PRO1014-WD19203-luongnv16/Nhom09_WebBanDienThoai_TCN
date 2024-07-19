@@ -86,7 +86,7 @@
                         </p>
                         <p class="d-flex">
                             <span>Vận chuyển</span>
-                            <span><input class="border-0 border-bottom border-primary" type="text" name="" value="Miễn phí" style="outline: none;"></span>
+                            <span><input class="border-0 border-bottom border-primary" type="text" name="" readonly value="Miễn phí" style="outline: none;"></span>
                         </p>
                         <p class="d-flex">
                             <span>Mã giảm giá</span>

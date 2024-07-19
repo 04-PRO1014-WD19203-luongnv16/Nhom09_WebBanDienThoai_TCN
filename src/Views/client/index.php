@@ -90,7 +90,7 @@
           echo '<div class="col-sm col-md-6 col-lg ftco-animate">
                     <div class="product">
 
-                        <a href="/detail-san-pham?id=' . $h['id'] . '" class="img-prod"><img class="img-fluid" src="/public/images/sanphams/' . $h['anh_chinh'] . '.jpg" width="796px" height="800px" alt="Colorlib Template">                 
+                        <a href="/detail-san-pham?id=' . $h['id'] . '" class="img-prod"><img class="img-fluid" src="' . $h['anh_chinh'] . '" width="796px" height="800px" alt="Colorlib Template">                 
                             <div class="overlay"></div>
                         </a>
                         <div class="text py-3 px-3">
@@ -157,7 +157,7 @@
       </div>
     </div>
   </section>
-
+<!-- 
   <section class="ftco-section ftco-counter img" id="section-counter" style="background-image: url(public/images/selfie-la-gi.jpg);">
     <div class="container">
       <div class="row justify-content-center py-5">
@@ -199,13 +199,13 @@
         </div>
       </div>
     </div>
-  </section>
+  </section> -->
 
 
 
 
 
-  <section class="ftco-section testimony-section">
+  <!-- <section class="ftco-section testimony-section">
     <div class="container">
       <div class="row justify-content-center mb-5 pb-3">
         <div class="col-md-7 heading-section ftco-animate">
@@ -290,7 +290,7 @@
         </div>
       </div>
     </div>
-  </section>
+  </section> -->
 
 
 

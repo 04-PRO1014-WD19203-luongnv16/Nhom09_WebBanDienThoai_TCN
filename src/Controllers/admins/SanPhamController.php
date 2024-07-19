@@ -169,6 +169,6 @@ class SanPhamController extends Controller
                 }
             }
         }
-        return $this->renderAdmin('sanpham/add', ['title' => $title, 'check' => $check, 'checkForm' => $checkForm, 'danhmucs' => $danhmucs, 'dungluongs' => $dungluongs, 'mausacs' => $mausacs, 'idSps' => $idSps]);
+        return $this->renderAdmin('sanpham/add', ['title' => $title, 'check' => $check, 'checkForm' => $checkForm, 'danhmucs' => $danhmucs, 'dungluongs' => $dungluongs, 'mausacs' => $mausacs]);
     }
 }
