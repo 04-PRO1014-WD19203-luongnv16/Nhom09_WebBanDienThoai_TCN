@@ -6,7 +6,7 @@ class GioHang extends Model {
     protected $table = "gio_hangs";
 
     public function selectAll() {
-        $sql="SELECT * FROM $this->table WHERE id_tai_khoans = $_SESSION[id]";
+        $sql="SELECT * FROM $this->table WHERE id_tai_khoans = $_SESSION[id] ORDER BY id DESC";
         $this->setQuery($sql);
         return $this->GetAll();
     }

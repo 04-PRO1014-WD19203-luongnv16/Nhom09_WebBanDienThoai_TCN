@@ -25,9 +25,7 @@ class GioHangController extends Controller {
     }
     public function delete() {
         if (isset($_SESSION['id'])) {
-            echo "hihi";
             if (isset($_POST['submit'])) {
-                echo "hihi";
                 $giohangs = $this->giohang->selectAll();
                 foreach ($giohangs as $giohang) {
                     if ($giohang['id'] == $_POST['id']) {
