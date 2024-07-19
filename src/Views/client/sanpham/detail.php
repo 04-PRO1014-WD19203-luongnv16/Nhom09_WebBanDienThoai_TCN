@@ -46,16 +46,10 @@
                                 <p class="text-left mt-2 mx-1">Số lượng: <?= $sanpham['so_luong_tong'] ?></p>
                             </div>
                             <p class="price">
-                                <?php if ($sanpham['gia_thap_nhat'] != $sanpham['gia_cao_nhat']): ?>
-                                    <span id="gia_thap" style="font-size: 20px;"><?= $sanpham['gia_thap_nhat'] ?></span>
+                                    <span id="gia_goc" style="font-size: 20px;"><?= $sanpham['gia_thap_nhat'] ?></span>
                                     <span style="font-size: 20px;"> - </span>
-                                    <span id="gia_cao" style="font-size: 20px;"><?= $sanpham['gia_cao_nhat'] ?>
-                                        <span style="font-size: 10px;">₫</span></span>
-                                <?php endif ?>
-                                <?php if ($sanpham['gia_thap_nhat'] == $sanpham['gia_cao_nhat']): ?>
-                                    <span style="font-size: 20px;"><?= $sanpham['gia_cao_nhat'] ?>
-                                        <span style="font-size: 10px;">₫</span></span>
-                                <?php endif ?>
+                                    <span id="gia_ban" style="font-size: 20px;"><?= $sanpham['gia_cao_nhat'] ?>
+                                    </span><span style="font-size: 10px;">₫</span>
                             </p>
                             <p><?= $sanpham['mo_ta_ngan'] ?></p>
                             <p><?= $sanpham['mo_ta'] ?></p>
@@ -64,7 +58,7 @@
                                     <div class="form-group d-flex" style="gap: 10px;">
                                         <div class="select-wrap">
                                             <div class="icon"><span class="ion-ios-arrow-down"></span></div>
-                                            <select name="mau_sac" id="mau_sac" class="form-control">
+                                            <select onchange="loadPrice()" name="mau_sac" id="mau_sac" class="form-control">
                                                 <option selected value="">Màu Sắc</option>
                                                 <?php foreach ($mausacs as $mausac): ?>
                                                     <option value="<?= $mausac['id_mau_sacs'] ?>">
@@ -75,7 +69,7 @@
                                         </div>
                                         <div class="select-wrap">
                                             <div class="icon"><span class="ion-ios-arrow-down"></span></div>
-                                            <select name="dung_luong" id="dung_luong" class="form-control">
+                                            <select onchange="loadPrice()" name="dung_luong" id="dung_luong" class="form-control">
                                                 <option selected value="">Dung lượng</option>
                                                 <?php foreach ($dungluongs as $dungluong): ?>
                                                     <option value="<?= $dungluong['id_dung_luongs'] ?>">
@@ -153,52 +147,31 @@
 
     <?php
     $jsonString = json_encode($bienthes);
-
-    echo "<script>";
-    echo "const javascriptArray = JSON.parse('" . $jsonString . "');";
-    echo "</script>";
     ?>
     <script>
 
-        const gia_thap = document.getElementById('gia_thap');
-        const gia_cao = document.getElementById('gia_cao');
-
-        productColorSelect.addEventListener('change', updateProductPrice);
-        productSizeSelect.addEventListener('change', updateProductPrice);
-
-        function updateProductPrice() {
-            const selectedColor = productColorSelect.value;
-            const selectedSize = productSizeSelect.value;
-            const selectedPrice = getVariantPrice(selectedColor, selectedSize);
-
-            if (selectedPrice) {
-                gia_thap.textContent = selectedPrice.min;
-                gia_cao.textContent = selectedPrice.max;
-            } else {
-                gia_thap.textContent = 'Giá không khả dụng';
-                gia_cao.textContent = 'Giá không khả dụng';
-            }
+    var jsonString = '<?php echo $jsonString; ?>';
+    var myObject = JSON.parse(jsonString);
+    function loadPrice() {
+        const selectMau_sac = document.getElementById('mau_sac');
+        const optionMau_sac = selectMau_sac.options[selectMau_sac.selectedIndex];
+        const valueMau_sac = optionMau_sac.value;
+        const selectDung_luong = document.getElementById('dung_luong');
+        const optionDung_luong = selectDung_luong.options[selectDung_luong.selectedIndex];
+        const valueDung_luong = optionDung_luong.value;
+        myObject.forEach(element => {
+        if (element.id_mau_sacs == valueMau_sac && element.id_dung_luongs == valueDung_luong) {
+                document.getElementById('gia_ban').innerHTML = element.gia_ban;
+                document.getElementById('gia_goc').innerHTML = element.gia_goc;
+                document.getElementById('gia_goc').style.textDecoration = "line-through";
+                document.getElementById('gia_goc').style.color = "gray";
         }
-        function getVariantPrice(selectedColor, selectedSize) {
-            const DATA = {};
-            javascriptArray.forEach(element => {
-                let id_mau_sacs = element.id_mau_sacs;
-                let id_dung_luongs = element.id_dung_luongs;
-                DATA = {
-                    ...{
-                        [id_mau_sacs]: {
-                            [id_dung_luongs]: {
-                                min: element.gia_goc,
-                                max: element.gia_ban
-                            }
-                        }
-                    }
-                };
-                console.log(DATA);
-            });
-            return DATA[selectedColor][selectedSize];
-        }
+    });
+    }
+    
     </script>
+
+    
 </body>
 
 </html>
