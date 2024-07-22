@@ -28,18 +28,9 @@ $route->post('/dang_ky',[LoginController::class, 'dangky']);
 // SanPham
 $router->addRoute('/cua-hang', CuaHangController::class, 'index');
 $router->addRoute('/detail-san-pham', CuaHangController::class, 'detail');
+//
 
-
-
-
-
-
-
-
-
-
-
-
+$route->post('/sanphamdanhmuc',[CuaHangController::class, 'index']);
 
 //Route thuộc Quản trị viên
 $router->addRoute('/admin', DashboardController::class, 'index');
@@ -50,18 +41,6 @@ $router->addRoute('/add-danh-muc', DanhMucController::class, 'addDanhMuc');
 $router->addRoute('/sua-danh-muc', DanhMucController::class, 'suaDanhMuc');
 $router->addRoute('/delete-danh-muc', DanhMucController::class, 'deleteDanhMuc');
 // Quản lý sản phẩm
-$router->addRoute('/admin-san-pham', SanPhamController::class, 'index');
-
-
-
-
-
-
-
-
-
-
-
 
 
 

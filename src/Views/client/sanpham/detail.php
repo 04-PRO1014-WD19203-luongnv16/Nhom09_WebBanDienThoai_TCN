@@ -18,7 +18,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-lg-6 mb-5 ftco-animate">
-                        <a href="images/menu-2.jpg" class="image-popup"><img src="/public/images/sanphams/<?=$sanpham['anh_chinh']?>.jpg" class="img-fluid" alt=""></a>
+                        <a href="images/menu-2.jpg" class="image-popup"><img src="<?= $sanpham['anh_chinh'] ?>" width="550px" height="700px" class="img-fluid" alt=""></a>
                     </div>
                     <div class="col-lg-6 product-details pl-md-5 ftco-animate">
                         <h3><?= $sanpham['ten_san_pham']?></h3>

@@ -20,7 +20,6 @@
                         <a class="dropdown-item" href="/">Cart</a>
                         <a class="dropdown-item" href="/">Checkout</a>
                     </div>
-                </li>
                 <li class="nav-item"><a href="/" class="nav-link">Liên hệ</a></li>
                 <?php if (isset($_SESSION['tai_khoan'])) :?>
                     <li class="nav-item"><a href="/" class="nav-link">Tài khoản</a></li>

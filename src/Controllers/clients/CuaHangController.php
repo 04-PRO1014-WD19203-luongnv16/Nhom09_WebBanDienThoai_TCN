@@ -8,15 +8,35 @@ use MVC\Models\SanPham;
 
 class CuaHangController extends Controller {
     protected $sanphams;
+    protected $danhmucs;
     public function __construct()
     {
         $this->sanphams = (new SanPham);
+        $this->danhmucs = new DanhMuc();
     }
+
+
     public function index() {
+        $data['danhmucs'] = $this->danhmucs->all();
         $data['title'] = "Danh sách sản phẩm";
-        $data['sanphams'] = $this->sanphams->sanPham();
+        if(isset($_POST['submit'])){
+            // var_dump($_POST['id_danhmuc']);
+            $id_danhmuc=$_POST['id_danhmuc'];
+            $data['sanphams'] = $this->sanphams->allSanPhamDanhMucs($id_danhmuc);
+            // return 'ok';
+        }else{
+            $data['sanphams'] = $this->sanphams->sanPham();
+        }
+        // echo '<pre>';
+        // print_r($data['sanphams']);
+        // echo '</pre>';
+
+// echo $$data['sanphams'][0]['id'];
         return $this->render('client/sanpham/index',$data);
     }
+    // public function index2(){
+    //     echo 1;
+    // }
     public function detail() {
         
         if (isset($_GET['id'])) {
