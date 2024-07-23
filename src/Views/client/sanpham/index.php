@@ -52,6 +52,15 @@
                                             <h3 style="height: 50px;"><a
                                                     href="/detail-san-pham?id=<?= $sanpham['id'] ?>"><?= $sanpham['ten_san_pham'] ?></a>
                                             </h3>
+
+                                        <a href="/detail-san-pham?id=<?=$sanpham['id']?>" class="img-prod"><img style="min-height: 250px;object-fit: cover;" class="img-fluid" 
+                                        src="/public/images/sanphams/<?= $sanpham['anh_chinh'] ?>.jpg" alt="<?= $sanpham['ten_san_pham'] ?>">
+                                          
+                                        <a href="/chi-tiet-san-pham?id=<?=$sanpham['id']?>" class="img-prod"><img style="min-height: 250px;object-fit: cover;" class="img-fluid" src="/public/images/sanphams/<?= $sanpham['anh_chinh'] ?>.jpg" alt="<?= $sanpham['ten_san_pham'] ?>">
+
+                                        </a>
+                                        <div class="text py-3 px-3" style="height: 150px;">
+                                            <h3 style="height: 50px;"><a href="/chi-tiet-san-pham?id=<?=$sanpham['id']?>"><?= $sanpham['ten_san_pham'] ?></a></h3>
                                             <div class="">
                                                 <div class="mb-3">
                                                     <p class="price"><span
@@ -72,6 +81,7 @@
                                                 <a href="/detail-san-pham?id=<?= $sanpham['id'] ?>"
                                                     class="buy-now text-center py-2">Mua sản phẩm<span><i
                                                             class="ion-ios-cart ml-1"></i></span></a>
+                                                <a href="/chi-tiet-san-pham?id=<?=$sanpham['id']?>" class="buy-now text-center py-2">Mua sản phẩm<span><i class="ion-ios-cart ml-1"></i></span></a>
                                             </p>
                                         </div>
                                     </div>
@@ -88,9 +98,12 @@
                                     <select name="id_danhmuc" class="form-control">
                                         <option value="" selected>Tất cả</option>
                                         <?php foreach ($danhmucs as $danhmuc): ?>
-                                            <option value="<?= $danhmuc['id'] ?>" <?php if ($danhmuc['id'] == $sanphams[0]['id_danh_mucs']) {
+                                            <option value="<?= $danhmuc['id'] ?>" 
+                                            <?php 
+                                                if ($danhmuc['id'] == $sanphams[0]['id_danh_mucs']) {
                                                   echo "selected";
-                                              } ?>>
+                                                } 
+                                            ?>>
                                                 <?= $danhmuc['ten_danh_muc'] ?>
                                             </option>
                                         <?php endforeach ?>
@@ -100,20 +113,7 @@
                                 </form>
                             </ul>
                         </div>
-                        <!-- <div class="sidebar-box-2">
-                            <h2 class="heading mb-4"><a href="#">Dung lượng</a></h2>
-                            <ul>
-                                <li><input type="checkbox" id="checkbox_1" name="checkbox_group" value="option1"> <label for="">Samsung</label></li>
-                                <li><input type="checkbox" id="checkbox_2" name="checkbox_group" value="option2"> <label for="">Iphone</label></li>
-                            </ul>
-                        </div>
-                        <div class="sidebar-box-2">
-                            <h2 class="heading mb-4"><a href="#">Màu sắc</a></h2>
-                            <ul>
-                                <li><input type="checkbox" id="checkbox_1" name="checkbox_group" value="option1"> <label for="">Samsung</label></li>
-                                <li><input type="checkbox" id="checkbox_2" name="checkbox_group" value="option2"> <label for="">Iphone</label></li>
-                            </ul>
-                        </div> -->
+                        
                     </div>
                 </div>
             </div>

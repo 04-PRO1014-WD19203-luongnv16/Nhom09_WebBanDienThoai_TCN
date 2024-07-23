@@ -95,7 +95,7 @@
 
           echo '<div class="col-sm col-md-6 col-lg ftco-animate">
                     <div class="product">
-                        <a href="/detail-san-pham?id=' . $h['id'] . '" class="img-prod"><img class="img-fluid" src="'. $h['anh_chinh'] .'" width="1000px" height="900px" alt="Colorlib Template">                 
+                        <a href="/detail-san-pham?id=' . $h['id'] . '" class="img-prod"><img class="img-fluid" src="' . $h['anh_chinh'] . '" width="1000px" height="900px" alt="Colorlib Template">                 
                             <div class="overlay"></div>
                         </a>
                         <div class="text py-3 px-3">
@@ -126,38 +126,6 @@
         }
         ?>
 
-        <!-- <div class="col-sm col-md-6 col-lg ftco-animate">
-                    <div class="product">
-                        <a href="#" class="img-prod"><img class="img-fluid" src="images/product-1.jpg" alt="Colorlib Template">
-                            <span class="status">30%</span>
-                            <div class="overlay"></div>
-                        </a>
-                        <div class="text py-3 px-3">
-                            <h3><a href="#">Floral Jackquard Pullover</a></h3>
-                            <div class="d-flex">
-                                <div class="pricing">
-                                    <p class="price"><span class="mr-2 price-dc">$120.00</span><span
-                                            class="price-sale">$80.00</span></p>
-                                </div>
-                                <div class="rating">
-                                    <p class="text-right">
-                                        <a href="#"><span class="ion-ios-star-outline"></span></a>
-                                        <a href="#"><span class="ion-ios-star-outline"></span></a>
-                                        <a href="#"><span class="ion-ios-star-outline"></span></a>
-                                        <a href="#"><span class="ion-ios-star-outline"></span></a>
-                                        <a href="#"><span class="ion-ios-star-outline"></span></a>
-                                    </p>
-                                </div>
-                            </div>
-                            <p class="bottom-area d-flex px-3">
-                                <a href="#" class="add-to-cart text-center py-2 mr-1"><span>Add to cart <i
-                                            class="ion-ios-add ml-1"></i></span></a>
-                                <a href="#" class="buy-now text-center py-2">Buy now<span><i
-                                            class="ion-ios-cart ml-1"></i></span></a>
-                            </p>
-                        </div>
-                    </div>
-                </div> -->
       </div>
     </div>
   </section>
@@ -206,129 +174,13 @@
     </div>
   </section>
 
-
-
-
-  <!-- <section class="ftco-section testimony-section">
-  <div class="container">
-    <div class="row justify-content-center mb-5 pb-3">
-      <div class="col-md-7 heading-section ftco-animate">
-        <h2 class="mb-4">Khách hàng hài lòng của chúng tôi nói</h2>
-        <p>Điện thoại này có chất lượng tuyệt vời với màn hình sắc nét và hiệu suất mạnh mẽ. Tôi rất hài lòng với lựa chọn của mình.</p>
-      </div>
-    </div>
-    <div class="row ftco-animate">
-      <div class="col-md-12">
-        <div class="carousel-testimony owl-carousel">
-          <div class="item">
-            <div class="testimony-wrap p-4 pb-5">
-              <div class="user-img mb-5" style="background-image: url(public/images/congnt.png)">
-                <span class="quote d-flex align-items-center justify-content-center">
-                  <i class="icon-quote-left"></i>
-                </span>
-              </div>
-              <div class="text">
-                <p class="mb-5 pl-4 line">Điện thoại này có chất lượng tuyệt vời với màn hình sắc nét và hiệu suất mạnh mẽ. Tôi rất hài lòng với lựa chọn của mình.</p>
-                <p class="name">Nguyễn Thành Công</p>
-                <span class="position">Giám đốc Tiếp thị</span>
-              </div>
-            </div>
-          </div>
-          <div class="item">
-            <div class="testimony-wrap p-4 pb-5">
-              <div class="user-img mb-5" style="background-image: url(public/images/tuyendh.png)">
-                <span class="quote d-flex align-items-center justify-content-center">
-                  <i class="icon-quote-left"></i>
-                </span>
-              </div>
-              <div class="text">
-                <p class="mb-5 pl-4 line">Thiết kế của điện thoại rất đẹp và sang trọng. Giao diện người dùng dễ sử dụng và mượt mà. Đây là một sản phẩm đáng giá.</p>
-                <p class="name">Hoàng Đức Tuyến</p>
-                <span class="position">Nhà thiết kế giao diện</span>
-              </div>
-            </div>
-          </div>
-          <div class="item">
-            <div class="testimony-wrap p-4 pb-5">
-              <div class="user-img mb-5" style="background-image: url(public/images/congnt.png)">
-                <span class="quote d-flex align-items-center justify-content-center">
-                  <i class="icon-quote-left"></i>
-                </span>
-              </div>
-              <div class="text">
-                <p class="mb-5 pl-4 line">Giá cả hợp lý, tính năng đầy đủ và chất lượng tốt. Tôi rất hài lòng với sự lựa chọn này và sẽ giới thiệu cho bạn bè và người thân.</p>
-                <p class="name">Nguyễn Thành Công</p>
-                <span class="position">Nhà thiết kế giao diện người dùng</span>
-              </div>
-            </div>
-          </div>
-          <div class="item">
-            <div class="testimony-wrap p-4 pb-5">
-              <div class="user-img mb-5" style="background-image: url(public/images/tuyendh.png)">
-                <span class="quote d-flex align-items-center justify-content-center">
-                  <i class="icon-quote-left"></i>
-                </span>
-              </div>
-              <div class="text">
-                <p class="mb-5 pl-4 line">Hiệu năng của điện thoại này thật sự ấn tượng, xử lý mọi tác vụ nhanh chóng và không gặp bất kỳ trở ngại nào. Pin cũng rất bền.</p>
-                <p class="name">Hoàng Đức Tuyến</p>
-                <span class="position">Nhà phát triển web</span>
-              </div>
-            </div>
-          </div>
-          <div class="item">
-            <div class="testimony-wrap p-4 pb-5">
-              <div class="user-img mb-5" style="background-image: url(public/images/congnt.png)">
-                <span class="quote d-flex align-items-center justify-content-center">
-                  <i class="icon-quote-left"></i>
-                </span>
-              </div>
-              <div class="text">
-                <p class="mb-5 pl-4 line">Camera chụp ảnh rất đẹp, sắc nét và chân thực. Tôi rất thích khả năng chụp đêm của nó. Đây chắc chắn là một sản phẩm chất lượng cao.</p>
-                <p class="name">Nguyễn Thành Công</p>
-                <span class="position">Nhà phân tích hệ thống</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section> -->
-
-
-
-  <!-- 
-<section class="ftco-section-parallax">
-      <div class="parallax-img d-flex align-items-center">
-        <div class="container">
-          <div class="row d-flex justify-content-center py-5">
-            <div class="col-md-7 text-center heading-section ftco-animate">
-              <h2>Theo dõi chúng tôi</h2>
-              <div class="row d-flex justify-content-center mt-5">
-                <div class="col-md-8">
-                  <form action="#" class="subscribe-form">
-                    <div class="form-group d-flex">
-                      <input type="text" class="form-control" placeholder="Nhập email của bạn!">
-                      <input type="submit" value="Gửi" class="submit px-3">
-                    </div>
-                  </form>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section> -->
-
-
-
-
   <!-- Footer -->
   <?php include_once "./src/Views/client/components/footer.php"; ?>
 
   <?php include_once "./src/Views/client/components/footer.php"; ?>
-
+  <?php include_once "./src/Views/client/components/footer.php"; ?>
+  <!-- Footer -->
+  <?php include_once "./src/Views/client/components/footer.php" ?>
 
 
   <!-- loader -->
