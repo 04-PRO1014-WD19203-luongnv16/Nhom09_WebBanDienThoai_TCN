@@ -16,6 +16,16 @@
     <div class="content">
         <section class="ftco-section">
             <div class="container">
+            <?php if (isset($error)) :?>
+                <div class="alert alert-danger">
+                    <p><?=$error?></p>
+                </div>
+                <?php endif?>
+            <?php if (isset($success)) :?>
+                <div class="alert alert-success">
+                    <p><?=$success?></p>
+                </div>
+                <?php endif?>
                 <div class="row">
                     <div class="col-lg-6 mb-5 ftco-animate">
                         <img src="<?= $sanpham['anh_chinh'] ?>" class="img-fluid" alt="">

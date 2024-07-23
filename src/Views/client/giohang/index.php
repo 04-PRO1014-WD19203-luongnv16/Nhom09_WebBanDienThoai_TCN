@@ -35,38 +35,45 @@
                                 <?php foreach ($bienthes as $bienthe) :?>
                                 <?php if ($giohang['id_bien_thes'] == $bienthe['id']) :?>
                                 <?php foreach ($sanphams as $sanpham) :?>
-                                        <?php if ($bienthe['id_san_phams'] == $sanpham['id']) :?>
-                                        <tr class="text-center">
-                                        <td class="product-remove">
-                                            <form action="/xoa-gio-hang" method="post">
-                                                <input class="w-25" hidden readonly type="text" name="id" value="<?=$giohang['id']?>">
-                                                <button name="submit" type="submit" style="background: none;height:100% !important;outline: none;">
-                                                    <a><span class="ion-ios-close"></span></a>
-                                                </button>
-                                            </form>
-                                        </td>
+                                            <?php if ($bienthe['id_san_phams'] == $sanpham['id']) :?>
+                                            <tr class="text-center">
+                                            <td class="product-remove">
+                                                <form action="/xoa-gio-hang" method="post">
+                                                    <input class="w-25" hidden readonly type="text" name="id" value="<?=$giohang['id']?>">
+                                                    <button name="submit" type="submit" style="background: none;height:100% !important;outline: none;">
+                                                        <a><span class="ion-ios-close"></span></a>
+                                                    </button>
+                                                </form>
+                                            </td>
 
-                                        <td class="image-prod">
-                                            <div class="img" style="background-image:url(<?=$sanpham['anh_chinh']?>);"></div>
-                                        </td>
+                                            <td class="image-prod">
+                                                <div class="img" style="background-image:url(<?=$sanpham['anh_chinh']?>);"></div>
+                                            </td>
 
-                                        <td class="product-name">
-                                            <h3><?=$sanpham['ten_san_pham']?></h3>
-                                            <p>Màu sắc: <?=$bienthe['ten_mau_sac']?> | Dung lượng: <?=$bienthe['ten_dung_luong']?></p>
-                                        </td>
+                                            <td class="product-name">
+                                                <h3><?=$sanpham['ten_san_pham']?></h3>
+                                                <p>Màu sắc: <?=$bienthe['ten_mau_sac']?> | Dung lượng: <?=$bienthe['ten_dung_luong']?></p>
+                                            </td>
 
-                                        <td class="price"><?=$bienthe['gia_ban']?><span style="font-size: 10px;">₫</span></td>
+                                            <td class="price"><span class="gia"><?=$bienthe['gia_ban']?></span><span style="font-size: 10px;">₫</span></td>
 
-                                        <td class="quantity">
-                                            <div class="input-group mb-3">
-                                                <input type="text" name="so_luong" class="quantity form-control input-number" value="<?=$giohang['so_luong']?>" min="1" max="100">
-                                                <div class="text text-danger"><?php if ($bienthe['so_luong']<$giohang['so_luong']) { echo "Số lượng tồn kho không đủ";}?></div>
-                                            </div>
-                                        </td>
+                                            <td class="quantity">
+                                                <div class="input-group mb-3">
+                                                    <form action="" class="w-100" method="post">
+                                                        <div class="w-100 input-group row">
+                                                            <input type="text" class="w-100 d-none" hidden name="id" value="<?=$giohang['id']?>" readonly>
+                                                            <input type="submit" class="col-3 justify-content-center input-group-text" name="reduce" value="-">
+                                                            <input type="number" onchange="loadSoLuong()" readonly name="so_luong" class="col quantity form-control input-number so_luong" value="<?=$giohang['so_luong']?>" min="1" max="100">
+                                                            <input type="submit" class="col-3 justify-content-center input-group-text" name="increase" value="+">
+                                                        </div>
+                                                    </form>
+                                                    <div class="text text-danger"><?php if ($bienthe['so_luong']<$giohang['so_luong']) { echo "Số lượng tồn kho không đủ";}?></div>
+                                                </div>
+                                            </td>
 
-                                        <td class="total"><?= $bienthe['gia_ban']*$giohang['so_luong']?><span style="font-size: 10px;">₫</span></td>
-                                        </tr>
-                                        <?php endif?>
+                                            <td class="total"><span class="tong_gia"><?= $bienthe['gia_ban']*$giohang['so_luong']?></span><span style="font-size: 10px;">₫</span></td>
+                                            </tr>
+                                            <?php endif?>
                                     <?php endforeach?>
                                     <?php endif?>
                                     <?php endforeach?>
@@ -78,27 +85,24 @@
             </div>
             <div class="row justify-content-center">
                 <div class="col col-lg-5 col-md-6 mt-5 cart-wrap ftco-animate">
-                    <div class="cart-total mb-3">
-                        <h3>Hóa đơn</h3>
-                        <p class="d-flex">
-                            <span>Tổng giá</span>
-                            <span><input class="border-0 border-bottom border-primary" type="text" name="tong_tien" value="$20.60" readonly style="outline: none;"></span>
-                        </p>
-                        <p class="d-flex">
-                            <span>Vận chuyển</span>
-                            <span><input class="border-0 border-bottom border-primary" type="text" name="" readonly value="Miễn phí" style="outline: none;"></span>
-                        </p>
-                        <p class="d-flex">
-                            <span>Mã giảm giá</span>
-                            <span><input class="border-0 border-bottom border-primary" type="text" name="shortcode" style="outline: none;" placeholder="CODE vocher"></span>
-                        </p>
-                        <hr>
-                        <p class="d-flex total-price">
-                            <span>Tổng đơn</span>
-                            <span><input class="border-0 border-bottom border-primary" type="text" name="tong_tien" value="$20.60" readonly style="outline: none;"></span>
-                        </p>
-                    </div>
-                    <p class="text-center"><a href="checkout.html" class="btn btn-primary py-3 px-4">Thực hiện thanh toán</a></p>
+                        <form action="/thanh-toan-form" method="post" onload="">
+                            <div class="cart-total mb-3">
+                            <h3>Hóa đơn</h3>
+                                <p class="d-flex">
+                                    <span>Tổng giá</span>
+                                    <span><input class="border-0 border-bottom border-primary" id="don_gia" type="text" name="tong_tien" value="0" readonly style="outline: none;"></span>
+                                </p>
+                                <p class="d-flex">
+                                    <span>Vận chuyển</span>
+                                    <span><input class="border-0 border-bottom border-primary" type="text" name="" readonly value="Miễn phí" style="outline: none;"></span>
+                                </p>
+                                <p class="d-flex">
+                                    <span>Mã giảm giá</span>
+                                    <span><input class="border-0 border-bottom border-primary" type="text" name="shortcode" style="outline: none;" placeholder="CODE vocher"></span>
+                                </p>        
+                            </div>
+                            <button class="btn btn-success w-100" type="submit" name="submit" class="text-center"><span class="text-light">Thực hiện thanh toán</span></button>
+                        </form>
                 </div>
             </div>
         </div>
@@ -118,7 +122,27 @@
 
     <!-- Script -->
     <?php include_once "./src/Views/client/components/javascript.php"; ?>
+    <script>
+        const so_luong = document.querySelectorAll('.so_luong');
+        const gia = document.querySelectorAll('.gia');
+        const tong = document.querySelectorAll('.tong_gia');
 
+        var sum = 0;
+        for (let index = 0; index < gia.length; index++) {
+            tong[index].innerHTML = (Number(so_luong[index].value) * Number(gia[index].textContent));
+            sum = sum + (Number(so_luong[index].value) * Number(gia[index].textContent))
+        }
+        console.log(sum);
+        document.getElementById('don_gia').value = sum;
+        function loadSoLuong() {
+            var sum = 0;
+            for (let index = 0; index < gia.length; index++) {
+                tong[index].innerHTML = (Number(so_luong[index].value) * Number(gia[index].textContent));
+                sum = sum + (Number(so_luong[index].value) * Number(gia[index].textContent))
+            }
+            document.getElementById('don_gia').value = sum;
+        }
+    </script>
 
 </body>
 

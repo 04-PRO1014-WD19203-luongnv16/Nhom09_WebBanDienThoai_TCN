@@ -40,8 +40,20 @@ class CuaHangController extends Controller
                         $data['error'] = "Số lượng tồn kho không đủ";
                     } else {
                         if (isset($_SESSION['tai_khoan']) || isset($_SESSION['id'])) {
-                            (new GioHang)->add($bienthe['id'], $_POST['so_luong'], $_SESSION['id']);
-                            return header('location: /gio-hang');
+                            $check = true;
+                            $gioHangs = (new GioHang)->selectAll();
+                            foreach ($gioHangs as $gioHang) {
+                                if ($gioHang['id_bien_thes'] == $bienthe['id']) {
+                                    $check = false;
+                                    $data['error'] = "Sản phẩm đã có trong giỏ hàng"; 
+                                    break;
+                                }
+                            }
+                            if($check) {
+                                (new GioHang)->add($bienthe['id'], $_POST['so_luong'], $_SESSION['id']);
+                                $data['success'] = "Thêm vào giỏ hàng thành công";
+                            }
+
                         }
                         else {
                             header('location: /login');

@@ -10,6 +10,11 @@ class GioHang extends Model {
         $this->setQuery($sql);
         return $this->GetAll();
     }
+    public function selectOne($id) {
+        $sql = "SELECT * FROM $this->table WHERE id = $id";
+        $this->setQuery($sql);
+        return $this->GetOne();
+    }
 
     public function add($id_bien_thes = "", $so_luong = "", $id_tai_khoans = "") {
         $sql = "INSERT INTO $this->table(id_bien_thes, so_luong, id_tai_khoans) VALUES ($id_bien_thes, $so_luong, $id_tai_khoans)";
@@ -18,6 +23,11 @@ class GioHang extends Model {
     }
     public function delete($id) {
         $sql = "DELETE FROM $this->table WHERE id = $id";
+        $this->setQuery($sql);
+        return $this->Execute();
+    }
+    public function updateSoLuong ($so_luong,$id) {
+        $sql = "UPDATE $this->table SET so_luong = $so_luong WHERE id = $id";
         $this->setQuery($sql);
         return $this->Execute();
     }
