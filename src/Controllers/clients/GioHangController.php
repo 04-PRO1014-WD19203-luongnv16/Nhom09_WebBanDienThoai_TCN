@@ -17,7 +17,28 @@ class GioHangController extends Controller {
         $data['giohangs'] = $this->giohang->selectAll();
         $data['bienthes'] = (new BienThe)->all();
         $data['sanphams'] = (new SanPham)->all();
-             $this->render("client/giohang/index",$data);
+            if (isset($_POST['reduce']) || isset($_POST['increase'])) {
+                if(isset($_POST['id'])) {
+                    $gioHang = $this->giohang->selectOne($_POST['id']);
+                    $bienThe = (new BienThe)->selectByID($gioHang['id_bien_thes']);
+                    if (isset($_POST['reduce'])) {
+                        if($gioHang['so_luong']>1) {
+                            $so_luong = --$gioHang['so_luong'];
+                            $this->giohang->updateSoLuong($so_luong,$_POST['id']);
+                        }
+                    }
+                    else if(isset($_POST['increase'])) {
+                        if($gioHang['so_luong']<$bienThe['so_luong']) {
+                            $so_luong = ++$gioHang['so_luong'];
+                            $this->giohang->updateSoLuong($so_luong,$_POST['id']);
+                        }
+                        
+                    }
+                    return header('location: /gio-hang');
+                }
+                
+            }
+        $this->render("client/giohang/index",$data);
         }
         else {
             return header('location: /login');
@@ -28,13 +49,19 @@ class GioHangController extends Controller {
             if (isset($_POST['submit'])) {
                 $giohangs = $this->giohang->selectAll();
                 foreach ($giohangs as $giohang) {
-                    if ($giohang['id'] == $_POST['id']) {
+                    if ($giohang['id'] == $_POST['id'] && $_SESSION['id'] == $giohang['id_tai_khoans']) {
                         (new GioHang)->delete($_POST['id']);
                         header('location: /gio-hang');
+                    }
+                    else {
+                        return header('location: /gio-hang');
                     }
                 }
             }
         }
+    }
+    public function billdetal() {
+    
     }
 }
 ?>

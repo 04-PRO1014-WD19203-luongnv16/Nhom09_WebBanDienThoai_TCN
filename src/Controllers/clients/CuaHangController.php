@@ -22,31 +22,15 @@ class CuaHangController extends Controller
         $data['danhmucs'] = $this->danhmucs->all();
         $data['title'] = "Danh sách sản phẩm";
         if(isset($_POST['submit'])){
-            // var_dump($_POST['id_danhmuc']);
             $id_danhmuc=$_POST['id_danhmuc'];
             $data['sanphams'] = $this->sanphams->allSanPhamDanhMucs($id_danhmuc);
-            // return 'ok';
         }else{
             $data['sanphams'] = $this->sanphams->sanPham();
         }
-        // echo '<pre>';
-        // print_r($data['sanphams']);
-        // echo '</pre>';
-
-// echo $$data['sanphams'][0]['id'];
         return $this->render('client/sanpham/index',$data);
     }
-    // public function index2(){
-    //     echo 1;
-    // }
-    public function detail() {
+
         
-    public function index()
-    {
-        $data['title'] = "Danh sách sản phẩm";
-        $data['sanphams'] = $this->sanphams->sanPham();
-        return $this->render('client/sanpham/index', $data);
-    }
     public function detail()
     {
 
@@ -67,8 +51,20 @@ class CuaHangController extends Controller
                         $data['error'] = "Số lượng tồn kho không đủ";
                     } else {
                         if (isset($_SESSION['tai_khoan']) || isset($_SESSION['id'])) {
-                            (new GioHang)->add($bienthe['id'], $_POST['so_luong'], $_SESSION['id']);
-                            return header('location: /gio-hang');
+                            $check = true;
+                            $gioHangs = (new GioHang)->selectAll();
+                            foreach ($gioHangs as $gioHang) {
+                                if ($gioHang['id_bien_thes'] == $bienthe['id']) {
+                                    $check = false;
+                                    $data['error'] = "Sản phẩm đã có trong giỏ hàng"; 
+                                    break;
+                                }
+                            }
+                            if($check) {
+                                (new GioHang)->add($bienthe['id'], $_POST['so_luong'], $_SESSION['id']);
+                                $data['success'] = "Thêm vào giỏ hàng thành công";
+                            }
+
                         }
                         else {
                             header('location: /login');

@@ -5,6 +5,7 @@ use MVC\Controllers\admins\SanPhamController;
 use MVC\Controllers\clients\CuaHangController;
 use MVC\Controllers\clients\GioHangController;
 use MVC\Controllers\clients\LoginController;
+use MVC\Controllers\clients\ThanhToanController;
 use MVC\Controllers\clients\TrangChuController;
 use MVC\Router;
 use Phroute\Phroute\RouteCollector;
@@ -35,7 +36,9 @@ $router->addRoute('/chi-tiet-san-pham', CuaHangController::class, 'detail');
 // Giỏ hàng
 $router->addRoute('/gio-hang', GioHangController::class,'index');
 $router->addRoute('/xoa-gio-hang', GioHangController::class, 'delete');
-
+// Thanh toán
+$router->addRoute('/thanh-toan-form', ThanhToanController::class, 'index');
+$router->addRoute('/thanh-toan', ThanhToanController::class, 'payment');
 
 // chi tiet
 $router->addRoute('/detail-san-pham', CuaHangController::class, 'detail');
