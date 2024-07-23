@@ -55,8 +55,37 @@ class SanPham extends Model {
     public function chiTietSanPham($id)
     {
         $sql = "SELECT san_phams.*, MIN(bien_thes.gia_ban) AS gia_thap_nhat, MAX(bien_thes.gia_ban) AS gia_cao_nhat, SUM(bien_thes.so_luong) AS so_luong_ton FROM san_phams JOIN bien_thes ON san_phams.id = bien_thes.id_san_phams WHERE san_phams.id = $id";
+
+    public function sanPham()
+    {
+
+        $sql = "SELECT san_phams.*, MIN(bien_thes.gia_ban) AS gia_thap_nhat, MAX(bien_thes.gia_ban) AS gia_cao_nhat, SUM(bien_thes.so_luong) AS so_luong_ton FROM san_phams
+        JOIN bien_thes ON san_phams.id = bien_thes.id_san_phams GROUP BY san_phams.id";
+        $this->setQuery($sql);
+        return $this->GetAll();
+    }
+
+    public function chiTietSanPham($id)
+    {
+        $sql = "SELECT san_phams.*, MIN(bien_thes.gia_ban) AS gia_thap_nhat, MAX(bien_thes.gia_ban) AS gia_cao_nhat, SUM(bien_thes.so_luong) AS so_luong_tong FROM san_phams JOIN bien_thes ON san_phams.id = bien_thes.id_san_phams WHERE san_phams.id = $id";
         $this->setQuery($sql);
         return $this->GetOne();
-      
+    }
+    public function mauSac($id) {
+        $sql = "SELECT bien_thes.id_san_phams, bien_thes.id_mau_sacs, mau_sacs.ten_mau_sac FROM bien_thes JOIN mau_sacs ON bien_thes.id_mau_sacs = mau_sacs.id WHERE id_san_phams = $id GROUP BY bien_thes.id_san_phams, bien_thes.id_mau_sacs";
+        $this->setQuery($sql);
+        return $this->GetAll();
+    }
+    public function dungLuong($id) {
+        $sql = "SELECT bien_thes.id_san_phams, bien_thes.id_dung_luongs, dung_luongs.ten_dung_luong FROM bien_thes JOIN dung_luongs ON bien_thes.id_dung_luongs = dung_luongs.id WHERE id_san_phams = $id GROUP BY bien_thes.id_san_phams, bien_thes.id_dung_luongs";
+        $this->setQuery($sql);
+        return $this->GetAll();
+    }
+    // tìm id sản phẩm mới nhất
+    public function idSanPham()
+    {
+        $sql = "SELECT MAX(id) AS id_san_pham FROM san_phams";
+        $this->setQuery($sql);
+        return $this->GetOne();
     }
 }

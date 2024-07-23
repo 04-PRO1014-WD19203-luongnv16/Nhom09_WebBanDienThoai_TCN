@@ -30,8 +30,7 @@
                     <a href="/login" class="text-dark">Đăng nhâp</a> | <a href="/dang_ky" class="text-dark">Đăng Ký</a>
                 </span></li>
                     <?php endif?>
-                <li class="nav-item cta cta-colored"><a href="/" class="nav-link"><span
-                            class="icon-shopping_cart"></span>[0]</a></li>
+                <li class="nav-item cta cta-colored"><a href="/gio-hang" class="nav-link"><span class="icon-shopping_cart"></span>[0]</a></li>
 
             </ul>
         </div>

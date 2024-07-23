@@ -53,13 +53,76 @@
                             <option value="<?= $danhmuc['id'] ?>"> <?= $danhmuc['ten_danh_muc'] ?></option>
                         <?php endforeach ?>
                     </select>
-
+                    <?php if ($check) : ?>
+                        <div class='form-text text-danger' style='font-size: 15px;'>Danh mục không được để trống</div>
+                    <?php endif ?>
                 </div>
 
+                <!-- form biến thể -->
+                <div class="form-group">
+                    <label class="">Sản phẩm biến thể</label>
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr>
+                                <th>Màu sắc</th>
+                                <th>Dung lượng</th>
+                                <th>Số lượng</th>
+                                <th>Giá gốc</th>
+                                <th>Giá bán</th>
+
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <select class="form-control" name="id_mau_sacs[]">
+                                        <option value="">Chọn màu sắc</option>
+                                        <?php
+                                        foreach ($mausacs as $key => $mausac) {
+                                        ?>
+                                            <option value="<?= $mausac['id'] ?>"><?= $mausac['ten_mau_sac'] ?></option>
+
+                                        <?php
+                                        }
+                                        ?>
+                                    </select>
+                                </td>
+                                <td>
+                                    <select class="form-control" name="id_dung_luongs[]">
+                                        <option value="">Dung lượng</option>
+                                        <?php
+                                        foreach ($dungluongs as $key => $dungluong) {
+                                        ?>
+                                            <option value="<?= $dungluong['id'] ?>"><?= $dungluong['ten_dung_luong'] ?></option>
+
+                                        <?php
+                                        }
+                                        ?>
+                                    </select>
+
+                                </td>
+
+                                <td><input type="number" class="form-control" name="so_luong[]" placeholder="Số lượng">
+
+                                </td>
+
+                                <td><input type="number" class="form-control" name="gia_goc[]" placeholder="Giá gốc">
+
+                                </td>
+                                <td><input type="number" class="form-control" name="gia_ban[]" placeholder="Giá bán">
+
+                                </td>
+
+
+
+                            </tr>
+
+                        </tbody>
+                    </table>
+                </div>
 
                 <div class="text-center">
                     <input name="submit" class="btn btn-success" type="submit" value="Thêm mới">
-                    <input class="btn btn-danger" type="reset" value="Xóa">
                     <a class="btn btn-info" href="/admin-san-pham">Quay lại</a>
                 </div>
             </form>

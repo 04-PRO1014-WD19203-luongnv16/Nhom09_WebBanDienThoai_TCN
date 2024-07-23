@@ -3,6 +3,7 @@ use MVC\Controllers\admins\DanhMucController;
 use MVC\Controllers\admins\DashboardController;
 use MVC\Controllers\admins\SanPhamController;
 use MVC\Controllers\clients\CuaHangController;
+use MVC\Controllers\clients\GioHangController;
 use MVC\Controllers\clients\LoginController;
 use MVC\Controllers\clients\TrangChuController;
 use MVC\Router;
@@ -19,15 +20,22 @@ $router->addRoute('/login', LoginController::class, 'index');
 $router->addRoute('/logout', LoginController::class, 'logout');
 
 //Route thuộc người dùng
+
 $router->addRoute('/list-san_pham', SanPhamController::class, 'index');
 // $route->post('/dang_ky', [LoginController::class, 'dangky']);
 
 //dang ky
 $router->addRoute('/dang_ky', LoginController::class, 'dangky');
+
 // $route->post('/dang_ky',[LoginController::class, 'dangky']);    
 // SanPham
 
 $router->addRoute('/cua-hang', CuaHangController::class, 'index');
+$router->addRoute('/chi-tiet-san-pham', CuaHangController::class, 'detail');
+// Giỏ hàng
+$router->addRoute('/gio-hang', GioHangController::class,'index');
+$router->addRoute('/xoa-gio-hang', GioHangController::class, 'delete');
+
 
 // chi tiet
 $router->addRoute('/detail-san-pham', CuaHangController::class, 'detail');
