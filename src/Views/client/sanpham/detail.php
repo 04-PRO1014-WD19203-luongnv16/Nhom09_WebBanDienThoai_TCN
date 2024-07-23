@@ -18,6 +18,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-lg-6 mb-5 ftco-animate">
+                        <a href="images/menu-2.jpg" class="image-popup"><img src="<?= $sanpham['anh_chinh'] ?>" width="550px" height="700px" class="img-fluid" alt=""></a>
                         <img src="<?= $sanpham['anh_chinh'] ?>" class="img-fluid" alt="">
                         <div class="mt-3" style="display: grid;grid-template-columns: 1fr 1fr 1fr;gap: 10px;">
                             <img src="<?= $sanpham['anh_phu_1'] ?>" class="img-fluid" alt="">
