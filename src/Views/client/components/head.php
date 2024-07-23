@@ -18,6 +18,7 @@
  <link rel="stylesheet" href="/asset/winkel-master/css/flaticon.css">
  <link rel="stylesheet" href="/asset/winkel-master/css/icomoon.css">
  <link rel="stylesheet" href="/asset/winkel-master/css/style.css">
+ <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
  <style>
     .logo{
         width: 12%;

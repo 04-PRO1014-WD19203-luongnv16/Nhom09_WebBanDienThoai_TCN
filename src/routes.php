@@ -1,5 +1,4 @@
 <?php
-
 use MVC\Controllers\admins\DanhMucController;
 use MVC\Controllers\admins\DashboardController;
 use MVC\Controllers\admins\SanPhamController;
@@ -41,14 +40,12 @@ $router->addRoute('/xoa-gio-hang', GioHangController::class, 'delete');
 $router->addRoute('/thanh-toan-form', ThanhToanController::class, 'index');
 $router->addRoute('/thanh-toan', ThanhToanController::class, 'payment');
 
+// chi tiet
+$router->addRoute('/detail-san-pham', CuaHangController::class, 'detail');
+$router->addRoute('/chi-tiet-san-pham', CuaHangController::class, 'detail');
 
-
-
-
-
-
-
-
+//loc sp theo dm
+$route->post('/sanphamdanhmuc',[CuaHangController::class, 'index']);
 
 //Route thuộc Quản trị viên
 $router->addRoute('/admin', DashboardController::class, 'index');
@@ -64,19 +61,6 @@ $router->addRoute('/add-san-pham', SanPhamController::class, 'addSanPham');
 $router->addRoute('/sua-san-pham', SanPhamController::class, 'suaSanPham');
 $router->addRoute('/delete-san-pham', SanPhamController::class, 'deleteSanPham');
 $router->addRoute('/detail-san-pham', SanPhamController::class, 'detailSanPham');
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 return $router;

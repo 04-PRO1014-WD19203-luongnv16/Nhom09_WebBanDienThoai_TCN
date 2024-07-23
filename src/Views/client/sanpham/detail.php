@@ -16,16 +16,16 @@
     <div class="content">
         <section class="ftco-section">
             <div class="container">
-            <?php if (isset($error)) :?>
-                <div class="alert alert-danger">
-                    <p><?=$error?></p>
-                </div>
-                <?php endif?>
-            <?php if (isset($success)) :?>
-                <div class="alert alert-success">
-                    <p><?=$success?></p>
-                </div>
-                <?php endif?>
+                <?php if (isset($error)): ?>
+                    <div class="alert alert-danger">
+                        <p><?= $error ?></p>
+                    </div>
+                <?php endif ?>
+                <?php if (isset($success)): ?>
+                    <div class="alert alert-success">
+                        <p><?= $success ?></p>
+                    </div>
+                <?php endif ?>
                 <div class="row">
                     <div class="col-lg-6 mb-5 ftco-animate">
                         <img src="<?= $sanpham['anh_chinh'] ?>" class="img-fluid" alt="">
@@ -56,10 +56,10 @@
                                 <p class="text-left mt-2 mx-1">Số lượng: <?= $sanpham['so_luong_tong'] ?></p>
                             </div>
                             <p class="price">
-                                    <span id="gia_goc" style="font-size: 20px;"><?= $sanpham['gia_thap_nhat'] ?></span>
-                                    <span style="font-size: 20px;"> - </span>
-                                    <span id="gia_ban" style="font-size: 20px;"><?= $sanpham['gia_cao_nhat'] ?>
-                                    </span><span style="font-size: 10px;">₫</span>
+                                <span id="gia_goc" style="font-size: 20px;"><?= $sanpham['gia_thap_nhat'] ?></span>
+                                <span style="font-size: 20px;"> - </span>
+                                <span id="gia_ban" style="font-size: 20px;"><?= $sanpham['gia_cao_nhat'] ?>
+                                </span><span style="font-size: 10px;">₫</span>
                             </p>
                             <p><?= $sanpham['mo_ta_ngan'] ?></p>
                             <p><?= $sanpham['mo_ta'] ?></p>
@@ -68,7 +68,8 @@
                                     <div class="form-group d-flex" style="gap: 10px;">
                                         <div class="select-wrap">
                                             <div class="icon"><span class="ion-ios-arrow-down"></span></div>
-                                            <select onchange="loadPrice()" name="mau_sac" id="mau_sac" class="form-control">
+                                            <select onchange="loadPrice()" name="mau_sac" id="mau_sac"
+                                                class="form-control">
                                                 <option selected value="">Màu Sắc</option>
                                                 <?php foreach ($mausacs as $mausac): ?>
                                                     <option value="<?= $mausac['id_mau_sacs'] ?>">
@@ -79,7 +80,8 @@
                                         </div>
                                         <div class="select-wrap">
                                             <div class="icon"><span class="ion-ios-arrow-down"></span></div>
-                                            <select onchange="loadPrice()" name="dung_luong" id="dung_luong" class="form-control">
+                                            <select onchange="loadPrice()" name="dung_luong" id="dung_luong"
+                                                class="form-control">
                                                 <option selected value="">Dung lượng</option>
                                                 <?php foreach ($dungluongs as $dungluong): ?>
                                                     <option value="<?= $dungluong['id_dung_luongs'] ?>">
@@ -115,12 +117,13 @@
                                 <div class="col-md-12">
                                     <br>
                                 </div>
-                                
+
                             </div>
-                            <input name="submit" onclick="checkSubmit()" class="btn btn-black py-3 px-5 text-light" type="submit" value="Thêm vào giỏ hàng">
-                            <?php if (!isset($_SESSION['id']) || !isset($_SESSION['tai_khoan'])) :?>
+                            <input name="submit" onclick="checkSubmit()" class="btn btn-black py-3 px-5 text-light"
+                                type="submit" value="Thêm vào giỏ hàng">
+                            <?php if (!isset($_SESSION['id']) || !isset($_SESSION['tai_khoan'])): ?>
                                 <p class="text">Bạn chưa cần <a href="/login">đăng nhập</a> để dùng giỏ hàng!</p>
-                                <?php endif?>
+                            <?php endif ?>
                         </form>
                     </div>
                 </div>
@@ -160,28 +163,28 @@
     ?>
     <script>
 
-    var jsonString = '<?php echo $jsonString; ?>';
-    var myObject = JSON.parse(jsonString);
-    function loadPrice() {
-        const selectMau_sac = document.getElementById('mau_sac');
-        const optionMau_sac = selectMau_sac.options[selectMau_sac.selectedIndex];
-        const valueMau_sac = optionMau_sac.value;
-        const selectDung_luong = document.getElementById('dung_luong');
-        const optionDung_luong = selectDung_luong.options[selectDung_luong.selectedIndex];
-        const valueDung_luong = optionDung_luong.value;
-        myObject.forEach(element => {
-        if (element.id_mau_sacs == valueMau_sac && element.id_dung_luongs == valueDung_luong) {
-                document.getElementById('gia_ban').innerHTML = element.gia_ban;
-                document.getElementById('gia_goc').innerHTML = element.gia_goc;
-                document.getElementById('gia_goc').style.textDecoration = "line-through";
-                document.getElementById('gia_goc').style.color = "gray";
+        var jsonString = '<?php echo $jsonString; ?>';
+        var myObject = JSON.parse(jsonString);
+        function loadPrice() {
+            const selectMau_sac = document.getElementById('mau_sac');
+            const optionMau_sac = selectMau_sac.options[selectMau_sac.selectedIndex];
+            const valueMau_sac = optionMau_sac.value;
+            const selectDung_luong = document.getElementById('dung_luong');
+            const optionDung_luong = selectDung_luong.options[selectDung_luong.selectedIndex];
+            const valueDung_luong = optionDung_luong.value;
+            myObject.forEach(element => {
+                if (element.id_mau_sacs == valueMau_sac && element.id_dung_luongs == valueDung_luong) {
+                    document.getElementById('gia_ban').innerHTML = element.gia_ban;
+                    document.getElementById('gia_goc').innerHTML = element.gia_goc;
+                    document.getElementById('gia_goc').style.textDecoration = "line-through";
+                    document.getElementById('gia_goc').style.color = "gray";
+                }
+            });
         }
-    });
-    }
-    
+
     </script>
 
-    
+
 </body>
 
 </html>
