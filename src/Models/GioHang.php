@@ -31,5 +31,10 @@ class GioHang extends Model {
         $this->setQuery($sql);
         return $this->Execute();
     }
+    public function resetGioHang($id_tai_khoans) {
+        $sql = "DELETE FROM $this->table WHERE id_tai_khoans = $id_tai_khoans";
+        $this->setQuery($sql);
+        return $this->Execute();
+    }
 }
 ?>

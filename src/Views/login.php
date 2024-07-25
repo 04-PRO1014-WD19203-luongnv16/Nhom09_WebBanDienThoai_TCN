@@ -50,7 +50,7 @@
                 </div>
 
                 <div class="col-md-6 d-flex">
-                    /////
+                    <img src="./public/siber.jpg" alt="" srcset="" class="w-100">
                 </div>
             </div>
         </div>
