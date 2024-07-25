@@ -26,6 +26,8 @@ class SanPhamController extends Controller
         $check = false;
         $checkForm = false;
         $danhmucs = (new DanhMuc)->all();
+        $dungluongs = (new DungLuong)->all();
+        $mausacs = (new MauSac)->all();
         $isUpdating = isset($_POST['submit']);
 
         if ($isUpdating) {
@@ -71,7 +73,7 @@ class SanPhamController extends Controller
             }
         }
 
-        return $this->renderAdmin('sanpham/update', ['title' => $title, 'sanpham' => $sanpham, 'check' => $check, 'checkForm' => $checkForm, 'danhmucs' => $danhmucs]);
+        return $this->renderAdmin('sanpham/update', ['title' => $title, 'sanpham' => $sanpham, 'check' => $check, 'checkForm' => $checkForm, 'danhmucs' => $danhmucs, 'dungluongs' => $dungluongs, 'mausacs' => $mausacs]);
     }
 
     public function detailSanPham()
@@ -169,6 +171,6 @@ class SanPhamController extends Controller
                 }
             }
         }
-        return $this->renderAdmin('sanpham/add', ['title' => $title, 'check' => $check, 'checkForm' => $checkForm, 'danhmucs' => $danhmucs, 'dungluongs' => $dungluongs, 'mausacs' => $mausacs, 'idSps' => $idSps]);
+        return $this->renderAdmin('sanpham/add', ['title' => $title, 'check' => $check, 'checkForm' => $checkForm, 'danhmucs' => $danhmucs, 'dungluongs' => $dungluongs, 'mausacs' => $mausacs]);
     }
 }
