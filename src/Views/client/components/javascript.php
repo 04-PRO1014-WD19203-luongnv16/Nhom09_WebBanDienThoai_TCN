@@ -14,3 +14,5 @@
         <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
         <script src="/asset/winkel-master/js/google-map.js"></script>
         <script src="/asset/winkel-master/js/main.js"></script>
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> 
+

@@ -19,10 +19,13 @@
       <div class="slider-item js-fullheight">
         <div class="overlay"></div>
         <div class="container-fluid p-0">
-          <div class="row d-md-flex no-gutters slider-text js-fullheight align-items-center justify-content-end" data-scrollax-parent="true">
-            <div class="one-third order-md-last img js-fullheight" style="background-image:url(public/images/blackpinkSamSung.jpg);">
+          <div class="row d-md-flex no-gutters slider-text js-fullheight align-items-center justify-content-end"
+            data-scrollax-parent="true">
+            <div class="one-third order-md-last img js-fullheight"
+              style="background-image:url(public/images/blackpinkSamSung.jpg);">
             </div>
-            <div class="one-forth d-flex js-fullheight align-items-center ftco-animate" data-scrollax=" properties: { translateY: '70%' }">
+            <div class="one-forth d-flex js-fullheight align-items-center ftco-animate"
+              data-scrollax=" properties: { translateY: '70%' }">
               <div class="text">
                 <h2>Khám Phá Những Chiếc Điện Thoại Thời Thượng</h2>
                 <span class="subheading">Thương Mại điện tử</span>
@@ -44,10 +47,13 @@
       <div class="slider-item js-fullheight">
         <div class="overlay"></div>
         <div class="container-fluid p-0">
-          <div class="row d-flex no-gutters slider-text js-fullheight align-items-center justify-content-end" data-scrollax-parent="true">
-            <div class="one-third order-md-last img js-fullheight" style="background-image:url(public/images/selfie-la-gi.jpg);">
+          <div class="row d-flex no-gutters slider-text js-fullheight align-items-center justify-content-end"
+            data-scrollax-parent="true">
+            <div class="one-third order-md-last img js-fullheight"
+              style="background-image:url(public/images/selfie-la-gi.jpg);">
             </div>
-            <div class="one-forth d-flex js-fullheight align-items-center ftco-animate" data-scrollax=" properties: { translateY: '70%' }">
+            <div class="one-forth d-flex js-fullheight align-items-center ftco-animate"
+              data-scrollax=" properties: { translateY: '70%' }">
               <div class="text">
                 <span class="subheading">Thương mại điện tử TCN</span>
                 <div class="horizontal">
@@ -90,7 +96,7 @@
           echo '<div class="col-sm col-md-6 col-lg ftco-animate">
                     <div class="product">
 
-                        <a href="/detail-san-pham?id=' . $h['id'] . '" class="img-prod"><img class="img-fluid" src="/public/images/sanphams/' . $h['anh_chinh'] . '.jpg" width="796px" height="800px" alt="Colorlib Template">                 
+                        <a href="/detail-san-pham?id=' . $h['id'] . '" class="img-prod"><img class="img-fluid" src="' . $h['anh_chinh'] . '" width="796px" height="800px" alt="Colorlib Template">                 
                             <div class="overlay"></div>
                         </a>
                         <div class="text py-3 px-3">
@@ -157,7 +163,7 @@
       </div>
     </div>
   </section>
-
+  <!-- 
   <section class="ftco-section ftco-counter img" id="section-counter" style="background-image: url(public/images/selfie-la-gi.jpg);">
     <div class="container">
       <div class="row justify-content-center py-5">
@@ -199,13 +205,13 @@
         </div>
       </div>
     </div>
-  </section>
+  </section> -->
 
 
 
 
 
-  <section class="ftco-section testimony-section">
+  <!-- <section class="ftco-section testimony-section">
     <div class="container">
       <div class="row justify-content-center mb-5 pb-3">
         <div class="col-md-7 heading-section ftco-animate">
@@ -290,7 +296,7 @@
         </div>
       </div>
     </div>
-  </section>
+  </section> -->
 
 
 
@@ -336,7 +342,8 @@
   <!-- loader -->
   <div id="ftco-loader" class="show fullscreen"><svg class="circular" width="48px" height="48px">
       <circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee" />
-      <circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#F96D00" />
+      <circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10"
+        stroke="#F96D00" />
     </svg>
   </div>
 
