@@ -86,30 +86,26 @@
                         <div class="sidebar-box-2">
                             <h2 class="heading mb-4"><a href="#">Hãng</a></h2>
                             <ul>
-                                <li><input type="checkbox" id="checkbox_1" name="checkbox_group" value="option1"> <label
-                                        for="">Samsung</label></li>
-                                <li><input type="checkbox" id="checkbox_2" name="checkbox_group" value="option2"> <label
-                                        for="">Iphone</label></li>
+                                <form action="" method="post" >
+                                    <select name="id_danhmuc" class="form-control">
+                                        <option value="" selected>Tất cả</option>
+                                        <?php foreach ($danhmucs as $danhmuc): ?>
+                                            <option value="<?= $danhmuc['id'] ?>" 
+                                            <?php 
+                                                if ($danhmuc['id'] == $sanphams[0]['id_danh_mucs']) {
+                                                  echo "selected";
+                                                } 
+                                            ?>>
+                                                <?= $danhmuc['ten_danh_muc'] ?>
+                                            </option>
+                                        <?php endforeach ?>
+                                    </select>
+                                    <input type="submit" name="submit" class="form-control" value="Tìm">
+                                    <!-- <button type="submit">Tìm</button> -->
+                                </form>
                             </ul>
                         </div>
-                        <div class="sidebar-box-2">
-                            <h2 class="heading mb-4"><a href="#">Dung lượng</a></h2>
-                            <ul>
-                                <li><input type="checkbox" id="checkbox_1" name="checkbox_group" value="option1"> <label
-                                        for="">Samsung</label></li>
-                                <li><input type="checkbox" id="checkbox_2" name="checkbox_group" value="option2"> <label
-                                        for="">Iphone</label></li>
-                            </ul>
-                        </div>
-                        <div class="sidebar-box-2">
-                            <h2 class="heading mb-4"><a href="#">Màu sắc</a></h2>
-                            <ul>
-                                <li><input type="checkbox" id="checkbox_1" name="checkbox_group" value="option1"> <label
-                                        for="">Samsung</label></li>
-                                <li><input type="checkbox" id="checkbox_2" name="checkbox_group" value="option2"> <label
-                                        for="">Iphone</label></li>
-                            </ul>
-                        </div>
+                        
                     </div>
                 </div>
             </div>
