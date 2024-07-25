@@ -46,4 +46,9 @@ class BienThe extends Model
         $this->setQuery($sql);
         return $this->Execute();
     }
+    public function updateSoLuong($id, $so_luong) {
+        $sql = "UPDATE $this->table SET so_luong = $so_luong WHERE id = $id";
+        $this->setQuery($sql);
+        return $this->Execute();
+    }
 }
