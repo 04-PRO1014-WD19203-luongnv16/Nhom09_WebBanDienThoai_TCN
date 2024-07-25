@@ -41,7 +41,7 @@ $router->addRoute('/gio-hang', GioHangController::class, 'index');
 $router->addRoute('/xoa-gio-hang', GioHangController::class, 'delete');
 // Thanh toán
 $router->addRoute('/thanh-toan-form', ThanhToanController::class, 'index');
-$router->addRoute('/thanh-toan', ThanhToanController::class, 'payment');
+$router->addRoute('/check-out', ThanhToanController::class, 'checkout');
 
 // chi tiet
 $router->addRoute('/detail-san-pham', CuaHangController::class, 'detail');

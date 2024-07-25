@@ -15,4 +15,4 @@
         <script src="/asset/winkel-master/js/google-map.js"></script>
         <script src="/asset/winkel-master/js/main.js"></script>
         <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> 
-
+        <script src="https://kit.fontawesome.com/2e8884d211.js" crossorigin="anonymous"></script>
