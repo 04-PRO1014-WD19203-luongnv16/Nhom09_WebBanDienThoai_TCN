@@ -30,7 +30,7 @@
                             <form action="/delete-san-pham" method="post">
                                 <div class="" style="display: grid;grid-template-columns: 1fr 1fr;gap: 10px;">
                                     <input type="text" name="id" value="<?= $sanpham['id'] ?>" readonly hidden>
-                                    <input onclick="return confirm('Bạn có chắc muốn xóa danh mục id: <?= $sanpham['id'] ?>');" class="btn btn-danger" type="submit" value="Xóa">
+                                    <input onclick="return confirm('Bạn có chắc muốn xóa sản phẩm id: <?= $sanpham['id'] ?>');" class="btn btn-danger" type="submit" value="Xóa">
                                     <a class="btn btn-warning text-light" href="/sua-san-pham?id=<?= $sanpham['id'] ?>">Sửa</a>
                                     <a class="btn btn-success text-light" href="/detail-san-pham?id=<?= $sanpham['id'] ?>">Chi tiết</a>
                                 </div>
