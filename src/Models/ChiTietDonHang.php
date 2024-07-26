@@ -11,8 +11,8 @@ class ChiTietDonHang extends Model
     public function all() {
 
     }
-    public function insert($id_don_hangs, $id_bien_thes, $id_san_pham, $so_luong) {
-        $sql = "INSERT INTO $this->table(id_don_hangs, id_bien_thes, id_san_phams, so_luong) VALUE($id_don_hangs, $id_bien_thes, $id_san_pham, $so_luong)";
+    public function insert($id_don_hangs, $id_bien_thes, $id_san_pham, $so_luong, $gia_san_pham) {
+        $sql = "INSERT INTO $this->table(id_don_hangs, id_bien_thes, id_san_phams, so_luong, gia_san_pham) VALUE($id_don_hangs, $id_bien_thes, $id_san_pham, $so_luong, $gia_san_pham)";
         $this->setQuery($sql);
         return $this->Execute();
     }
