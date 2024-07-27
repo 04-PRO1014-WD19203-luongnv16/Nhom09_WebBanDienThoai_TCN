@@ -22,7 +22,12 @@ class DonHang extends Model
     //     $this->setQuery($sql);
     //     return $this->Execute();
     // }
-
+    public function update($id, $trangthai)
+    {
+        $sql = "UPDATE $this->table SET trang_thai = '$trangthai' WHERE id = $id";
+        $this->setQuery($sql);
+        return $this->Execute();
+    }
 
     public function find($id)
     {
@@ -31,7 +36,6 @@ class DonHang extends Model
         $this->setQuery($sql);
         return $this->GetOne();
     }
-
     public function create1($id_tai_khoan, $ten_nguoi_nhan, $dia_chi, $email, $so_dien_thoai, $tong_tien, $ngay_dat_hang, $id_thanh_toan, $trang_thai = 1)
     {
         $sql = "INSERT INTO $this->table(id_tai_khoans, ten_nguoi_nhan, dia_chi, email, so_dien_thoai, tong_tien, ngay_dat_hang, id_thanh_toans, trang_thai) 

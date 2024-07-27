@@ -13,6 +13,8 @@
                     <th class="w-25">Mã đơn hàng</th>
                     <th class="w-25">Tài khoản đặt</th>
                     <th class="w-25">Ngày đặt hàng</th>
+                    <th class="w-25">Tổng tiền</th>
+                    <th class="w-25">Trạng Thái</th>
                     <th class="w-25">Chức năng</th>
                 </tr>
             </thead>
@@ -33,7 +35,19 @@
                             <?= $donhang['ngay_dat_hang'] ?>
                         </td>
                         <td class="w-25">
-                            <a class="btn btn-success " href="/detail-don-hang">Chi tiết</a>
+                            <?= $donhang['tong_tien'] ?>
+                        </td>
+                        <?php foreach ($ttdonhang as $key => $ttdh) : ?>
+                            <?php if ($donhang['trang_thai'] == $ttdh['id']) : ?>
+                                <td class="w-25">
+                                    <?= $ttdh['ten_trang_thai'] ?>
+                                </td>
+                            <?php endif ?>
+                        <?php endforeach ?>
+                        <td class="w-25">
+                            <form action="" method="post">
+                                <a class="btn btn-success text-light" href="/detail-don-hang?id=<?= $donhang['id'] ?>">Chi tiết</a>
+                            </form>
                         </td>
                     </tr>
                 <?php endforeach ?>
