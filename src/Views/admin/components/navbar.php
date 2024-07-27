@@ -12,7 +12,7 @@
                     <a href="/admin-danhmuc" class="dropdown-toggle"><i class="menu-icon fa fa-table"></i>Quản lý danh mục</a>
                 </li>
                 <li>
-                    <a href="/admin-don-hang" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-th"></i>Quản lý đơn hàng</a>
+                    <a href="/admin-don-hang" class="dropdown-toggle"> <i class="menu-icon fa fa-th"></i>Quản lý đơn hàng</a>
                 </li>
                 <li>
                     <a href="/admin-tai-khoan" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-tasks"></i>Quản lý tài khoản</a>
