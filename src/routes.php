@@ -4,6 +4,8 @@ use MVC\Controllers\admins\DanhMucController;
 use MVC\Controllers\admins\DashboardController;
 use MVC\Controllers\admins\DonHangController;
 use MVC\Controllers\admins\SanPhamController;
+use MVC\Controllers\Clients\ChiTietDonHang;
+use MVC\Controllers\Clients\ChiTietDonHangController;
 use MVC\Controllers\clients\CuaHangController;
 use MVC\Controllers\clients\GioHangController;
 use MVC\Controllers\clients\LoginController;
@@ -50,6 +52,8 @@ $router->addRoute('/chi-tiet-san-pham', CuaHangController::class, 'detail');
 
 // Tài khoản
 $router->addRoute('/tai-khoan', TaiKhoanController::class, 'index');
+// Chi tiết hóa đơn
+$router->addRoute('/chi-tiet-don-hang', ChiTietDonHangController::class, 'detail');
 
 //loc sp theo dm
 $route->post('/sanphamdanhmuc', [CuaHangController::class, 'index']);
@@ -71,4 +75,7 @@ $router->addRoute('/detail-san-pham', SanPhamController::class, 'detailSanPham')
 //Quản lý đơn hàng
 $router->addRoute('/admin-don-hang', DonHangController::class, 'index');
 $router->addRoute('/detail-don-hang', DonHangController::class, 'detailDonHang');
+
+
+
 return $router;

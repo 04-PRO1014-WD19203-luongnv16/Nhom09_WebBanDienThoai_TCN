@@ -50,6 +50,12 @@
                     </div>
                     <div class="col-9 py-3">
                         <div class="">
+                            <?php if(isset($error)) :?>
+                                <div class="alert alert-danger"><?=$error?></div>
+                                <?php endif?>
+                            <?php if(isset($success)) :?>
+                                <div class="alert alert-success"><?=$success?></div>
+                                <?php endif?>
                             <div class="">
                                 <div class="head-btn px-3 mb-3" style="background-color: white !important;">
                                     <div class="navbar navbar-expand-lg bg-body-tertiary">
@@ -85,12 +91,17 @@
                                         </div>
                                     </div>
                                 </div>
+                                
+                                <form action="" method="get">
                                 <div class="input-group flex-nowrap px-3 mb-3" style="height: 30px !important;">
-                                    <input type="text" class="form-control" placeholder="Bạn cần tìm gì..."
-                                        style="height: 30px !important;font-size: 14px;">
-                                    <button style="height: 30px !important;" name="btn-search" class="input-group-text"
-                                        id="addon-wrapping"><i class="fa-solid fa-magnifying-glass"></i></button>
+                                    
+                                        <input type="text" name="search" class="form-control" placeholder="Nhập mã đơn bạn cần tìm..."
+                                            style="height: 30px !important;font-size: 14px;">
+                                        <button style="height: 30px !important;" name="btn-search" class="input-group-text"
+                                            id="addon-wrapping"><i class="fa-solid fa-magnifying-glass"></i></button>
                                 </div>
+                                </form>
+
                                 <div class="p-3 mb-3" style="background-color: white !important;">
                                     <h5 class="mb-5">Đơn hàng: </h5>
                                     <div class="tab-content">
