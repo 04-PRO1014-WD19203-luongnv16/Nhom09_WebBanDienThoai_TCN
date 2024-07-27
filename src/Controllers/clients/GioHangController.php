@@ -11,7 +11,7 @@ class GioHangController extends Controller {
         $this->giohang = new GioHang();
     }
     
-    public function index() {
+    public function index($data = []) {
         if (isset($_SESSION['id'])) {
             $data['title'] = "Giỏ  hàng";
         $data['giohangs'] = $this->giohang->selectAll();

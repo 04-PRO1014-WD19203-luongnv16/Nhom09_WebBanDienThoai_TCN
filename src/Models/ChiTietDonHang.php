@@ -10,6 +10,7 @@ class ChiTietDonHang extends Model
 
     public function all()
     {
+
     }
 
     public function insert($id_don_hangs, $id_bien_thes, $id_san_pham, $so_luong, $gia_san_pham) {
@@ -33,4 +34,10 @@ class ChiTietDonHang extends Model
         $this->setQuery($sql);
         return $this->GetAll();
     }
+    public function selectByIdDonHang($id_don_hangs) {
+        $sql = "SELECT * FROM $this->table WHERE id_don_hangs = $id_don_hangs";
+        $this->setQuery($sql);
+        return $this->GetAll();
+    }
+
 }
