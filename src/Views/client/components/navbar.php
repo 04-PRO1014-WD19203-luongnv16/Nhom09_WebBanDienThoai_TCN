@@ -10,24 +10,31 @@
         <div class="collapse navbar-collapse" id="ftco-nav">
             <ul class="navbar-nav ml-auto" style="align-items: center;">
                 <li class="nav-item active"><a href="/" class="nav-link">Trang chủ</a></li>
-                <li class="nav-item"><a href="/cua-hang" class="nav-link">Cửa hàng</a></li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="/" id="dropdown04" data-toggle="dropdown"
+                 <li class="nav-item"><a href="/cua-hang" class="nav-link">Cửa hàng</a></li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="/" id="dropdown04" data-toggle="dropdown"
                         aria-haspopup="true" aria-expanded="false">Danh mục</a>
-                    <div class="dropdown-menu" aria-labelledby="/">
+                        <div class="dropdown-menu" aria-labelledby="dropdown04">
+                        <?php foreach ($data['danhmucs'] as $tenDanhMuc): ?>
+                            <a href='/loaddanhmuc?id=<?= $tenDanhMuc['id'] ?>' class="dropdown-item"><?= $tenDanhMuc['ten_danh_muc'] ?>
+                        </a>
+                        <?php endforeach; ?>
+                         </div>
+                    </li>
+                    <!-- <div class="dropdown-menu" aria-labelledby="/">
                         <a class="dropdown-item" href="/cua-hang">Cửa hàng</a>
                         <a class="dropdown-item" href="/">Single Product</a>
                         <a class="dropdown-item" href="/">Cart</a>
                         <a class="dropdown-item" href="/">Checkout</a>
-                    </div>
-                <?php if (isset($_SESSION['tai_khoan'])) :?>
+                    </div> -->
+                    <?php if (isset($_SESSION['tai_khoan'])) :?>
                     <li class="nav-item"><a href="/tai-khoan" class="nav-link">Tài khoản</a></li>
                     <li class="nav-item"><a href="/logout" class="nav-link">Đăng xuất</a></li>
                     <?php endif?>
-                <?php if (!isset($_SESSION['tai_khoan'])) :?>
+                    <?php if (!isset($_SESSION['tai_khoan'])) :?>
                     <li class="nav-item"><span class="nav-link">
                     <a href="/login" class="text-dark">Đăng nhâp</a> | <a href="/dang_ky" class="text-dark">Đăng Ký</a>
-                </span></li>
+                     </span></li>
                     <?php endif?>
                 <li class="nav-item cta cta-colored"><a href="/gio-hang" class="nav-link"><span class="icon-shopping_cart"></span>[0]</a></li>
 
@@ -35,3 +42,7 @@
         </div>
     </div>
 </nav>
+
+
+
+

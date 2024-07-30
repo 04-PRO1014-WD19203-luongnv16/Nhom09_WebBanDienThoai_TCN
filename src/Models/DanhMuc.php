@@ -13,6 +13,7 @@ class DanhMuc extends Model
         $this->setQuery($sql);
         return $this->GetAll();
     }
+
     public function one($id)
     {
         $sql = "SELECT * FROM $this->table WHERE id = $id";
