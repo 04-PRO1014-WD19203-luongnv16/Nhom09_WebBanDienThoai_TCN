@@ -5,7 +5,7 @@ namespace MVC\Controllers\admins;
 use MVC\Controller;
 use MVC\Models\TaiKhoan;
 
-class TaiKhoanController extends Controller
+class TaiKhoanAdminController extends Controller
 {
     public function index()
     {

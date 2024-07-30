@@ -1,5 +1,5 @@
 <?php 
-namespace MVC\Controllers\Clients;
+namespace MVC\Controllers\clients;
 use MVC\Controller;
 use MVC\Models\BienThe;
 use MVC\Models\ChiTietDonHang;

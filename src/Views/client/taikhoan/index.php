@@ -41,7 +41,7 @@
                                 </div>
                                 <div class="col-12" style="text-align: center;">
                                     <div style="font-size: 15px;"><strong><?= $_SESSION['tai_khoan'] ?></strong></div>
-                                    <a href="" class="text" style="color: gray;font-size: 12px;">Chỉnh sửa hồ sơ <i
+                                    <a href="/tai-khoan-update" class="text" style="color: gray;font-size: 12px;">Chỉnh sửa hồ sơ <i
                                             class="fa-solid fa-pen"></i></a>
                                 </div>
                             </div>

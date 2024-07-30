@@ -19,5 +19,14 @@ class TaiKhoanController extends Controller {
         return $this->render("client/taikhoan/index", $data);
         }
     }
+    public function update() {
+        if(isset($_SESSION["id"])) {
+            $data["title"] = "Chỉnh sửa hồ sơ";
+            return $this->render("client/taikhoan/update",$data);
+        }
+        else {
+            return header('location: /');
+        }
+    }
 }
 ?>

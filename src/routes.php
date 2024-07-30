@@ -3,21 +3,18 @@
 use MVC\Controllers\admins\DanhMucController;
 use MVC\Controllers\admins\DashboardController;
 use MVC\Controllers\admins\DonHangController;
-use MVC\Controllers\admins\TaiKhoanController;
+use MVC\Controllers\admins\TaiKhoanAdminController;
 use MVC\Controllers\admins\SanPhamController;
-use MVC\Controllers\Clients\ChiTietDonHang;
-use MVC\Controllers\Clients\ChiTietDonHangController;
+use MVC\Controllers\clients\ChiTietDonHangController;
 use MVC\Controllers\clients\CuaHangController;
 use MVC\Controllers\clients\GioHangController;
 use MVC\Controllers\clients\LoginController;
 use MVC\Controllers\clients\ThanhToanController;
 use MVC\Controllers\clients\TrangChuController;
 
-use MVC\Models\DonHang;
-use MVC\Models\TaiKhoan;
 use MVC\Router;
 use Phroute\Phroute\RouteCollector;
-use MVC\Controllers\Clients\TaiKhoanController;
+use MVC\Controllers\clients\TaiKhoanController;
 
 $route = new RouteCollector();
 
@@ -57,6 +54,7 @@ $router->addRoute('/chi-tiet-san-pham', CuaHangController::class, 'detail');
 
 // Tài khoản
 $router->addRoute('/tai-khoan', TaiKhoanController::class, 'index');
+$router->addRoute('/tai-khoan-update', TaiKhoanController::class, 'update');
 // Chi tiết hóa đơn
 $router->addRoute('/chi-tiet-don-hang', ChiTietDonHangController::class, 'detail');
 
@@ -83,7 +81,7 @@ $router->addRoute('/detail-san-pham', SanPhamController::class, 'detailSanPham')
 $router->addRoute('/admin-don-hang', DonHangController::class, 'index');
 $router->addRoute('/detail-don-hang', DonHangController::class, 'detailDonHang');
 //Quản lý tài khoản
-$router->addRoute('/admin-tai-khoan', TaiKhoanController::class, 'index');
-$router->addRoute('/sua-tai-khoan', TaiKhoanController::class, 'updateTaiKhoan');
+$router->addRoute('/admin-tai-khoan', TaiKhoanAdminController::class, 'index');
+$router->addRoute('/sua-tai-khoan', TaiKhoanAdminController::class, 'updateTaiKhoan');
 
 return $router;
