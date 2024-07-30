@@ -29,12 +29,14 @@ $router->addRoute('/logout', LoginController::class, 'logout');
 $router->addRoute('/list-san_pham', SanPhamController::class, 'index');
 // $route->post('/dang_ky', [LoginController::class, 'dangky']);
 
+// $router->addRoute('/list-danhmuc',CuaHangController::class,'loadListDM');
+
 //dang ky
 $router->addRoute('/dang_ky', LoginController::class, 'dangky');
 
-// $route->post('/dang_ky',[LoginController::class, 'dangky']);    
-// SanPham
+// $route->post('/dang_ky',[LoginController::class, 'dangky']);  
 
+// SanPham
 $router->addRoute('/cua-hang', CuaHangController::class, 'index');
 $router->addRoute('/chi-tiet-san-pham', CuaHangController::class, 'detail');
 // Giỏ hàng
@@ -52,7 +54,9 @@ $router->addRoute('/chi-tiet-san-pham', CuaHangController::class, 'detail');
 $router->addRoute('/tai-khoan', TaiKhoanController::class, 'index');
 
 //loc sp theo dm
-$route->post('/sanphamdanhmuc', [CuaHangController::class, 'index']);
+$route->post('/sanphamdanhmuc',[CuaHangController::class, 'index']);
+//list danh muc
+$router->addRoute('/loaddanhmuc',CuaHangController::class, 'loadListDM');
 
 //Route thuộc Quản trị viên
 $router->addRoute('/admin', DashboardController::class, 'index');
