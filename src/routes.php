@@ -5,6 +5,8 @@ use MVC\Controllers\admins\DashboardController;
 use MVC\Controllers\admins\DonHangController;
 use MVC\Controllers\admins\TaiKhoanController;
 use MVC\Controllers\admins\SanPhamController;
+use MVC\Controllers\Clients\ChiTietDonHang;
+use MVC\Controllers\Clients\ChiTietDonHangController;
 use MVC\Controllers\clients\CuaHangController;
 use MVC\Controllers\clients\GioHangController;
 use MVC\Controllers\clients\LoginController;
@@ -32,12 +34,14 @@ $router->addRoute('/logout', LoginController::class, 'logout');
 $router->addRoute('/list-san_pham', SanPhamController::class, 'index');
 // $route->post('/dang_ky', [LoginController::class, 'dangky']);
 
+// $router->addRoute('/list-danhmuc',CuaHangController::class,'loadListDM');
+
 //dang ky
 $router->addRoute('/dang_ky', LoginController::class, 'dangky');
 
-// $route->post('/dang_ky',[LoginController::class, 'dangky']);    
-// SanPham
+// $route->post('/dang_ky',[LoginController::class, 'dangky']);  
 
+// SanPham
 $router->addRoute('/cua-hang', CuaHangController::class, 'index');
 $router->addRoute('/chi-tiet-san-pham', CuaHangController::class, 'detail');
 // Giỏ hàng
@@ -53,9 +57,13 @@ $router->addRoute('/chi-tiet-san-pham', CuaHangController::class, 'detail');
 
 // Tài khoản
 $router->addRoute('/tai-khoan', TaiKhoanController::class, 'index');
+// Chi tiết hóa đơn
+$router->addRoute('/chi-tiet-don-hang', ChiTietDonHangController::class, 'detail');
 
 //loc sp theo dm
-$route->post('/sanphamdanhmuc', [CuaHangController::class, 'index']);
+$route->post('/sanphamdanhmuc',[CuaHangController::class, 'index']);
+//list danh muc
+$router->addRoute('/loaddanhmuc',CuaHangController::class, 'loadListDM');
 
 //Route thuộc Quản trị viên
 $router->addRoute('/admin', DashboardController::class, 'index');
@@ -77,4 +85,5 @@ $router->addRoute('/detail-don-hang', DonHangController::class, 'detailDonHang')
 //Quản lý tài khoản
 $router->addRoute('/admin-tai-khoan', TaiKhoanController::class, 'index');
 $router->addRoute('/sua-tai-khoan', TaiKhoanController::class, 'updateTaiKhoan');
+
 return $router;

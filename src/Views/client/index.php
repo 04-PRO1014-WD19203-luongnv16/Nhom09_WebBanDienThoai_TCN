@@ -36,7 +36,7 @@
                   <p>Camera Đỉnh Cao: Camera với độ phân giải cao, nhiều tính năng chụp ảnh chuyên
                     nghiệp, cho ra những bức ảnh sắc nét và sống động.</p>
 
-                  <p><a href="#" class="btn btn-primary px-5 py-3 mt-3">Xem ngay</a></p>
+                  <p><a href="/cua-hang" class="btn btn-primary px-5 py-3 mt-3">Xem ngay</a></p>
                 </div>
               </div>
             </div>
@@ -64,7 +64,7 @@
                   <p>Điện thoại tầm trung là sự lựa chọn hoàn hảo cho những ai muốn sở hữu một chiếc
                     smartphone với giá cả phải chăng nhưng vẫn đảm bảo chất lượng.</p>
 
-                  <p><a href="#" class="btn btn-primary px-5 py-3 mt-3">Mua Ngay</a></p>
+                  <p><a href="/cua-hang" class="btn btn-primary px-5 py-3 mt-3">Mua Ngay</a></p>
                 </div>
               </div>
             </div>
@@ -96,7 +96,7 @@
           echo '<div class="col-sm col-md-6 col-lg ftco-animate">
                     <div class="product">
 
-                        <a href="/detail-san-pham?id=' . $h['id'] . '" class="img-prod"><img class="img-fluid" src="' . $h['anh_chinh'] . '" width="796px" height="800px" alt="Colorlib Template">                 
+                        <a href="/chi-tiet-san-pham?id=' . $h['id'] . '" class="img-prod"><img class="img-fluid" src="' . $h['anh_chinh'] . '" width="796px" height="800px" alt="Colorlib Template">                 
                             <div class="overlay"></div>
                         </a>
                         <div class="text py-3 px-3">
@@ -116,7 +116,7 @@
                                 </div>
                             </div>
                             <p class="bottom-area d-flex px-3">
-                                <a href="#" class="add-to-cart text-center py-2 mr-1"><span>Add to cart <i
+                                <a href="/chi-tiet-san-pham?id=' . $h['id'] . '" class="add-to-cart text-center py-2 mr-1"><span>Chi tiết <i
                                             class="ion-ios-add ml-1"></i></span></a>
                                 <a href="#" class="buy-now text-center py-2">Buy now<span><i
                                             class="ion-ios-cart ml-1"></i></span></a>

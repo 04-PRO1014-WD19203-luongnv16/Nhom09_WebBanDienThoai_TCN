@@ -13,6 +13,11 @@ use MVC\Models\ThanhToan;
 class ThanhToanController extends Controller {
     public function index() {
         if (isset($_SESSION['id'])) {
+            $giohangs = (new GioHang)->selectAll();
+            if(empty($giohangs)) {
+                $data['error'] = "Giỏ hàng của bạn đang trống";
+                (new GioHangController)->index($data);
+            }
             $data['title'] = "Thanh tóan";
             $data['trang_thais'] = (new ThanhToan)->all();
             $data['tai_khoan'] = (new TaiKhoan)->findOne($_SESSION['id']);

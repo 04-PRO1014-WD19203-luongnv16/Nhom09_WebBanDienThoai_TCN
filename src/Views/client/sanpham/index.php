@@ -33,7 +33,7 @@
                                 <input class="form-control" type="search" name="search" id=""
                                     placeholder="Bạn tìm gì...">
                                 <input class="bg-primary btn-primary text-center"
-                                    style="border-color: #ffa45c;width: 100px;" type="submit" value="Tìm">
+                                    style="border-color: #ffa45c;width: 100px;" name="btn-search" type="submit" value="Tìm">
                             </div>
                         </form>
                     </div>
@@ -88,7 +88,7 @@
                             <ul>
                                 <form action="" method="post" >
                                     <select name="id_danhmuc" class="form-control">
-                                        <option value="" selected>Tất cả</option>
+                                    <option value="all">Tất cả</option>
                                         <?php foreach ($danhmucs as $danhmuc): ?>
                                             <option value="<?= $danhmuc['id'] ?>" 
                                             <?php 

@@ -18,6 +18,11 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-12 ftco-animate">
+                    <?php if(isset($error)) :?>
+                        <div class="alert alert-danger">
+                            <?=$error?>
+                        </div>
+                        <?php endif?>
                     <div class="cart-list">
                         <table class="table">
                             <thead class="thead-primary">
@@ -85,7 +90,7 @@
             </div>
             <div class="row justify-content-center">
                 <div class="col col-lg-5 col-md-6 mt-5 cart-wrap ftco-animate">
-                        <form action="/thanh-toan-form" method="post" onload="">
+                        <form action="/thanh-toan-form" method="post">
                             <div class="cart-total mb-3">
                             <h3>Hóa đơn</h3>
                                 <p class="d-flex">

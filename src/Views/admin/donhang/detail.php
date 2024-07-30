@@ -19,6 +19,7 @@
                         } else {
                             echo '<option value=" ' . $ttdh['id'] . '">' . $ttdh['ten_trang_thai'] . ' </option>';
                         }
+                        
                     }
                     ?>
 
