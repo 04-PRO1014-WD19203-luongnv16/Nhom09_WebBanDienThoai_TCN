@@ -25,6 +25,8 @@
     <link href="https://cdn.jsdelivr.net/npm/weathericons@2.1.0/css/weather-icons.css" rel="stylesheet" />
     <link href="https://cdn.jsdelivr.net/npm/fullcalendar@3.9.0/dist/fullcalendar.min.css" rel="stylesheet" />
 
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+
     <style>
         #weatherWidget .currentDesc {
             color: #ffffff !important;

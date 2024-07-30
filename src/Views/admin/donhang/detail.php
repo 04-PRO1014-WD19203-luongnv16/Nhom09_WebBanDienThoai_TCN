@@ -16,8 +16,10 @@
                     foreach ($ttdonhang as $key => $ttdh) {
                         if ($donhang['trang_thai'] == $ttdh['id']) {
                             echo '<option value=" ' . $ttdh['id'] . '"selected>' . $ttdh['ten_trang_thai'] . ' </option>';
-                        } else
-                            echo '<option value=" ' . $ttdh['id'] . '">' . $ttdh['ten_trang_thai'] . '</option>';
+                        } else {
+                            echo '<option value=" ' . $ttdh['id'] . '">' . $ttdh['ten_trang_thai'] . ' </option>';
+                        }
+                        
                     }
                     ?>
 
