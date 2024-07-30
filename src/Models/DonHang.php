@@ -56,4 +56,9 @@ class DonHang extends Model
         $this->setQuery($sql);
         return $this->GetOne();
     }
+    public function selectAll() {
+        $sql = "SELECT * FROM $this->table WHERE id_tai_khoans = $_SESSION[id] ORDER BY ngay_dat_hang DESC";
+        $this->setQuery($sql);
+        return $this->GetAll();
+    }
 }

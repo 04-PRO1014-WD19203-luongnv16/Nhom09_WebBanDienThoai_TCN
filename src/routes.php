@@ -15,6 +15,7 @@ use MVC\Models\DonHang;
 use MVC\Models\TaiKhoan;
 use MVC\Router;
 use Phroute\Phroute\RouteCollector;
+use MVC\Controllers\Clients\TaiKhoanController;
 
 $route = new RouteCollector();
 
@@ -49,6 +50,9 @@ $router->addRoute('/check-out', ThanhToanController::class, 'checkout');
 // chi tiet
 $router->addRoute('/detail-san-pham', CuaHangController::class, 'detail');
 $router->addRoute('/chi-tiet-san-pham', CuaHangController::class, 'detail');
+
+// Tài khoản
+$router->addRoute('/tai-khoan', TaiKhoanController::class, 'index');
 
 //loc sp theo dm
 $route->post('/sanphamdanhmuc', [CuaHangController::class, 'index']);

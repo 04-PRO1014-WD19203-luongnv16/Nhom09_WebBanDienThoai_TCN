@@ -84,7 +84,7 @@ class ThanhToanController extends Controller {
                 $tong_tien = $_POST['tong_tien'];
                 // Đặt thời gian
                 date_default_timezone_set('Asia/Ho_Chi_Minh');
-                $ngay_dat_hang = date('Y-m-d');
+                $ngay_dat_hang = date('Y-m-d H:i:s');
                 $id_thanh_toan = $_POST['thanh_toan'];
                 if(!isset($_POST['id_ma_giam_gias']) || $_POST['id_ma_giam_gias'] == "") {
                 //    Khi không sử dụng mã giảm giá
@@ -101,7 +101,7 @@ class ThanhToanController extends Controller {
                 foreach ($gioHangs as $gioHang) {
                     foreach ($bienThes as $bienThe) {
                         if($gioHang['id_bien_thes'] == $bienThe['id']) {
-                            (new ChiTietDonHang)->insert($donHang['id'], $gioHang['id_bien_thes'], $bienThe['id_san_phams'], $gioHang['so_luong']);
+                            (new ChiTietDonHang)->insert($donHang['id'], $gioHang['id_bien_thes'], $bienThe['id_san_phams'], $gioHang['so_luong'], $bienThe['gia_ban']);
                             $so_luong = $bienThe['so_luong'] - $gioHang['so_luong'];
                             (new BienThe)->updateSoLuong($gioHang['id_bien_thes'],$so_luong);
                         }
