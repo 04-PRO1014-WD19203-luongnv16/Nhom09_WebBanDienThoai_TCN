@@ -124,6 +124,7 @@ class ThanhToanController extends Controller {
     }
     public function checkout() {
         $data['title'] = "Thanh toán thành công";
+        $data['donHang'] = (new DonHang)->selectNew();
         return $this->render('client/thanhtoan/checkout',$data);
     }
 }

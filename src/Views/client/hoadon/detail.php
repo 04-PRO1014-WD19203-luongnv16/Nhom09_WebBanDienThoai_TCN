@@ -70,19 +70,19 @@
                         <div class="row mx-3">
                             <div class="col-12">
                                 <label for="" class="form-lable">Tên người nhận:</label>
-                                <input class="form-control mb-3" style="font-size: 15px;height: 30px !important;" type="text" value="<?=$hoadons['ten_nguoi_nhan']?>">
+                                <input class="form-control mb-3" readonly style="font-size: 15px;height: 30px !important;" type="text" value="<?=$hoadons['ten_nguoi_nhan']?>">
                             </div>
                             <div class="col-12">
                                 <label for="" class="form-lable">Địa chỉ người nhận:</label>
-                                <input class="form-control mb-3" style="font-size: 15px;height: 30px !important;" type="text" value="<?=$hoadons['dia_chi']?>">
+                                <input class="form-control mb-3" readonly style="font-size: 15px;height: 30px !important;" type="text" value="<?=$hoadons['dia_chi']?>">
                             </div>
                             <div class="col-12">
                                 <label for="" class="form-lable">Email người nhận:</label>
-                                <input class="form-control mb-3" style="font-size: 15px;height: 30px !important;" type="text" value="<?=$hoadons['email']?>">
+                                <input class="form-control mb-3" readonly style="font-size: 15px;height: 30px !important;" type="text" value="<?=$hoadons['email']?>">
                             </div>
                             <div class="col-12">
                                 <label for="" class="form-lable">SĐT người nhận:</label>
-                                <input class="form-control mb-3" style="font-size: 15px;height: 30px !important;" type="text" value="<?=$hoadons['so_dien_thoai']?>">
+                                <input class="form-control mb-3" readonly style="font-size: 15px;height: 30px !important;" type="text" value="<?=$hoadons['so_dien_thoai']?>">
                             </div>
                         </div>
                     </div>

@@ -49,8 +49,7 @@
                                                 src="<?= $sanpham['anh_chinh'] ?>"
                                                 alt="<?= $sanpham['ten_san_pham'] ?>"></a>
                                         <div class="text py-3 px-3" style="height: 150px;">
-                                            <h3 style="height: 50px;"><a
-                                                    href="/chi-tiet-san-pham?id=<?= $sanpham['id'] ?>"><?= $sanpham['ten_san_pham'] ?></a>
+                                            <h3 style="height: 50px;"><a href="/chi-tiet-san-pham?id=<?= $sanpham['id'] ?>"><?= $sanpham['ten_san_pham'] ?></a>
                                             </h3>
                                             <div class="">
                                                 <div class="mb-3">

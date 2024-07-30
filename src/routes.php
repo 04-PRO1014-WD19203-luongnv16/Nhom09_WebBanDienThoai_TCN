@@ -52,6 +52,7 @@ $router->addRoute('/chi-tiet-san-pham', CuaHangController::class, 'detail');
 
 // Tài khoản
 $router->addRoute('/tai-khoan', TaiKhoanController::class, 'index');
+$router->addRoute('/tai-khoan-update', TaiKhoanController::class, 'update');
 // Chi tiết hóa đơn
 $router->addRoute('/chi-tiet-don-hang', ChiTietDonHangController::class, 'detail');
 
