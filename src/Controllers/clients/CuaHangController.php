@@ -23,7 +23,11 @@ class CuaHangController extends Controller
         $data['title'] = "Danh sách sản phẩm";
         if(isset($_POST['submit'])){
             $id_danhmuc=$_POST['id_danhmuc'];
-            $data['sanphams'] = $this->sanphams->allSanPhamDanhMucs($id_danhmuc);
+            if($id_danhmuc == 'all'){
+                $data['sanphams'] = $this->sanphams->sanPham();
+            }else{
+                $data['sanphams'] = $this->sanphams->allSanPhamDanhMucs($id_danhmuc);
+            }
         }else{
             $data['sanphams'] = $this->sanphams->sanPham();
         }
@@ -35,12 +39,22 @@ class CuaHangController extends Controller
             }
         }
         return $this->render('client/sanpham/index',$data);
+
+    }
+
+    public function loadListDM(){
+        // echo $_GET['id'];
+        $data['danhmucs'] = $this->danhmucs->all();
+        if($_GET['id']){
+            $id_danhmuc=$_GET['id'];
+            $data['sanphams'] = $this->sanphams->allSanPhamDanhMucs($id_danhmuc);
+        }
+        return $this->render('client/sanpham/index',compact('data'));
     }
 
         
     public function detail()
     {
-
         if (isset($_GET['id'])) {
             $data = [];
             $data['sanphams'] =

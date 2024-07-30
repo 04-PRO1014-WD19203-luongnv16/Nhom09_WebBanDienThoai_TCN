@@ -3,6 +3,7 @@
 use MVC\Controllers\admins\DanhMucController;
 use MVC\Controllers\admins\DashboardController;
 use MVC\Controllers\admins\DonHangController;
+use MVC\Controllers\admins\TaiKhoanController;
 use MVC\Controllers\admins\SanPhamController;
 use MVC\Controllers\Clients\ChiTietDonHang;
 use MVC\Controllers\Clients\ChiTietDonHangController;
@@ -11,7 +12,9 @@ use MVC\Controllers\clients\GioHangController;
 use MVC\Controllers\clients\LoginController;
 use MVC\Controllers\clients\ThanhToanController;
 use MVC\Controllers\clients\TrangChuController;
+
 use MVC\Models\DonHang;
+use MVC\Models\TaiKhoan;
 use MVC\Router;
 use Phroute\Phroute\RouteCollector;
 use MVC\Controllers\Clients\TaiKhoanController;
@@ -31,12 +34,14 @@ $router->addRoute('/logout', LoginController::class, 'logout');
 $router->addRoute('/list-san_pham', SanPhamController::class, 'index');
 // $route->post('/dang_ky', [LoginController::class, 'dangky']);
 
+// $router->addRoute('/list-danhmuc',CuaHangController::class,'loadListDM');
+
 //dang ky
 $router->addRoute('/dang_ky', LoginController::class, 'dangky');
 
-// $route->post('/dang_ky',[LoginController::class, 'dangky']);    
-// SanPham
+// $route->post('/dang_ky',[LoginController::class, 'dangky']);  
 
+// SanPham
 $router->addRoute('/cua-hang', CuaHangController::class, 'index');
 $router->addRoute('/chi-tiet-san-pham', CuaHangController::class, 'detail');
 // Giỏ hàng
@@ -57,7 +62,9 @@ $router->addRoute('/tai-khoan-update', TaiKhoanController::class, 'update');
 $router->addRoute('/chi-tiet-don-hang', ChiTietDonHangController::class, 'detail');
 
 //loc sp theo dm
-$route->post('/sanphamdanhmuc', [CuaHangController::class, 'index']);
+$route->post('/sanphamdanhmuc',[CuaHangController::class, 'index']);
+//list danh muc
+$router->addRoute('/loaddanhmuc',CuaHangController::class, 'loadListDM');
 
 //Route thuộc Quản trị viên
 $router->addRoute('/admin', DashboardController::class, 'index');
@@ -76,7 +83,8 @@ $router->addRoute('/detail-san-pham', SanPhamController::class, 'detailSanPham')
 //Quản lý đơn hàng
 $router->addRoute('/admin-don-hang', DonHangController::class, 'index');
 $router->addRoute('/detail-don-hang', DonHangController::class, 'detailDonHang');
-
-
+//Quản lý tài khoản
+$router->addRoute('/admin-tai-khoan', TaiKhoanController::class, 'index');
+$router->addRoute('/sua-tai-khoan', TaiKhoanController::class, 'updateTaiKhoan');
 
 return $router;

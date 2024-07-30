@@ -87,7 +87,7 @@
                             <ul>
                                 <form action="" method="post" >
                                     <select name="id_danhmuc" class="form-control">
-                                        <option value="" selected>Tất cả</option>
+                                    <option value="all">Tất cả</option>
                                         <?php foreach ($danhmucs as $danhmuc): ?>
                                             <option value="<?= $danhmuc['id'] ?>" 
                                             <?php 

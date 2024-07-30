@@ -15,7 +15,7 @@
                     <a href="/admin-don-hang" class="dropdown-toggle"> <i class="menu-icon fa fa-th"></i>Quản lý đơn hàng</a>
                 </li>
                 <li>
-                    <a href="/admin-tai-khoan" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-tasks"></i>Quản lý tài khoản</a>
+                    <a href="/admin-tai-khoan" class="dropdown-toggle"> <i class="menu-icon fa fa-tasks"></i>Quản lý tài khoản</a>
                 </li>
                 <li>
                     <a href="/admin-danh-gia"><i class="menu-icon ti-email"></i>Quản lý đánh giá</a>
