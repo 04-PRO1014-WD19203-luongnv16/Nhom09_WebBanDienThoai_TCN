@@ -32,4 +32,9 @@ class TaiKhoan extends Model
         $this->setQuery($sql);
         $this->Execute();
     }
+    public function updateAll($tai_khoan, $mat_khau, $hinh_anh, $email, $so_dien_thoai, $dia_chi, $gioi_tinh) {
+        $sql = "UPDATE $this->table SET tai_khoan='$tai_khoan', mat_khau='$mat_khau', hinh_anh='$hinh_anh', email='$email', so_dien_thoai='$so_dien_thoai', dia_chi='$dia_chi', gioi_tinh='$gioi_tinh' WHERE id=$_SESSION[id]";
+        $this->setQuery($sql);
+        $this->Execute();
+    }
 }

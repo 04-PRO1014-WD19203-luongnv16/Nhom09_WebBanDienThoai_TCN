@@ -36,13 +36,19 @@
                         <div class="p-3" style="background-color: white !important;">
                             <div class="row">
                                 <div class="col-6 img m-auto" style="border-radius: 50%;">
-                                    <img class="w-100" style="border-radius: 50%;"
-                                        src="/public/user-profile-icon-free-vector.jpg" alt="">
+                                    <?php if ($taiKhoan['hinh_anh'] == ""): ?>
+                                        <img class="w-100" style="border-radius: 50%;height: 100px;object-fit: cover;"
+                                            src="/public/user-profile-icon-free-vector.jpg" alt="">
+                                    <?php endif ?>
+                                    <?php if ($taiKhoan['hinh_anh'] != ""): ?>
+                                        <img class="w-100" style="border-radius: 50%;height: 100px;object-fit: cover;"
+                                            src="<?=$taiKhoan['hinh_anh']?>" alt="">
+                                    <?php endif ?>
                                 </div>
                                 <div class="col-12" style="text-align: center;">
-                                    <div style="font-size: 15px;"><strong><?= $_SESSION['tai_khoan'] ?></strong></div>
-                                    <a href="/tai-khoan-update" class="text" style="color: gray;font-size: 12px;">Chỉnh sửa hồ sơ <i
-                                            class="fa-solid fa-pen"></i></a>
+                                    <div style="font-size: 15px;"><strong><?= $taiKhoan['tai_khoan'] ?></strong></div>
+                                    <a href="/tai-khoan-update" class="text" style="color: gray;font-size: 12px;">Chỉnh
+                                        sửa hồ sơ <i class="fa-solid fa-pen"></i></a>
                                 </div>
                             </div>
 
@@ -50,12 +56,12 @@
                     </div>
                     <div class="col-9 py-3">
                         <div class="">
-                            <?php if(isset($error)) :?>
-                                <div class="alert alert-danger"><?=$error?></div>
-                                <?php endif?>
-                            <?php if(isset($success)) :?>
-                                <div class="alert alert-success"><?=$success?></div>
-                                <?php endif?>
+                            <?php if (isset($error)): ?>
+                                <div class="alert alert-danger"><?= $error ?></div>
+                            <?php endif ?>
+                            <?php if (isset($success)): ?>
+                                <div class="alert alert-success"><?= $success ?></div>
+                            <?php endif ?>
                             <div class="">
                                 <div class="head-btn px-3 mb-3" style="background-color: white !important;">
                                     <div class="navbar navbar-expand-lg bg-body-tertiary">
@@ -91,15 +97,17 @@
                                         </div>
                                     </div>
                                 </div>
-                                
+
                                 <form action="" method="get">
-                                <div class="input-group flex-nowrap px-3 mb-3" style="height: 30px !important;">
-                                    
-                                        <input type="text" name="search" class="form-control" placeholder="Nhập mã đơn bạn cần tìm..."
+                                    <div class="input-group flex-nowrap px-3 mb-3" style="height: 30px !important;">
+
+                                        <input type="text" name="search" class="form-control"
+                                            placeholder="Nhập mã đơn bạn cần tìm..."
                                             style="height: 30px !important;font-size: 14px;">
-                                        <button style="height: 30px !important;" name="btn-search" class="input-group-text"
-                                            id="addon-wrapping"><i class="fa-solid fa-magnifying-glass"></i></button>
-                                </div>
+                                        <button style="height: 30px !important;" name="btn-search"
+                                            class="input-group-text" id="addon-wrapping"><i
+                                                class="fa-solid fa-magnifying-glass"></i></button>
+                                    </div>
                                 </form>
 
                                 <div class="p-3 mb-3" style="background-color: white !important;">
@@ -162,8 +170,11 @@
                                                                     </p>
                                                                 <?php endif ?>
                                                                 <div>
-                                                                    <a class="btn btn-warning text-light" style="border-radius: 0;" href="/chi-tiet-don-hang?id=<?=$donhang['id']?>">Chi tiết hóa đơn</a>
-                                                                    
+                                                                    <a class="btn btn-warning text-light"
+                                                                        style="border-radius: 0;"
+                                                                        href="/chi-tiet-don-hang?id=<?= $donhang['id'] ?>">Chi
+                                                                        tiết hóa đơn</a>
+
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -229,7 +240,10 @@
                                                                         </p>
                                                                     <?php endif ?>
                                                                     <div>
-                                                                        <a class="btn btn-warning text-light" style="border-radius: 0;" href="/chi-tiet-don-hang?id=<?=$donhang['id']?>">Chi tiết hóa đơn</a>
+                                                                        <a class="btn btn-warning text-light"
+                                                                            style="border-radius: 0;"
+                                                                            href="/chi-tiet-don-hang?id=<?= $donhang['id'] ?>">Chi
+                                                                            tiết hóa đơn</a>
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -296,7 +310,10 @@
                                                                         </p>
                                                                     <?php endif ?>
                                                                     <div>
-                                                                        <a class="btn btn-warning text-light" style="border-radius: 0;" href="/chi-tiet-don-hang?id=<?=$donhang['id']?>">Chi tiết hóa đơn</a>
+                                                                        <a class="btn btn-warning text-light"
+                                                                            style="border-radius: 0;"
+                                                                            href="/chi-tiet-don-hang?id=<?= $donhang['id'] ?>">Chi
+                                                                            tiết hóa đơn</a>
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -363,7 +380,10 @@
                                                                         </p>
                                                                     <?php endif ?>
                                                                     <div>
-                                                                        <a class="btn btn-warning text-light" style="border-radius: 0;" href="/chi-tiet-don-hang?id=<?=$donhang['id']?>">Chi tiết hóa đơn</a>
+                                                                        <a class="btn btn-warning text-light"
+                                                                            style="border-radius: 0;"
+                                                                            href="/chi-tiet-don-hang?id=<?= $donhang['id'] ?>">Chi
+                                                                            tiết hóa đơn</a>
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -430,7 +450,10 @@
                                                                         </p>
                                                                     <?php endif ?>
                                                                     <div>
-                                                                        <a class="btn btn-warning text-light" style="border-radius: 0;" href="/chi-tiet-don-hang?id=<?=$donhang['id']?>">Chi tiết hóa đơn</a>
+                                                                        <a class="btn btn-warning text-light"
+                                                                            style="border-radius: 0;"
+                                                                            href="/chi-tiet-don-hang?id=<?= $donhang['id'] ?>">Chi
+                                                                            tiết hóa đơn</a>
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -497,7 +520,10 @@
                                                                         </p>
                                                                     <?php endif ?>
                                                                     <div>
-                                                                        <a class="btn btn-warning text-light" style="border-radius: 0;" href="/chi-tiet-don-hang?id=<?=$donhang['id']?>">Chi tiết hóa đơn</a>
+                                                                        <a class="btn btn-warning text-light"
+                                                                            style="border-radius: 0;"
+                                                                            href="/chi-tiet-don-hang?id=<?= $donhang['id'] ?>">Chi
+                                                                            tiết hóa đơn</a>
                                                                     </div>
                                                                 </div>
                                                             </div>
