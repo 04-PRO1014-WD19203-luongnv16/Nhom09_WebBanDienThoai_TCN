@@ -23,7 +23,7 @@
                     <tr>
                         <td><?= $sanpham['id'] ?></td>
                         <td><?= $sanpham['ten_san_pham'] ?></td>
-                        <td><img style="width: 100%;" src="<?= $sanpham['anh_chinh'] ?>" alt="ảnh chính"></td>
+                        <td><img style="width: 100px;" src="<?= $sanpham['anh_chinh'] ?>" alt="ảnh chính"></td>
                         <td><?= $sanpham['ngay_tao'] ?></td>
                         <td><?= $sanpham['id_danh_mucs'] ?></td>
                         <td>
