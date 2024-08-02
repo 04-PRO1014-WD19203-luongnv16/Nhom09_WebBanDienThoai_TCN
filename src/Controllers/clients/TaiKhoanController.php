@@ -2,15 +2,21 @@
 namespace MVC\Controllers\Clients;
 
 use MVC\Controller;
+use MVC\Models\DanhMuc;
 use MVC\Models\DonHang;
 use MVC\Models\TaiKhoan;
 
 class TaiKhoanController extends Controller
 {
 
+    public function index() {
+        $data['danhmucs'] = (new DanhMuc)->all();
+        if(isset($_SESSION['id'])) {
+
     public function index($data = [])
     {
         if (isset($_SESSION['id'])) {
+
             $data['title'] = "Tài khoản";
             $data['donhangs'] = (new DonHang)->selectAll();
             $data['taiKhoan'] = (new TaiKhoan)->findOne($_SESSION['id']);
@@ -115,6 +121,7 @@ class TaiKhoanController extends Controller
         } else {
             return header('location: /');
         }
+        
     }
 }
 ?>

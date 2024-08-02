@@ -92,7 +92,7 @@
                                             <option value="<?= $danhmuc['id'] ?>" 
                                             <?php 
                                                 if ($danhmuc['id'] == $sanphams[0]['id_danh_mucs']) {
-                                                  echo "";
+                                                    echo '';
                                                 } 
                                             ?>>
                                                 <?= $danhmuc['ten_danh_muc'] ?>

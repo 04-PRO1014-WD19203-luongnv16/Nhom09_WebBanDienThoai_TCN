@@ -1,5 +1,6 @@
 <?php
 
+use MVC\Controllers\admins\DanhGiaController;
 use MVC\Controllers\admins\DanhMucController;
 use MVC\Controllers\admins\DashboardController;
 use MVC\Controllers\admins\DonHangController;
@@ -81,8 +82,15 @@ $router->addRoute('/update-bien-the', SanPhamController::class, 'updateBienThe')
 //Quản lý đơn hàng
 $router->addRoute('/admin-don-hang', DonHangController::class, 'index');
 $router->addRoute('/detail-don-hang', DonHangController::class, 'detailDonHang');
+
+//Quản lý đánh giá
+$router->addRoute('/admin-danh-gia',DanhGiaController::class,'AllDanhGia');
+$router->addRoute('/admin-thong-ke',DanhGiaController::class,'thongKe');
+
 //Quản lý tài khoản
 $router->addRoute('/admin-tai-khoan', TaiKhoanAdminController::class, 'index');
 $router->addRoute('/sua-tai-khoan', TaiKhoanAdminController::class, 'updateTaiKhoan');
 
+
 return $router;
+

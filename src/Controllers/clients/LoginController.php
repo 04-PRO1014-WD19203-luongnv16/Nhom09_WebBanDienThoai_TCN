@@ -2,14 +2,20 @@
 namespace MVC\Controllers\clients;
 
 use MVC\Controller;
+use MVC\Models\DanhMuc;
 use MVC\Models\TaiKhoan;
 
 class LoginController extends Controller { 
     protected $taikhoan;
+    protected $danhmucs;
     public function __construct(){
         $this->taikhoan = new TaiKhoan;
+        $this->danhmucs = new DanhMuc;
     }
+
+
      public function dangky(){
+        $data['danhmucs'] = $this->danhmucs->all();
         if(isset($_POST['submit'])){
             $errors=[];
             $tai_khoan = $_POST['tai_khoan'];
@@ -44,11 +50,12 @@ class LoginController extends Controller {
                 return $this->render('dangky',compact('errors'));  
             }
         }
-        return $this->render('dangky');
+        return $this->render('dangky',compact('data'));
     }
 
 
     public function index() {
+        $data['danhmucs'] = $this->danhmucs->all();
         if (isset($_SESSION['id'])) {
             return header("location: /");
         }
@@ -95,7 +102,7 @@ class LoginController extends Controller {
                     }
                 }
             }
-            return $this->render('/login', ['validate'=>$validate, 'checkForm'=>$checkForm]);
+            return $this->render('/login', ['validate'=>$validate, 'checkForm'=>$checkForm,'data'=>$data]);
         }
         }
     public function logout() {
