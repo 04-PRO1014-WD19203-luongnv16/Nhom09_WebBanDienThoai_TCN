@@ -18,6 +18,7 @@
                         <?php foreach ($data['danhmucs'] as $tenDanhMuc): ?>
                             <a href='/loaddanhmuc?id=<?= $tenDanhMuc['id'] ?>' class="dropdown-item"><?= $tenDanhMuc['ten_danh_muc'] ?>
                         </a>
+                        
                         <?php endforeach; ?>
                          </div>
                     </li>

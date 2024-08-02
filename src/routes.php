@@ -1,5 +1,6 @@
 <?php
 
+use MVC\Controllers\admins\DanhGiaController;
 use MVC\Controllers\admins\DanhMucController;
 use MVC\Controllers\admins\DashboardController;
 use MVC\Controllers\admins\DonHangController;
@@ -75,4 +76,9 @@ $router->addRoute('/detail-san-pham', SanPhamController::class, 'detailSanPham')
 //Quản lý đơn hàng
 $router->addRoute('/admin-don-hang', DonHangController::class, 'index');
 $router->addRoute('/detail-don-hang', DonHangController::class, 'detailDonHang');
+//Quản lý đánh giá
+$router->addRoute('/admin-danh-gia',DanhGiaController::class,'AllDanhGia');
+$router->addRoute('/admin-thong-ke',DanhGiaController::class,'thongKe');
+
 return $router;
+

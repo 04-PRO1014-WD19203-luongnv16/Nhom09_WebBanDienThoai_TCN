@@ -2,19 +2,24 @@
 namespace MVC\Controllers\clients;
 use MVC\Controller;
 use MVC\Models\BienThe;
+use MVC\Models\DanhMuc;
 use MVC\Models\GioHang;
 use MVC\Models\SanPham;
 
 class GioHangController extends Controller {
     protected $giohang;
+    protected $danhmucs;
     public function __construct() {
         $this->giohang = new GioHang();
+        $this->danhmucs = new DanhMuc();
     }
     
     public function index() {
+        
         if (isset($_SESSION['id'])) {
             $data['title'] = "Giỏ  hàng";
         $data['giohangs'] = $this->giohang->selectAll();
+        $data['danhmucs'] = $this->danhmucs->all();
         $data['bienthes'] = (new BienThe)->all();
         $data['sanphams'] = (new SanPham)->all();
             if (isset($_POST['reduce']) || isset($_POST['increase'])) {

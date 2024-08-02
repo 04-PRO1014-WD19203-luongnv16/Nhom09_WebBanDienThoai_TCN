@@ -2,18 +2,20 @@
 namespace MVC\Controllers\clients;
 use MVC\Controller;
 use MVC\Models\BienThe;
-use MVC\Models\ChiTietDonHang;
+use MVC\Models\DanhMuc;
 use MVC\Models\DonHang;
 use MVC\Models\GioHang;
-use MVC\Models\MaGiamGia;
 use MVC\Models\SanPham;
 use MVC\Models\TaiKhoan;
+use MVC\Models\MaGiamGia;
 use MVC\Models\ThanhToan;
+use MVC\Models\ChiTietDonHang;
 
 class ThanhToanController extends Controller {
     public function index() {
+        $data['danhmucs'] = (new DanhMuc)->all();
         if (isset($_SESSION['id'])) {
-            $data['title'] = "Thanh tóan";
+            $data['title'] = "Thanh tóan";            
             $data['trang_thais'] = (new ThanhToan)->all();
             $data['tai_khoan'] = (new TaiKhoan)->findOne($_SESSION['id']);
                 if (isset($_POST['shortcode']) && $_POST['shortcode'] != "") {
@@ -118,6 +120,7 @@ class ThanhToanController extends Controller {
         }
     }
     public function checkout() {
+        $data['danhmucs'] = (new DanhMuc)->all();
         $data['title'] = "Thanh toán thành công";
         return $this->render('client/thanhtoan/checkout',$data);
     }
