@@ -31,6 +31,13 @@ class CuaHangController extends Controller
         }else{
             $data['sanphams'] = $this->sanphams->sanPham();
         }
+        if(isset($_GET['btn-search'])) {
+            $search = $_GET['search'];
+            $data['sanphams'] = $this->sanphams->searchSanPham($search);
+            if(empty($data['sanphams'])) {
+                $data['sanphams'] = $this->sanphams->sanPham();
+            }
+        }
         return $this->render('client/sanpham/index',$data);
 
     }

@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Jul 13, 2024 at 08:15 AM
+-- Generation Time: Jul 27, 2024 at 07:14 AM
 -- Server version: 8.0.30
--- PHP Version: 8.1.10
+-- PHP Version: 8.3.9
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -44,12 +44,13 @@ CREATE TABLE `bien_thes` (
 INSERT INTO `bien_thes` (`id`, `id_san_phams`, `id_mau_sacs`, `id_dung_luongs`, `so_luong`, `gia_goc`, `gia_ban`) VALUES
 (1, 1, 5, 3, 20, 25000000, 24000000),
 (2, 1, 6, 4, 20, 37000000, 34000000),
-(3, 1, 5, 4, 20, 37000000, 34000000),
+(3, 1, 5, 4, 17, 37000000, 34000000),
 (4, 1, 6, 3, 20, 25000000, 24000000),
-(5, 2, 3, 3, 20, 30000000, 28000000),
-(6, 2, 3, 4, 20, 37000000, 31000000),
-(7, 3, 6, 4, 20, 35000000, 30000000),
-(8, 4, 6, 3, 20, 9000000, 8900000);
+(5, 2, 3, 3, 18, 30000000, 28000000),
+(6, 2, 3, 4, 19, 37000000, 31000000),
+(7, 3, 6, 4, 16, 35000000, 30000000),
+(8, 4, 6, 3, 17, 9000000, 8900000),
+(9, 5, 4, 3, 20, 25000000, 24000000);
 
 -- --------------------------------------------------------
 
@@ -62,8 +63,16 @@ CREATE TABLE `chi_tiet_don_hangs` (
   `id_don_hangs` int NOT NULL,
   `id_bien_thes` int NOT NULL,
   `id_san_phams` int NOT NULL,
-  `so_luong` int NOT NULL
+  `so_luong` int NOT NULL,
+  `gia_san_pham` double NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+--
+-- Dumping data for table `chi_tiet_don_hangs`
+--
+
+INSERT INTO `chi_tiet_don_hangs` (`id`, `id_don_hangs`, `id_bien_thes`, `id_san_phams`, `so_luong`, `gia_san_pham`) VALUES
+(13, 24, 8, 4, 1, 8900000);
 
 -- --------------------------------------------------------
 
@@ -115,11 +124,19 @@ CREATE TABLE `don_hangs` (
   `email` varchar(255) NOT NULL,
   `so_dien_thoai` varchar(50) NOT NULL,
   `tong_tien` double NOT NULL,
-  `ngay_dat_hang` date NOT NULL,
-  `id_ma_giam_gias` int NOT NULL,
+  `ngay_dat_hang` datetime NOT NULL,
+  `id_ma_giam_gias` int DEFAULT NULL,
   `id_thanh_toans` int NOT NULL,
   `trang_thai` int NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+--
+-- Dumping data for table `don_hangs`
+--
+
+INSERT INTO `don_hangs` (`id`, `id_tai_khoans`, `ten_nguoi_nhan`, `dia_chi`, `email`, `so_dien_thoai`, `tong_tien`, `ngay_dat_hang`, `id_ma_giam_gias`, `id_thanh_toans`, `trang_thai`) VALUES
+(23, 3, 'tuyen123', 'Bắc Giang', 'tuyen123@gmail.com', '0252525233', 8900000, '2024-07-26 22:25:40', NULL, 1, 5),
+(24, 3, 'tuyen123', 'Bắc Giang', 'tuyen123@gmail.com', '0252525233', 8900000, '2024-07-26 22:25:59', NULL, 1, 2);
 
 -- --------------------------------------------------------
 
@@ -155,6 +172,14 @@ CREATE TABLE `gio_hangs` (
   `so_luong` int NOT NULL,
   `id_tai_khoans` int NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+--
+-- Dumping data for table `gio_hangs`
+--
+
+INSERT INTO `gio_hangs` (`id`, `id_bien_thes`, `so_luong`, `id_tai_khoans`) VALUES
+(56, 5, 1, 3),
+(57, 7, 3, 3);
 
 -- --------------------------------------------------------
 
@@ -195,6 +220,13 @@ CREATE TABLE `ma_giam_gias` (
   `ngay_het_han` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
+--
+-- Dumping data for table `ma_giam_gias`
+--
+
+INSERT INTO `ma_giam_gias` (`id`, `ten_ma`, `shortcode`, `muc_giam`, `trang_thai`, `ngay_tao`, `ngay_het_han`) VALUES
+(1, 'mã giảm 10k', 'giam10k', 10000, 1, '2024-07-23', '2024-07-31');
+
 -- --------------------------------------------------------
 
 --
@@ -219,10 +251,11 @@ CREATE TABLE `san_phams` (
 --
 
 INSERT INTO `san_phams` (`id`, `ten_san_pham`, `anh_chinh`, `anh_phu_1`, `anh_phu_2`, `anh_phu_3`, `mo_ta_ngan`, `mo_ta`, `ngay_tao`, `id_danh_mucs`) VALUES
-(1, 'Samsung Galaxy S23 Ultra', 'samsung-galaxy-s23-ultra', 'null', 'null', 'null', 'Hệ điều hành: Android.\r\nChip: Snapdragon 8 Gen 2 for Galaxy.\r\nRam: 8 GB\r\nDung lượng: 256 GB ||512 GB\r\nPin: 5000 mAh\r\nHãng: Samsung\r\n', 'Samsung Galaxy S23 Ultra 5G 256GB là chiếc smartphone cao cấp nhất của nhà Samsung, sở hữu cấu hình không tưởng với con chip khủng được Qualcomm tối ưu riêng cho dòng Galaxy và camera lên đến 200 MP, xứng danh là chiếc flagship Android được mong đợi nhất trong năm 2023.', '2024-07-10', 2),
-(2, 'Samsung Galaxy S24 Ultra', 'samsung-galaxy-s24-ultra', 'null', 'null', 'null', 'Hệ điều hành: Android\r\nRAM: 8GB\r\nDung lượng: 256 GB || 512 GB || 1GB\r\nPin: 5000 mAh\r\nHãng: Samsung', 'Samsung Galaxy S24 Ultra 5G 512GB khi ra mắt đã tạo nên cơn sốt thị trường, đặc điểm nổi bật là chip Snapdragon 8 Gen 3 for Galaxy và camera 200 MP tích hợp AI. Mẫu điện thoại này hứa hẹn làm nổi bật trong năm 2024 với sức mạnh và nhiều tính năng đỉnh cao.', '2024-07-11', 2),
-(3, 'iPhone 15 Pro Max', 'iphone-15-pro-max', 'null', 'null', 'null', 'Hệ điều hành: IOS\r\nRAM: 8 GB\r\nDung lượng: 256 GB || 512 GB || 1 TB\r\nPin: 4422 mAh\r\nHãng: Iphone', 'iPhone 15 Pro Max mẫu điện thoại mới nhất của Apple cuối cùng cũng đã chính thức được ra mắt vào tháng 09/2023. Mẫu điện thoại này sở hữu một con chip với hiệu năng mạnh mẽ Apple A17 Pro, màn hình đẹp mắt và cụm camera vô cùng chất lượng.', '2024-07-11', 1),
-(4, 'OPPO Reno11 F', 'oppo-reno-11f-tim-1', 'null', 'null', 'null', 'Hệ điều hành: Android\r\nRAM: 8 GB\r\nDung lượng: 256 GB || 512 GB\r\nPin: 5000 mAh\r\nHãng: OPPO', 'OPPO Reno11 F 5G là một chiếc điện thoại tầm trung mới được OPPO ra mắt trong thời gian gần đây. Máy sở hữu nhiều ưu điểm nổi bật như thiết kế trẻ trung, màn hình đẹp, hiệu năng mạnh mẽ nhờ chip Dimensity 7050 5G, hứa hẹn mang đến trải nghiệm tốt khi sử dụng.', '2024-07-11', 5);
+(1, 'Samsung Galaxy S23 Ultra', './public/images/samsung-galaxy-s23-ultra-1-2.jpg ', './public/images/samsung-galaxy-s23-ultra-1-2.jpg ', './public/images/samsung-galaxy-s23-ultra-1-2.jpg', './public/images/samsung-galaxy-s23-ultra-1-2.jpg', 'Hệ điều hành: Android.Chip: Snapdragon 8 Gen 2 for Galaxy.Ram: 8 GBDung lượng: 256 GB ||512 GBPin: 5000 mAhHãng: Samsung ', ' Samsung Galaxy S23 Ultra 5G 256GB là chiếc smartphone cao cấp nhất của nhà Samsung, sở hữu cấu hình không tưởng với con chip khủng được Qualcomm tối ưu riêng cho dòng Galaxy và camera lên đến 200 MP, xứng danh là chiếc flagship Android được mong đợi nhất trong năm 2023.', '2018-07-24', 2),
+(2, 'Samsung Galaxy S24 Ultra', './public/images/samsung-galaxy-s24-ultra-xam-1.jpg ', './public/images/samsung-galaxy-s24-ultra-xam-1.jpg ', './public/images/samsung-galaxy-s24-ultra-xam-1.jpg', './public/images/samsung-galaxy-s24-ultra-xam-1.jpg', 'Hệ điều hành: AndroidRAM: 8GBDung lượng: 256 GB || 512 GB || 1GBPin: 5000 mAhHãng: Samsung ', ' Samsung Galaxy S24 Ultra 5G 512GB khi ra mắt đã tạo nên cơn sốt thị trường, đặc điểm nổi bật là chip Snapdragon 8 Gen 3 for Galaxy và camera 200 MP tích hợp AI. Mẫu điện thoại này hứa hẹn làm nổi bật trong năm 2024 với sức mạnh và nhiều tính năng đỉnh cao.', '2018-07-24', 2),
+(3, 'iPhone 15 Pro Max', './public/images/iphone-15-pro-max-blue-2-1.jpg ', './public/images/iphone-15-pro-max-blue-2-1.jpg ', './public/images/iphone-15-pro-max-blue-2-1.jpg', './public/images/iphone-15-pro-max-blue-2-1.jpg', 'Hệ điều hành: IOSRAM: 8 GBDung lượng: 256 GB || 512 GB || 1 TBPin: 4422 mAhHãng: Iphone ', ' iPhone 15 Pro Max mẫu điện thoại mới nhất của Apple cuối cùng cũng đã chính thức được ra mắt vào tháng 09/2023. Mẫu điện thoại này sở hữu một con chip với hiệu năng mạnh mẽ Apple A17 Pro, màn hình đẹp mắt và cụm camera vô cùng chất lượng.', '2018-07-24', 1),
+(4, 'OPPO Reno11 F', './public/images/oppo-reno-11-pro-xam-1-1.jpg ', './public/images/oppo-reno-11-pro-xam-1-1.jpg ', './public/images/oppo-reno-11-pro-xam-1-1.jpg', './public/images/oppo-reno-11-pro-xam-1-1.jpg', 'Hệ điều hành: AndroidRAM: 8 GBDung lượng: 256 GB || 512 GBPin: 5000 mAhHãng: OPPO ', ' OPPO Reno11 F 5G là một chiếc điện thoại tầm trung mới được OPPO ra mắt trong thời gian gần đây. Máy sở hữu nhiều ưu điểm nổi bật như thiết kế trẻ trung, màn hình đẹp, hiệu năng mạnh mẽ nhờ chip Dimensity 7050 5G, hứa hẹn mang đến trải nghiệm tốt khi sử dụng.', '2018-07-24', 5),
+(5, 'iPhone 15 Pro', './public/images/iphone-15-pro-max-white-2-1.jpg', './public/images/iphone-15-pro-max-white-2-1.jpg', './public/images/iphone-15-pro-max-white-2-1.jpg', './public/images/iphone-15-pro-max-white-2-1.jpg', 'Hệ điều hành: iOS 17 | RAM:  8 GB | Pin, Sạc:  4422 mAh20 W | Hãng: iPhone', 'iPhone 15 Pro Max mẫu điện thoại mới nhất của Apple cuối cùng cũng đã chính thức được ra mắt vào tháng 09/2023. Mẫu điện thoại này sở hữu một con chip với hiệu năng mạnh mẽ Apple A17 Pro, màn hình đẹp mắt và cụm camera vô cùng chất lượng.', '2017-07-24', 1);
 
 -- --------------------------------------------------------
 
@@ -234,6 +267,7 @@ CREATE TABLE `tai_khoans` (
   `id` int NOT NULL,
   `tai_khoan` varchar(255) NOT NULL,
   `mat_khau` varchar(255) NOT NULL,
+  `hinh_anh` varchar(255) DEFAULT NULL,
   `email` varchar(255) NOT NULL,
   `so_dien_thoai` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
   `dia_chi` varchar(255) NOT NULL,
@@ -246,12 +280,9 @@ CREATE TABLE `tai_khoans` (
 -- Dumping data for table `tai_khoans`
 --
 
-INSERT INTO `tai_khoans` (`id`, `tai_khoan`, `mat_khau`, `email`, `so_dien_thoai`, `dia_chi`, `gioi_tinh`, `vai_tro`, `trang_thai`) VALUES
-(1, 'admin123', 'admin123', 'admin123@gmail.com', '0', 'Hà Nội', 1, 2, 2),
-(3, 'tuyen123', 'tuyen123', 'tuyen123@gmail.com', '0', 'Bắc Giang', 0, 1, 1),
-(4, 'tuyen', 'tuyen', 'tuyen@gmail.com', '0', 'Hà Nội', 0, 1, 1),
-(5, 'aaaaaaaaaaaaaaaa', 'admmm', 'mm@gmail.com', '2525252', 'Hà Nội', 1, NULL, 1),
-(6, 'tuyen123456', '123', 'ductuyen772@gmail.com', '0', 'Hà Nội', 1, NULL, 1);
+INSERT INTO `tai_khoans` (`id`, `tai_khoan`, `mat_khau`, `hinh_anh`, `email`, `so_dien_thoai`, `dia_chi`, `gioi_tinh`, `vai_tro`, `trang_thai`) VALUES
+(1, 'admin123', 'admin123', NULL, 'admin123@gmail.com', '0', 'Hà Nội', 1, 2, 2),
+(3, 'tuyen123', 'tuyen123', NULL, 'tuyen123@gmail.com', '0252525233', 'Bắc Giang', 0, 1, 1);
 
 -- --------------------------------------------------------
 
@@ -269,8 +300,7 @@ CREATE TABLE `thanh_toans` (
 --
 
 INSERT INTO `thanh_toans` (`id`, `ten_thanh_toan`) VALUES
-(1, 'Thanh toán khi nhận hàng'),
-(2, 'Thanh toán online');
+(1, 'Thanh toán khi nhận hàng');
 
 -- --------------------------------------------------------
 
@@ -289,8 +319,10 @@ CREATE TABLE `trang_thai_don_hangs` (
 
 INSERT INTO `trang_thai_don_hangs` (`id`, `ten_trang_thai`) VALUES
 (1, 'Chờ duyệt'),
-(2, 'Đang giao'),
-(3, 'Đã giao');
+(2, 'Xác nhận'),
+(3, 'Đang giao'),
+(4, 'Đã giao'),
+(5, 'Hủy');
 
 -- --------------------------------------------------------
 
@@ -424,13 +456,13 @@ ALTER TABLE `trang_thai_tai_khoans`
 -- AUTO_INCREMENT for table `bien_thes`
 --
 ALTER TABLE `bien_thes`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `chi_tiet_don_hangs`
 --
 ALTER TABLE `chi_tiet_don_hangs`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT for table `danh_gias`
@@ -448,7 +480,7 @@ ALTER TABLE `danh_mucs`
 -- AUTO_INCREMENT for table `don_hangs`
 --
 ALTER TABLE `don_hangs`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
 
 --
 -- AUTO_INCREMENT for table `dung_luongs`
@@ -460,7 +492,7 @@ ALTER TABLE `dung_luongs`
 -- AUTO_INCREMENT for table `gio_hangs`
 --
 ALTER TABLE `gio_hangs`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=58;
 
 --
 -- AUTO_INCREMENT for table `mau_sacs`
@@ -472,13 +504,13 @@ ALTER TABLE `mau_sacs`
 -- AUTO_INCREMENT for table `ma_giam_gias`
 --
 ALTER TABLE `ma_giam_gias`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `san_phams`
 --
 ALTER TABLE `san_phams`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `tai_khoans`
@@ -496,7 +528,7 @@ ALTER TABLE `thanh_toans`
 -- AUTO_INCREMENT for table `trang_thai_don_hangs`
 --
 ALTER TABLE `trang_thai_don_hangs`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `trang_thai_tai_khoans`

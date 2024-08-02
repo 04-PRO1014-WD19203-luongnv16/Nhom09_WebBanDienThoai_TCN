@@ -27,7 +27,7 @@
                             <p class="text-center">Đơn hàng sẽ sớm được giao đến tay bạn. Cảm ơn bạn đã đặt hàng ^-^.</p>
                         </div>
                         <div class="row" style="gap: 20px;">
-                            <a class="col btn btn-secondary" href="#">Chi tiết đơn hàng</a>
+                            <a class="col btn btn-secondary" href="/chi-tiet-don-hang?id=<?=$donHang['id']?>">Chi tiết đơn hàng</a>
                             <a class="col btn btn-success" href="/">Tiếp tục mua săm</a>
                         </div>
                     </div>

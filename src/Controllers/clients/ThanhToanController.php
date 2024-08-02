@@ -15,7 +15,16 @@ class ThanhToanController extends Controller {
     public function index() {
         $data['danhmucs'] = (new DanhMuc)->all();
         if (isset($_SESSION['id'])) {
+
             $data['title'] = "Thanh tóan";            
+
+            $giohangs = (new GioHang)->selectAll();
+            if(empty($giohangs)) {
+                $data['error'] = "Giỏ hàng của bạn đang trống";
+                (new GioHangController)->index($data);
+            }
+            $data['title'] = "Thanh tóan";
+
             $data['trang_thais'] = (new ThanhToan)->all();
             $data['tai_khoan'] = (new TaiKhoan)->findOne($_SESSION['id']);
                 if (isset($_POST['shortcode']) && $_POST['shortcode'] != "") {
@@ -122,6 +131,7 @@ class ThanhToanController extends Controller {
     public function checkout() {
         $data['danhmucs'] = (new DanhMuc)->all();
         $data['title'] = "Thanh toán thành công";
+        $data['donHang'] = (new DonHang)->selectNew();
         return $this->render('client/thanhtoan/checkout',$data);
     }
 }

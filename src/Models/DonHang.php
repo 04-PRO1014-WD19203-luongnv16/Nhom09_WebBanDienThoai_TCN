@@ -61,4 +61,15 @@ class DonHang extends Model
         $this->setQuery($sql);
         return $this->GetAll();
     }
+    public function selectSearch($search) {
+        $sql = "SELECT * FROM $this->table WHERE id LIKE '%$search%' AND id_tai_khoans = $_SESSION[id] ORDER BY id  DESC";
+        $this->setQuery($sql);
+        return $this->GetAll();
+
+    }
+    public function huyDon($id) {
+        $sql = "UPDATE $this->table SET trang_thai = 5 WHERE id = $id ";
+        $this->setQuery($sql);
+        return $this->Execute();
+    }
 }

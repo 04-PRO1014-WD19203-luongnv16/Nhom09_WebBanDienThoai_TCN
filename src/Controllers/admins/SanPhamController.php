@@ -31,7 +31,7 @@ class SanPhamController extends Controller
         $isUpdating = isset($_POST['submit']);
 
         if ($isUpdating) {
-            $anh_chinh = $_FILES['anh_chinh'] ?? null;
+            $anh_chinh = $_FILES['anh_chinh'];
             $anh1 = $_FILES['anh_phu_1'] ?? null;
             $anh2 = $_FILES['anh_phu_2']  ?? null;
             $anh3 = $_FILES['anh_phu_3'] ?? null;
@@ -42,7 +42,7 @@ class SanPhamController extends Controller
             if (move_uploaded_file($anh_chinh["tmp_name"], $target_filec)) {
                 $anh_chinh = $target_filec;
             } else {
-                $anh_chinh = null;
+                $anh_chinh = $sanpham['anh_chinh'];
             }
             if (move_uploaded_file($anh1["tmp_name"], $target_file1)) {
                 $anh1 = $target_file1;
@@ -61,7 +61,8 @@ class SanPhamController extends Controller
             }
             $motangan = $_POST['mo_ta_ngan'];
             $mota = $_POST['mo_ta'];
-            $ngaysua = date('d-m-y h:i:s');
+            date_default_timezone_set('Asia/Ho_Chi_Minh');
+            $ngaysua = date('Y-m-d H:i:s');
             $idDm = $_POST['id_danh_mucs'];
             if ($_POST['ten_san_pham'] == "") {
                 $check = true;
@@ -84,6 +85,40 @@ class SanPhamController extends Controller
         $bienthes = (new BienThe)->all();
 
         return $this->renderAdmin('sanpham/detail', ['title' => $title, 'sanpham' => $sanpham, 'danhmucs' => $danhmucs, 'bienthes' => $bienthes]);
+    }
+
+    public function updateBienThe()
+    {
+        $title = "Chi tiết sản phẩm biến thể";
+        $check = false;
+        $checkForm = false;
+        $sanpham = (new SanPham)->one($_GET['id']);
+        $danhmucs = (new DanhMuc)->all();
+        // $bienthe = (new BienThe)->find($_GET('id'));
+        $bienthes = (new BienThe)->all();
+        $dungluongs = (new DungLuong)->all();
+        $mausacs = (new MauSac)->all();
+        // $isUpdating = isset($_POST['submit']);
+        // if ($isUpdating) {
+        //     if ($_POST['ten_san_pham'] == "" || $idDm == "" || $idMss == "" || $idDls == "" || $soluong == "" || $giagoc == "" || $giaban == "") {
+        //         $check = true;
+        //     } else {
+        //         if (!$checkForm) {
+        //             $idSps = (new SanPham)->idSanPham();
+        //             for ($i = 0; $i < count($idDls); $i++) {
+        //                 $id_dung_luongs = $idDls[$i];
+        //                 $id_mau_sacs = $idMss[$i];
+        //                 $so_luong = $soluong[$i];
+        //                 $gia_goc = $giagoc[$i];
+        //                 $gia_ban = $giaban[$i];
+        //                 (new BienThe)->add($idSps['id_san_pham'], $id_dung_luongs, $id_mau_sacs, $so_luong, $gia_goc, $gia_ban);
+        //             }
+        //             return header('location: /admin-san-pham');
+        //         }
+        //     }
+        // }
+
+        return $this->renderAdmin('sanpham/updateVariant', ['sanpham' => $sanpham, 'title' => $title, 'check' => $check, 'checkForm' => $checkForm, 'danhmucs' => $danhmucs, 'bienthes' => $bienthes, 'dungluongs' => $dungluongs, 'mausacs' => $mausacs]);
     }
 
     public function deleteSanPham()
@@ -137,7 +172,8 @@ class SanPhamController extends Controller
             }
             $motangan = $_POST['mo_ta_ngan'];
             $mota = $_POST['mo_ta'];
-            $ngaytao = date('d-m-y h:i:s');
+            date_default_timezone_set('Asia/Ho_Chi_Minh');
+            $ngaytao = date('Y-m-d H:i:s');
             $idDm = $_POST['id_danh_mucs'];
 
             //bien the
@@ -153,7 +189,7 @@ class SanPhamController extends Controller
                     $checkForm = true;
                 }
             }
-            if ($_POST['ten_san_pham'] == "" || $idDm == "") {
+            if ($_POST['ten_san_pham'] == "" || $idDm == "" || $idMss == "" || $idDls == "" || $soluong == "" || $giagoc == "" || $giaban == "") {
                 $check = true;
             } else {
                 if (!$checkForm) {
