@@ -27,6 +27,11 @@
     <div class="content">
         <section class="ftco-section bg-light">
             <div class="container">
+                <?php if(isset($error)) :?>
+                    <div class="alert alert-danger">
+                        <?=$error?>
+                    </div>
+                <?php endif?>
                 <div class="px-3">
                     <div style="display: flex;justify-content: space-between;">
                         <h2 class="font-italic">Chi Tiết hóa đơn:</h2>  

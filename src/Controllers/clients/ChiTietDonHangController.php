@@ -21,9 +21,13 @@ class ChiTietDonHangController extends Controller {
                         $data['trangthais'] = (new TrangThaiDonHang)->all();
                         $data['title'] = "Chi tiết hóa đơn";
                         if(isset($_POST['btn-submit'])) {
-                            (new DonHang)->huyDon($_POST['id']);
-                            $data['success'] = "Hủy đơn hàng thành công!";
-                            return (new TaiKhoanController)->index($data);
+                            if($data['hoadons']['trang_thai'] == 1) {
+                                (new DonHang)->huyDon($_POST['id']);
+                                $data['success'] = "Hủy đơn hàng thành công!";
+                                return (new TaiKhoanController)->index($data);
+                            }else {
+                                $data['error'] = "Đơn hàng đã được xác nhận, bạn không thể hủy nó!";
+                            }
                         }
                         return $this->render('/client/hoadon/detail', $data);
                     }
