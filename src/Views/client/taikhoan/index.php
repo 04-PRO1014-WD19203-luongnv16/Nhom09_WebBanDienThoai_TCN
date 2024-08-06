@@ -51,7 +51,9 @@
                                         sửa hồ sơ <i class="fa-solid fa-pen"></i></a>
                                 </div>
                             </div>
-
+                        </div>
+                        <div class="p-3 mt-3" style="background-color: white !important;">
+                            <a href="/danh-gia-user">Đánh giá</a>
                         </div>
                     </div>
                     <div class="col-9 py-3">

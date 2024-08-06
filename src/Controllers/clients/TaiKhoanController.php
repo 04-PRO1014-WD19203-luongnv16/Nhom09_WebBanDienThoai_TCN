@@ -9,10 +9,6 @@ use MVC\Models\TaiKhoan;
 class TaiKhoanController extends Controller
 {
 
-    public function index() {
-        $data['danhmucs'] = (new DanhMuc)->all();
-        if(isset($_SESSION['id'])) {
-
     public function index($data = [])
     {
         if (isset($_SESSION['id'])) {

@@ -49,7 +49,6 @@
                                     <div style="font-size: 15px;"><strong><?= $taiKhoan['tai_khoan'] ?></strong></div>
                                 </div>
                             </div>
-
                         </div>
                     </div>
                     <div class="col-9 py-3">

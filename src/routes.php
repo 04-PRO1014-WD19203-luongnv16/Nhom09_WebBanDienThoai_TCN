@@ -8,6 +8,7 @@ use MVC\Controllers\admins\TaiKhoanAdminController;
 use MVC\Controllers\admins\SanPhamController;
 use MVC\Controllers\clients\ChiTietDonHangController;
 use MVC\Controllers\clients\CuaHangController;
+use MVC\Controllers\clients\DanhGiaSanPhamController;
 use MVC\Controllers\clients\GioHangController;
 use MVC\Controllers\clients\LoginController;
 use MVC\Controllers\clients\ThanhToanController;
@@ -58,7 +59,9 @@ $router->addRoute('/tai-khoan', TaiKhoanController::class, 'index');
 $router->addRoute('/tai-khoan-update', TaiKhoanController::class, 'update');
 // Chi tiết hóa đơn
 $router->addRoute('/chi-tiet-don-hang', ChiTietDonHangController::class, 'detail');
-
+// Đánh giá sản phẩm
+$router->addRoute('/danh-gia-user', DanhGiaSanPhamController::class, 'index');
+$router->addRoute('/viet-danh-gia', DanhGiaSanPhamController::class, 'createDanhGia');
 //loc sp theo dm
 $route->post('/sanphamdanhmuc', [CuaHangController::class, 'index']);
 //list danh muc
