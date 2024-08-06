@@ -32,7 +32,7 @@ class DanhGiaSanPhamController extends Controller {
             $chiTietDonHang = (new ChiTietDonHang)->find($_POST["id_Chi_Tiet_Don_Hang"]);
             $data['chiTietDonHang'] = $chiTietDonHang;
             $data["sanPham"] = (new SanPham)->chiTietSanPham($chiTietDonHang['id_san_phams']);
-            $data["bienThe"] = (new BienThe)->one($chiTietDonHang['id_bien_thes']);
+            $data["bienThe"] = (new BienThe)->find($chiTietDonHang['id_bien_thes']);
             $data["diemSo"] = (new DanhGia)->diemSoAVG($chiTietDonHang['id_san_phams']);
             if(isset($_POST['btn-submit'])) {
                 $check = true;

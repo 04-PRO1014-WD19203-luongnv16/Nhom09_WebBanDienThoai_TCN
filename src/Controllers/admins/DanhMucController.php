@@ -8,7 +8,6 @@ class DanhMucController extends Controller {
     public function index () {
         $title = "Quản lý danh muc";
         $danhmucs = (new DanhMuc)->all();
-
         return $this->renderAdmin('danhmuc/index',['title'=>$title,'danhmucs'=>$danhmucs]);
     }
     public function suaDanhMuc() {

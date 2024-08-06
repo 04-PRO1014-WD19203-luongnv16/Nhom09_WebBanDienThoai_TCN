@@ -1,5 +1,6 @@
 <?php
 
+use MVC\Controllers\admins\DanhGiaController;
 use MVC\Controllers\admins\DanhMucController;
 use MVC\Controllers\admins\DashboardController;
 use MVC\Controllers\admins\DonHangController;
@@ -62,9 +63,9 @@ $router->addRoute('/chi-tiet-don-hang', ChiTietDonHangController::class, 'detail
 $router->addRoute('/danh-gia-user', DanhGiaSanPhamController::class, 'index');
 $router->addRoute('/viet-danh-gia', DanhGiaSanPhamController::class, 'createDanhGia');
 //loc sp theo dm
-$route->post('/sanphamdanhmuc',[CuaHangController::class, 'index']);
+$route->post('/sanphamdanhmuc', [CuaHangController::class, 'index']);
 //list danh muc
-$router->addRoute('/loaddanhmuc',CuaHangController::class, 'loadListDM');
+$router->addRoute('/loaddanhmuc', CuaHangController::class, 'loadListDM');
 
 //Route thuộc Quản trị viên
 $router->addRoute('/admin', DashboardController::class, 'index');
@@ -80,11 +81,19 @@ $router->addRoute('/add-san-pham', SanPhamController::class, 'addSanPham');
 $router->addRoute('/sua-san-pham', SanPhamController::class, 'suaSanPham');
 $router->addRoute('/delete-san-pham', SanPhamController::class, 'deleteSanPham');
 $router->addRoute('/detail-san-pham', SanPhamController::class, 'detailSanPham');
+$router->addRoute('/update-bien-the', SanPhamController::class, 'updateBienThe');
 //Quản lý đơn hàng
 $router->addRoute('/admin-don-hang', DonHangController::class, 'index');
 $router->addRoute('/detail-don-hang', DonHangController::class, 'detailDonHang');
+
+//Quản lý đánh giá
+$router->addRoute('/admin-danh-gia',DanhGiaController::class,'AllDanhGia');
+$router->addRoute('/admin-thong-ke',DanhGiaController::class,'thongKe');
+
 //Quản lý tài khoản
 $router->addRoute('/admin-tai-khoan', TaiKhoanAdminController::class, 'index');
 $router->addRoute('/sua-tai-khoan', TaiKhoanAdminController::class, 'updateTaiKhoan');
 
+
 return $router;
+

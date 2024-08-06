@@ -1,8 +1,10 @@
 <div class="">
     <h3 class="cart-title text-center px-5 py-3 bg-secondary text-light"><?= $title ?></h3>
 </div>
-<div class="card" style="width: auto;">
-    <img style="width: fit-content;text-align: center;" src="<?= $sanpham['anh_chinh'] ?>" class="rounded" alt="ảnh chính">
+<div class="card">
+    <div class="text-center">
+        <img style="width: 400px;text-align: center;" src="<?= $sanpham['anh_chinh'] ?>" class="rounded" alt="ảnh chính">
+    </div>
     <div class="card-body">
         <p class="card-text"><?= $sanpham['ten_san_pham'] ?></p>
         <p class="card-text"><?= $sanpham['mo_ta_ngan'] ?></p>
@@ -65,7 +67,9 @@
         </div>
 
     </div>
-    <div class="text-right">
-        <a class="btn btn-info" href="/admin-san-pham">Quay lại</a>
+
+    <div class="text-left mx-3">
+        <a class="btn btn-warning text-light " href="/update-bien-the?id=<?= $sanpham['id'] ?>">Sửa sản phẩm biến thể</a>
+        <a class="btn btn-success text-light" href="/admin-san-pham">Quay lại</a>
     </div>
 </div>
