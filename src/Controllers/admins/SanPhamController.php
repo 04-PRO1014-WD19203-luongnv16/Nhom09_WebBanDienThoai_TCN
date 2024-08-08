@@ -89,36 +89,36 @@ class SanPhamController extends Controller
 
     public function updateBienThe()
     {
+
         $title = "Chi tiết sản phẩm biến thể";
         $check = false;
         $checkForm = false;
-        $sanpham = (new SanPham)->one($_GET['id']);
-        $danhmucs = (new DanhMuc)->all();
-        // $bienthe = (new BienThe)->find($_GET('id'));
-        $bienthes = (new BienThe)->all();
+        $bienthe = (new BienThe)->find($_GET['id']);
+        // print_r($bienthe);
+        // die;
+        // $bienthes = (new BienThe)->all();
         $dungluongs = (new DungLuong)->all();
         $mausacs = (new MauSac)->all();
-        // $isUpdating = isset($_POST['submit']);
-        // if ($isUpdating) {
-        //     if ($_POST['ten_san_pham'] == "" || $idDm == "" || $idMss == "" || $idDls == "" || $soluong == "" || $giagoc == "" || $giaban == "") {
-        //         $check = true;
-        //     } else {
-        //         if (!$checkForm) {
-        //             $idSps = (new SanPham)->idSanPham();
-        //             for ($i = 0; $i < count($idDls); $i++) {
-        //                 $id_dung_luongs = $idDls[$i];
-        //                 $id_mau_sacs = $idMss[$i];
-        //                 $so_luong = $soluong[$i];
-        //                 $gia_goc = $giagoc[$i];
-        //                 $gia_ban = $giaban[$i];
-        //                 (new BienThe)->add($idSps['id_san_pham'], $id_dung_luongs, $id_mau_sacs, $so_luong, $gia_goc, $gia_ban);
-        //             }
-        //             return header('location: /admin-san-pham');
-        //         }
-        //     }
-        // }
+        $isUpdating = isset($_POST['submit']);
+        if ($isUpdating) {
+            $idSps = $_POST['id_san_phams'];
+            $id_dung_luongs = $_POST['id_dung_luongs'];
+            $id_mau_sacs = $_POST['id_mau_sacs'];
+            $so_luong = $_POST['so_luong'];
+            $gia_goc = $_POST['gia_goc'];
+            $gia_ban = $_POST['gia_ban'];
+            if ($id_dung_luongs == "" || $id_mau_sacs == "" || $so_luong == "" || $gia_goc == "" || $gia_ban == "") {
+                $check = true;
+            } else {
+                if (!$checkForm) {
+                    (new BienThe)->update($_POST['id'], $idSps, $id_dung_luongs, $id_mau_sacs, $so_luong, $gia_goc, $gia_ban);
 
-        return $this->renderAdmin('sanpham/updateVariant', ['sanpham' => $sanpham, 'title' => $title, 'check' => $check, 'checkForm' => $checkForm, 'danhmucs' => $danhmucs, 'bienthes' => $bienthes, 'dungluongs' => $dungluongs, 'mausacs' => $mausacs]);
+                    return header('location: /admin-san-pham');
+                }
+            }
+        }
+
+        return $this->renderAdmin('sanpham/updateVariant', ['bienthe' => $bienthe, 'title' => $title, 'check' => $check, 'checkForm' => $checkForm, 'dungluongs' => $dungluongs, 'mausacs' => $mausacs]);
     }
 
     public function deleteSanPham()
