@@ -3,6 +3,7 @@
 namespace MVC\Controllers\admins;
 
 use MVC\Controller;
+use MVC\Models\DanhGia;
 use MVC\Models\SanPham;
 use MVC\Models\DanhMuc;
 use MVC\Models\DungLuong;
@@ -17,6 +18,7 @@ class SanPhamController extends Controller
         $data['title'] = "Quản lý sản phẩm";
         $data['sanphams'] = (new SanPham)->all();
         $data['damhmucs'] = (new DanhMuc)->all();
+        $data['danhGias'] = (new DanhGia)->allDanhGia();
         return $this->renderAdmin('sanpham/index', $data);
     }
     public function suaSanPham()
