@@ -33,7 +33,8 @@
                                 <input class="form-control" type="search" name="search" id=""
                                     placeholder="Bạn tìm gì...">
                                 <input class="bg-primary btn-primary text-center"
-                                    style="border-color: #ffa45c;width: 100px;" name="btn-search" type="submit" value="Tìm">
+                                    style="border-color: #ffa45c;width: 100px;" name="btn-search" type="submit"
+                                    value="Tìm">
                             </div>
                         </form>
                     </div>
@@ -49,7 +50,8 @@
                                                 src="<?= $sanpham['anh_chinh'] ?>"
                                                 alt="<?= $sanpham['ten_san_pham'] ?>"></a>
                                         <div class="text py-3 px-3" style="height: 150px;">
-                                            <h3 style="height: 50px;"><a href="/chi-tiet-san-pham?id=<?= $sanpham['id'] ?>"><?= $sanpham['ten_san_pham'] ?></a>
+                                            <h3 style="height: 50px;"><a
+                                                    href="/chi-tiet-san-pham?id=<?= $sanpham['id'] ?>"><?= $sanpham['ten_san_pham'] ?></a>
                                             </h3>
                                             <div class="">
                                                 <div class="mb-3">
@@ -58,17 +60,16 @@
                                                                 style="font-size: 10px;">₫</span></span>
                                                 </div>
                                                 <div class="rating" style="float: right;">
-                                                    <p class="text-right">
-                                                        <a href="#"><span class="ion-ios-star-outline"></span></a>
-                                                        <a href="#"><span class="ion-ios-star-outline"></span></a>
-                                                        <a href="#"><span class="ion-ios-star-outline"></span></a>
-                                                        <a href="#"><span class="ion-ios-star-outline"></span></a>
-                                                        <a href="#"><span class="ion-ios-star-outline"></span></a>
-                                                    </p>
+                                                    <?php foreach ($danhGias as $danhGia): ?>
+                                                        <?php if ($sanpham['id'] == $danhGia['id_san_phams']): ?>
+                                                            <p class="text-right text-primary">
+                                                                <i class="fa-solid fa-star"></i> <?= $danhGia['diem_so'] ?>
+                                                            </p>
+                                                        <?php endif ?>
+                                                    <?php endforeach ?>
                                                 </div>
                                             </div>
                                             <p class="bottom-area d-flex px-3">
-
                                                 <a href="/chi-tiet-san-pham?id=<?= $sanpham['id'] ?>"
                                                     class="buy-now text-center py-2">Mua sản phẩm<span><i
                                                             class="ion-ios-cart ml-1"></i></span></a>
@@ -85,16 +86,15 @@
                         <div class="sidebar-box-2">
                             <h2 class="heading mb-4"><a href="#">Hãng</a></h2>
                             <ul>
-                                <form action="" method="post" >
+                                <form action="" method="post">
                                     <select name="id_danhmuc" class="form-control">
-                                    <option value="all">Tất cả</option>
+                                        <option value="all">Tất cả</option>
                                         <?php foreach ($danhmucs as $danhmuc): ?>
-                                            <option value="<?= $danhmuc['id'] ?>" 
-                                            <?php 
-                                                if ($danhmuc['id'] == $sanphams[0]['id_danh_mucs']) {
-                                                  echo "";
-                                                } 
-                                            ?>>
+                                            <option value="<?= $danhmuc['id'] ?>" <?php
+                                              if ($danhmuc['id'] == $sanphams[0]['id_danh_mucs']) {
+                                                  echo '';
+                                              }
+                                              ?>>
                                                 <?= $danhmuc['ten_danh_muc'] ?>
                                             </option>
                                         <?php endforeach ?>
@@ -104,7 +104,7 @@
                                 </form>
                             </ul>
                         </div>
-                        
+
                     </div>
                 </div>
             </div>

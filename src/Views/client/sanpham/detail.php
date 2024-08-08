@@ -128,6 +128,46 @@
                     </div>
                 </div>
             </div>
+            <div class="container">
+                <div class="pt-5" style="border-bottom: 3px solid #ffa45c;">
+                    <span style="display:block;width: 100px;" class="bg-primary text-light px-3 m-0">Đánh giá</span>
+                </div>
+                <?php foreach ($danhGias as $danhGia): ?>
+                    <?php foreach ($taiKhoans as $taiKhoan): ?>
+                        <?php if ($danhGia['id_tai_khoans'] == $taiKhoan['id']): ?>
+                            <?php foreach ($bienTheS as $bienThe): ?>
+                                <?php if ($bienThe['id'] == $danhGia['id_bien_thes'] && $bienThe['id_san_phams'] == $_GET['id'] && $danhGia['id_san_phams'] == $_GET['id']): ?>
+                                    <div class="user px-5 py-3" style="display: flex;gap: 10px;">
+                                        <?php if ($taiKhoan['hinh_anh'] == NULL): ?>
+                                            <div class="img" style="border-radius: 50%;">
+                                                <img src="/public/user-profile-icon-free-vector.jpg"
+                                                    style="width: 80px;object-fit: cover;height: 80px;" alt="" style="border-radius: 50%;">
+                                            </div>
+                                        <?php else: ?>
+                                            <div class="img" style="border-radius: 50%;">
+                                                <img src="<?= $taiKhoan['hinh_anh'] ?>"
+                                                    style="width: 80px;object-fit: cover;height: 80px;border-radius: 50%;" alt="">
+                                            </div>
+                                        <?php endif ?>
+                                        <div class="py-3 w-100">
+                                            <h6><strong><?= $taiKhoan['tai_khoan'] ?></strong></h6>
+                                            <a class="text-primary"><i class="fa-solid fa-star"></i> <?=$danhGia['diem_so']?></a>
+                                            <p><i><?= $danhGia['ngay_danh_gia'] ?></i></p>
+
+                                            <p>Dung lượng: <?= $bienThe['ten_dung_luong'] ?></p>
+                                            <p>Màu sắc: <?= $bienThe['ten_mau_sac'] ?></p>
+
+                                            <label for="" class="form-lable">Nội dung: </label>
+                                            <div class="noi_dung p-3" style="border: 1px solid #CCCCCC;border-radius: 4px;">
+                                                <?= $danhGia['noi_dung'] ?></div>
+                                        </div>
+                                        </div>
+                                    <?php endif ?>
+                                <?php endforeach ?>
+                            <?php endif ?>
+                        <?php endforeach ?>
+                    <?php endforeach ?>
+                </div>
         </section>
     </div>
     <!-- Footer -->

@@ -1,3 +1,7 @@
+<?php
+use MVC\Models\DanhMuc;
+$data['danhmucs'] = (new DanhMuc)->all();
+?>
 <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
     <div class="container" style="align-items: center;">
         <!-- <a class="navbar-brand" href="/">Winkel</a> -->
@@ -18,6 +22,7 @@
                         <?php foreach ($data['danhmucs'] as $tenDanhMuc): ?>
                             <a href='/loaddanhmuc?id=<?= $tenDanhMuc['id'] ?>' class="dropdown-item"><?= $tenDanhMuc['ten_danh_muc'] ?>
                         </a>
+                        
                         <?php endforeach; ?>
                          </div>
                     </li>

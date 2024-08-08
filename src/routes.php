@@ -1,5 +1,6 @@
 <?php
 
+use MVC\Controllers\admins\DanhGiaController;
 use MVC\Controllers\admins\DanhMucController;
 use MVC\Controllers\admins\DashboardController;
 use MVC\Controllers\admins\DonHangController;
@@ -7,6 +8,7 @@ use MVC\Controllers\admins\TaiKhoanAdminController;
 use MVC\Controllers\admins\SanPhamController;
 use MVC\Controllers\clients\ChiTietDonHangController;
 use MVC\Controllers\clients\CuaHangController;
+use MVC\Controllers\clients\DanhGiaSanPhamController;
 use MVC\Controllers\clients\GioHangController;
 use MVC\Controllers\clients\LoginController;
 use MVC\Controllers\clients\ThanhToanController;
@@ -57,7 +59,9 @@ $router->addRoute('/tai-khoan', TaiKhoanController::class, 'index');
 $router->addRoute('/tai-khoan-update', TaiKhoanController::class, 'update');
 // Chi tiết hóa đơn
 $router->addRoute('/chi-tiet-don-hang', ChiTietDonHangController::class, 'detail');
-
+// Đánh giá sản phẩm
+$router->addRoute('/danh-gia-user', DanhGiaSanPhamController::class, 'index');
+$router->addRoute('/viet-danh-gia', DanhGiaSanPhamController::class, 'createDanhGia');
 //loc sp theo dm
 $route->post('/sanphamdanhmuc', [CuaHangController::class, 'index']);
 //list danh muc
@@ -81,8 +85,15 @@ $router->addRoute('/update-bien-the', SanPhamController::class, 'updateBienThe')
 //Quản lý đơn hàng
 $router->addRoute('/admin-don-hang', DonHangController::class, 'index');
 $router->addRoute('/detail-don-hang', DonHangController::class, 'detailDonHang');
+
+//Quản lý đánh giá
+$router->addRoute('/admin-danh-gia',DanhGiaController::class,'AllDanhGia');
+$router->addRoute('/admin-thong-ke',DanhGiaController::class,'thongKe');
+
 //Quản lý tài khoản
 $router->addRoute('/admin-tai-khoan', TaiKhoanAdminController::class, 'index');
 $router->addRoute('/sua-tai-khoan', TaiKhoanAdminController::class, 'updateTaiKhoan');
 
+
 return $router;
+

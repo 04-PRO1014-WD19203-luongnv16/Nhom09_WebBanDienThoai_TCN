@@ -10,9 +10,15 @@ class ChiTietDonHang extends Model
 
     public function all()
     {
-
+        $sql = "SELECT * FROM $this->table ";
+        $this->setQuery($sql);
+        return $this->GetAll();
     }
-
+    public function find($id) {
+        $sql = "SELECT * FROM $this->table WHERE id=$id";
+        $this->setQuery($sql);
+        return $this->GetOne();
+    }
     public function insert($id_don_hangs, $id_bien_thes, $id_san_pham, $so_luong, $gia_san_pham) {
         $sql = "INSERT INTO $this->table(id_don_hangs, id_bien_thes, id_san_phams, so_luong, gia_san_pham) VALUE($id_don_hangs, $id_bien_thes, $id_san_pham, $so_luong, $gia_san_pham)";
         $this->setQuery($sql);
@@ -39,5 +45,9 @@ class ChiTietDonHang extends Model
         $this->setQuery($sql);
         return $this->GetAll();
     }
-
+    public function trangThaiDanhGia($id) {
+        $sql = "UPDATE $this->table SET danh_gia='1' WHERE id='$id'";
+        $this->setQuery($sql);
+        return $this->Execute();
+    }
 }

@@ -3,9 +3,11 @@ namespace MVC\Controllers\clients;
 
 use MVC\Controller;
 use MVC\Models\BienThe;
+use MVC\Models\DanhGia;
 use MVC\Models\DanhMuc;
 use MVC\Models\GioHang;
 use MVC\Models\SanPham;
+use MVC\Models\TaiKhoan;
 
 class CuaHangController extends Controller
 {
@@ -21,6 +23,8 @@ class CuaHangController extends Controller
     public function index() {
         $data['danhmucs'] = $this->danhmucs->all();
         $data['title'] = "Danh sách sản phẩm";
+        $data["danhGias"] = (new DanhGia)->allDanhGia();
+        // var_dump($data['danhGias']);
         if(isset($_POST['submit'])){
             $id_danhmuc=$_POST['id_danhmuc'];
             if($id_danhmuc == 'all'){
@@ -56,14 +60,17 @@ class CuaHangController extends Controller
     public function detail()
     {
         if (isset($_GET['id'])) {
-            $data = [];
-            $data['sanphams'] =
-                $data['sanpham'] = $this->sanphams->chiTietSanPham($_GET['id']);
+            $data['taiKhoans'] = (new TaiKhoan)->all();
+            $data['sanpham'] = $this->sanphams->chiTietSanPham($_GET['id']);
             $data['title'] = $data['sanpham']['ten_san_pham'];
             $data['danhmucs'] = (new DanhMuc)->all();
-            $data['bienthes'] = (new BienThe)->selectBy($_GET['id']);
+            $data['bienthes'] = (new BienThe)->selectBy($_GET['id']);//Biến thể của sản phẩm
+            $data['bienTheS'] = (new BienThe)->all();//Tất cả biến thể
             $data['mausacs'] = $this->sanphams->mauSac($_GET['id']);
             $data['dungluongs'] = $this->sanphams->dungLuong($_GET['id']);
+
+            // Hiển thị đánh giá
+            $data['danhGias'] = (new DanhGia)->list();
             if (isset($_POST['submit'])) {
                 $bienthe = (new BienThe())->getId($_POST['id'], $_POST['mau_sac'], $_POST['dung_luong']);
                 // var_dump($bienthe);

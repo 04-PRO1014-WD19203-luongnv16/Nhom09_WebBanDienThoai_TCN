@@ -21,9 +21,9 @@ class BienThe extends Model
         $sql = "SELECT bien_thes.*,mau_sacs.ten_mau_sac,dung_luongs.ten_dung_luong
          FROM bien_thes
         INNER JOIN mau_sacs ON bien_thes.id_mau_sacs = mau_sacs.id 
-        INNER JOIN dung_luongs ON bien_thes.id_dung_luongs = dung_luongs.id
-        INNER JOIN san_phams ON  bien_thes.id_san_phams = san_phams.id
-        WHERE bien_thes.id = '$id'  ";
+
+
+        INNER JOIN dung_luongs ON bien_thes.id_dung_luongs = dung_luongs.id WHERE bien_thes.id = $id;";
         $this->setQuery($sql);
         return $this->GetOne();
     }
