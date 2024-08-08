@@ -28,6 +28,7 @@
                         <th>Số lượng</th>
                         <th>Giá gốc</th>
                         <th>Giá bán</th>
+                        <th>Chức năng</th>
 
                     </tr>
                 </thead>
@@ -55,8 +56,10 @@
                                 <td><?= $bienthe['gia_ban'] ?>
 
                                 </td>
-
-
+                                <form action="" method="post">
+                                    <input type="text" name="id" readonly hidden value="<?= $bienthe['id'] ?>">
+                                    <td><a class="btn btn-success text-light" href="/update-bien-the?id=<?= $bienthe['id'] ?>">Sửa</a></td>
+                                </form>
 
                             </tr>
                         <?php endif ?>
@@ -69,7 +72,6 @@
     </div>
 
     <div class="text-left mx-3">
-        <a class="btn btn-warning text-light " href="/update-bien-the?id=<?= $sanpham['id'] ?>">Sửa sản phẩm biến thể</a>
         <a class="btn btn-success text-light" href="/admin-san-pham">Quay lại</a>
     </div>
 </div>

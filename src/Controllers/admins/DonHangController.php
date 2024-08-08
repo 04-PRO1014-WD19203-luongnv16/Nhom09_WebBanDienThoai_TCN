@@ -22,6 +22,7 @@ class DonHangController extends Controller
     }
     public function detailDonHang()
     {
+
         $title = "Chi tiết đơn hàng";
         $donhang = (new DonHang)->find($_GET['id']);
         $ttdonhang = (new TrangThaiDonHang)->all();

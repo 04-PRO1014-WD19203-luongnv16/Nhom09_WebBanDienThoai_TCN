@@ -12,16 +12,44 @@
             <div class="mb-3">
 
                 <select class="form-select" name="trang_thai" aria-label="Thay đổi trạng thái">
-                    <?php
-                    foreach ($ttdonhang as $key => $ttdh) {
-                        if ($donhang['trang_thai'] == $ttdh['id']) {
-                            echo '<option value=" ' . $ttdh['id'] . '"selected>' . $ttdh['ten_trang_thai'] . ' </option>';
-                        } else {
-                            echo '<option value=" ' . $ttdh['id'] . '">' . $ttdh['ten_trang_thai'] . ' </option>';
-                        }
-                        
-                    }
-                    ?>
+
+
+                    <?php if ($donhang['trang_thai'] == 1) : ?>
+                        <option value="1" selected>Chờ Duyệt </option>
+                        <option value="2">Xác Nhận</option>
+                        <option value="3" disabled>Đang Giao</option>
+                        <option value="4" disabled>Đã Giao</option>
+                        <option value="5">Hủy</option>
+                    <?php endif ?>
+                    <?php if ($donhang['trang_thai'] == 5) : ?>
+                        <option value="1" disabled>Chờ Duyệt </option>
+                        <option value="2" disabled>Xác Nhận</option>
+                        <option value="3" disabled>Đang Giao</option>
+                        <option value="4" disabled>Đã Giao</option>
+                        <option value="5" selected>Hủy</option>
+                    <?php endif ?>
+                    <?php if ($donhang['trang_thai'] == 2) : ?>
+                        <option value="1" disabled>Chờ Duyệt </option>
+                        <option value="2" selected>Xác Nhận</option>
+                        <option value="3">Đang Giao</option>
+                        <option value="4" disabled>Đã Giao</option>
+                        <option value="5" disabled>Hủy</option>
+                    <?php endif ?>
+                    <?php if ($donhang['trang_thai'] == 3) : ?>
+                        <option value="1" disabled>Chờ Duyệt </option>
+                        <option value="2" disabled>Xác Nhận</option>
+                        <option value="3" selected>Đang Giao</option>
+                        <option value="4">Đã Giao</option>
+                        <option value="5" disabled>Hủy</option>
+                    <?php endif ?>
+                    <?php if ($donhang['trang_thai'] == 4) : ?>
+                        <option value="1" disabled>Chờ Duyệt </option>
+                        <option value="2" disabled>Xác Nhận</option>
+                        <option value="3" disabled>Đang Giao</option>
+                        <option value="4" selected>Đã Giao</option>
+                        <option value="5" disabled>Hủy</option>
+                    <?php endif ?>
+
 
                 </select>
 
