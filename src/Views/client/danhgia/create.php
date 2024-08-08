@@ -61,7 +61,7 @@
                                 <input type="hidden" name="id_san_phams" value="<?=$sanPham['id']?>">
                                 <input type="hidden" name="id_bien_the" value="<?=$bienThe['id']?>">
                                 <label class="label-control">Điểm số</label>
-                                <input type="number" value="<?php if(isset($_POST['diem_so'])){echo $_POST['diem_so'];}?>" name="diem_so" class="form-control" style="height: 39px !important;">
+                                <input type="text" value="<?php if(isset($_POST['diem_so'])){echo $_POST['diem_so'];}?>" name="diem_so" class="form-control" style="height: 39px !important;">
                                 <div class="text-danger mb-3"><?php if(isset($valida_Diem_So)){echo $valida_Diem_So;}?></div>
                                 <label class="label-control">Nội dung</label>
                                 <textarea cols="10" rows="5" name="noi_dung" class="form-control"><?php if(isset($_POST['noi_dung'])){echo $_POST['noi_dung'];}?></textarea>

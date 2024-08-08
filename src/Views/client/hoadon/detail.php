@@ -96,7 +96,7 @@
                         <hr style="border: 1.5px gray solid;">
                         <h6 class="mb-3">#3. Thông tin sản phẩm</h6>
                         <div class="row mx-3">
-                            <table class="table table-hover text-center">
+                            <table class="table text-center">
                                 <thead>
                                     <th>STT</th>
                                     <th>Ảnh</th>
@@ -104,6 +104,9 @@
                                     <th>Giá</th>
                                     <th>Số lượng</th>
                                     <th>Thành tiền</th>
+                                    <?php if($hoadons['trang_thai'] == 4) :?>
+                                        <th>Thao tác</th>
+                                    <?php endif?>
                                 </thead>
                                 <tbody>
                                     <?php foreach ($chiTietDonHangs as $key => $chiTietDonHang) :?>
@@ -127,6 +130,18 @@
                                         <td><?=$chiTietDonHang['gia_san_pham']?></span><span style="font-size: 10px;">₫</span></td>
                                         <td><?=$chiTietDonHang['so_luong']?></td>
                                         <td><?=$chiTietDonHang['gia_san_pham']*$chiTietDonHang['so_luong']?></span><span style="font-size: 10px;">₫</span></td>
+                                        <?php if($hoadons['trang_thai'] == 4) :?>
+                                            <td>
+                                                <?php if($chiTietDonHang['danh_gia'] == NULL) :?>
+                                                        <form action="/viet-danh-gia" method="POST">
+                                                            <input type="hidden" name="id_Chi_Tiet_Don_Hang" value="<?=$chiTietDonHang['id']?>">
+                                                            <button class="btn btn-primary" style="border-radius: 0px !important;" type="submit">Đánh giá</button>
+                                                        </form>
+                                                    <?php else :?>
+                                                    <a class="text-primary">Đã đánh giá</a>
+                                                    <?php endif?>
+                                            </td>
+                                        <?php endif?>
                                     </tr>
                                     <?php endif?>
                                     <?php endif?>

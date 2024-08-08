@@ -24,6 +24,16 @@ class DanhGia extends Model
         $this->setQuery($sql);
         return $this->GetOne();
     }
+    public function allDanhGia() {
+        $sql = "SELECT id_san_phams, AVG(diem_so) AS diem_so FROM danh_gias GROUP BY id_san_phams";
+        $this->setQuery($sql);
+        return $this->GetAll();
+    }
+    public function list() {
+        $sql = "SELECT * FROM $this->table WHERE trang_thai = 1";
+        $this->setQuery($sql);
+        return $this->GetAll();
+    }
     public function thongKeDanhGia()
     {
         $sql = "SELECT id_san_phams,ten_san_pham,anh_chinh, AVG(diem_so) AS danh_gia_trung_binh, COUNT(*) AS tong_trung_binh 
@@ -34,3 +44,4 @@ class DanhGia extends Model
 
 }
 ?>
+.

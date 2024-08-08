@@ -42,10 +42,14 @@ class DanhGiaSanPhamController extends Controller {
                     $check = false;
                 }else{
                     $data['valida_Diem_So'] = NULL;
-                    if ($_POST['diem_so']>5 || $_POST['diem_so']<1) {
-                        $data['valida_Diem_So'] = "Điểm số không thể lớn hơn 5 hoặc nhỏ hơn 1";
-                        $check = false;
+                    if (!is_float($_POST['diem_so'])) {
+                        $data['valida_Diem_So'] = "Điểm số phải là chữ";
+                        if ($_POST['diem_so']>5 || $_POST['diem_so']<1) {
+                            $data['valida_Diem_So'] = "Điểm số không thể lớn hơn 5 hoặc nhỏ hơn 1";
+                            $check = false;
+                        }
                     }
+                    
                 }
                 // Validate nội dung
                 if(isset($_POST['noi_dung']) && $_POST['noi_dung'] == "") {
