@@ -16,7 +16,7 @@ class ThanhToanController extends Controller {
         $data['danhmucs'] = (new DanhMuc)->all();
         if (isset($_SESSION['id'])) {
 
-            $data['title'] = "Thanh tóan";            
+            $data['title'] = "Thanh toán";            
 
             $giohangs = (new GioHang)->selectAll();
             if(empty($giohangs)) {
@@ -29,11 +29,18 @@ class ThanhToanController extends Controller {
             $data['tai_khoan'] = (new TaiKhoan)->findOne($_SESSION['id']);
                 if (isset($_POST['shortcode']) && $_POST['shortcode'] != "") {
                     $ma_giam_gias = (new MaGiamGia)->all();
+                    $donHangs = (new DonHang)->selectAll();
                     foreach($ma_giam_gias as $ma_giam_gia) {
                         if($ma_giam_gia['shortcode'] === $_POST['shortcode']) {
                             $data['giam_gia'] = $ma_giam_gia['muc_giam'];
                             $data['id_ma_giam_gias'] = $ma_giam_gia['id'];
                             break;
+                        }
+                    }
+                    foreach ($donHangs as $donHang) {
+                        if($donHang['id_ma_giam_gias'] === $data['id_ma_giam_gias']) {
+                            $data['error'] = "Bạn đã sử dụng mã giảm giá này rồi!";
+                            (new GioHangController)->index($data);
                         }
                     }
                 }

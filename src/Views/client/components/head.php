@@ -13,6 +13,7 @@
 
  <link rel="stylesheet" href="/asset/winkel-master/css/bootstrap-datepicker.css">
  <link rel="stylesheet" href="/asset/winkel-master/css/jquery.timepicker.css">
+ <link rel="icon" href="./public/logo.png" type="./public/logo.png">
 
 
  <link rel="stylesheet" href="/asset/winkel-master/css/flaticon.css">

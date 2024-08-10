@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Aug 06, 2024 at 07:44 AM
+-- Generation Time: Aug 08, 2024 at 08:28 AM
 -- Server version: 8.0.30
 -- PHP Version: 8.3.9
 
@@ -76,7 +76,7 @@ CREATE TABLE `chi_tiet_don_hangs` (
 
 INSERT INTO `chi_tiet_don_hangs` (`id`, `id_don_hangs`, `id_bien_thes`, `id_san_phams`, `so_luong`, `gia_san_pham`, `danh_gia`) VALUES
 (13, 24, 8, 4, 1, 8900000, 1),
-(14, 25, 7, 3, 3, 30000000, NULL),
+(14, 25, 7, 3, 3, 30000000, 1),
 (15, 25, 5, 2, 2, 28000000, 1),
 (16, 27, 7, 3, 1, 30000000, NULL),
 (17, 27, 5, 2, 1, 28000000, NULL),
@@ -96,7 +96,7 @@ CREATE TABLE `danh_gias` (
   `id` int NOT NULL,
   `diem_so` float NOT NULL,
   `noi_dung` varchar(255) NOT NULL,
-  `ngay_danh_gia` date NOT NULL,
+  `ngay_danh_gia` datetime NOT NULL,
   `id_tai_khoans` int NOT NULL,
   `id_bien_thes` int NOT NULL,
   `id_san_phams` int NOT NULL,
@@ -108,8 +108,9 @@ CREATE TABLE `danh_gias` (
 --
 
 INSERT INTO `danh_gias` (`id`, `diem_so`, `noi_dung`, `ngay_danh_gia`, `id_tai_khoans`, `id_bien_thes`, `id_san_phams`, `trang_thai`) VALUES
-(1, 5, 'Sản phẩm rất tốt', '2024-08-03', 3, 8, 4, 1),
-(3, 5, 'Sản phẩm rất tốt', '2024-08-06', 3, 5, 2, 1);
+(3, 5, 'Sản phẩm đúng với mô tả', '2024-08-06 00:00:00', 3, 5, 2, 1),
+(4, 5, 'Sản phẩm rất tuyệt vời', '2024-08-08 11:11:28', 3, 7, 3, 1),
+(5, 4.5, 'Rất ok', '2024-08-08 11:29:01', 3, 8, 4, 1);
 
 -- --------------------------------------------------------
 
@@ -490,7 +491,7 @@ ALTER TABLE `chi_tiet_don_hangs`
 -- AUTO_INCREMENT for table `danh_gias`
 --
 ALTER TABLE `danh_gias`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `danh_mucs`

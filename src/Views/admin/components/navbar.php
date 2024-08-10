@@ -3,7 +3,7 @@
         <div id="main-menu" class="main-menu collapse navbar-collapse">
             <ul class="nav navbar-nav">
                 <li class="active">
-                    <a href="index.html"><i class="menu-icon fa fa-area-chart"></i>Thống kê </a>
+                    <a href="/admin"><i class="menu-icon fa fa-area-chart"></i>Thống kê </a>
                 </li>
                 <li>
                     <a href="/admin-san-pham" class="dropdown-toggle"> <i class="menu-icon fa fa-cogs"></i>Quản lý sản phẩm</a>

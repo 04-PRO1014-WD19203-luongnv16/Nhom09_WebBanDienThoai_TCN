@@ -107,8 +107,7 @@ class CuaHangController extends Controller
 
                         }
                         else {
-                            header('location: /login');
-                            echo"<script>confirm('Bạn cần đăng nhập để sử dụng giỏ hàng!')</script>";
+                                header('location: /login');
                         }
                     }
                 }

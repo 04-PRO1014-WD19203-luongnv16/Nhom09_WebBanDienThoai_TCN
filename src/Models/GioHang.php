@@ -36,5 +36,10 @@ class GioHang extends Model {
         $this->setQuery($sql);
         return $this->Execute();
     }
+    public function count($id_tai_khoans) {
+        $sql = "SELECT COUNT(*) AS so_luong FROM $this->table WHERE id_tai_khoans=$id_tai_khoans";
+        $this->setQuery($sql);
+        return $this->GetOne();
+    }
 }
 ?>
