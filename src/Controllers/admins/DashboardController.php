@@ -6,7 +6,7 @@ use MVC\Controller;
 class DashboardController extends Controller {
     
     public function index() {
-        $this->renderAdmin('');
+        $this->renderAdmin('thongke');
     }
 }
 ?>

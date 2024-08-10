@@ -30,8 +30,7 @@
                     <div class="search" style="width: 25%;margin-left: 75%;">
                         <form action="" method="get">
                             <div class="form-group" style="display: flex;">
-                                <input class="form-control" type="search" name="search" id=""
-                                    placeholder="Bạn tìm gì...">
+                                <input class="form-control" type="search" name="search" placeholder="Bạn tìm gì...">
                                 <input class="bg-primary btn-primary text-center"
                                     style="border-color: #ffa45c;width: 100px;" name="btn-search" type="submit"
                                     value="Tìm">

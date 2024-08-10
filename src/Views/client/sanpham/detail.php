@@ -119,7 +119,9 @@
                                 </div>
 
                             </div>
-                            <input name="submit" onclick="checkSubmit()" class="btn btn-black py-3 px-5 text-light"
+                            <input name="submit" <?php if (!isset($_SESSION['id']) || !isset($_SESSION['tai_khoan'])) {
+                                echo "disabled";
+                            } ?> onclick="checkSubmit()" class="btn btn-black py-3 px-5 text-light"
                                 type="submit" value="Thêm vào giỏ hàng">
                             <?php if (!isset($_SESSION['id']) || !isset($_SESSION['tai_khoan'])): ?>
                                 <p class="text">Bạn chưa cần <a href="/login">đăng nhập</a> để dùng giỏ hàng!</p>
@@ -151,23 +153,21 @@
                                         <?php endif ?>
                                         <div class="py-3 w-100">
                                             <h6><strong><?= $taiKhoan['tai_khoan'] ?></strong></h6>
-                                            <a class="text-primary"><i class="fa-solid fa-star"></i> <?=$danhGia['diem_so']?></a>
+                                            <a class="text-primary"><i class="fa-solid fa-star"></i> <?= $danhGia['diem_so'] ?></a>
                                             <p><i><?= $danhGia['ngay_danh_gia'] ?></i></p>
 
                                             <p>Dung lượng: <?= $bienThe['ten_dung_luong'] ?></p>
                                             <p>Màu sắc: <?= $bienThe['ten_mau_sac'] ?></p>
 
-                                            <label for="" class="form-lable">Nội dung: </label>
-                                            <div class="noi_dung p-3" style="border: 1px solid #CCCCCC;border-radius: 4px;">
-                                                <?= $danhGia['noi_dung'] ?></div>
+                                            <label for="" class="form-lable">Nội dung: </label><span> <?= $danhGia['noi_dung'] ?></span>
                                         </div>
-                                        </div>
-                                    <?php endif ?>
-                                <?php endforeach ?>
-                            <?php endif ?>
-                        <?php endforeach ?>
+                                    </div>
+                                <?php endif ?>
+                            <?php endforeach ?>
+                        <?php endif ?>
                     <?php endforeach ?>
-                </div>
+                <?php endforeach ?>
+            </div>
         </section>
     </div>
     <!-- Footer -->
@@ -223,7 +223,24 @@
         }
 
     </script>
+    <script>
+        const quantityInput = document.getElementById('quantity');
+        const quantityMinus = document.querySelector('.quantity-left-minus');
+        const quantityPlus = document.querySelector('.quantity-right-plus');
 
+        quantityMinus.addEventListener('click', () => {
+            let value = parseInt(quantityInput.value);
+            value = Math.max(value - 1, 1); // Giới hạn giá trị tối thiểu là 1
+            quantityInput.value = value;
+        });
+
+        quantityPlus.addEventListener('click', () => {
+            let value = parseInt(quantityInput.value);
+            value = Math.min(value + 1, 100); // Giới hạn giá trị tối đa là 100
+            quantityInput.value = value;
+        });
+
+    </script>
 
 </body>
 

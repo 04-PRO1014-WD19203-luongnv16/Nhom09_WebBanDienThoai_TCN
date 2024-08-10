@@ -1,5 +1,6 @@
 <?php
 use MVC\Models\DanhMuc;
+use MVC\Models\GioHang;
 $data['danhmucs'] = (new DanhMuc)->all();
 ?>
 <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
@@ -41,8 +42,14 @@ $data['danhmucs'] = (new DanhMuc)->all();
                     <a href="/login" class="text-dark">Đăng nhâp</a> | <a href="/dang_ky" class="text-dark">Đăng Ký</a>
                      </span></li>
                     <?php endif?>
-                <li class="nav-item cta cta-colored"><a href="/gio-hang" class="nav-link"><span class="icon-shopping_cart"></span>[0]</a></li>
-
+                    <?php 
+                        if(isset($_SESSION['id'])) {
+                            $count = (new GioHang)->count($_SESSION['id']);
+                            echo "<li class='nav-item cta cta-colored'><a href='/gio-hang' class='nav-link'><span class='icon-shopping_cart'></span>[$count[so_luong]]</a></li>";
+                        }else {
+                            echo "<li class='nav-item cta cta-colored'><a href='/gio-hang' class='nav-link'><span class='icon-shopping_cart'></span>[0]</a></li>";
+                        }
+                    ?>
             </ul>
         </div>
     </div>
