@@ -4,6 +4,7 @@ use MVC\Controllers\admins\DanhGiaController;
 use MVC\Controllers\admins\DanhMucController;
 use MVC\Controllers\admins\DashboardController;
 use MVC\Controllers\admins\DonHangController;
+use MVC\Controllers\admins\GiamGiaController;
 use MVC\Controllers\admins\TaiKhoanAdminController;
 use MVC\Controllers\admins\SanPhamController;
 use MVC\Controllers\clients\ChiTietDonHangController;
@@ -87,13 +88,17 @@ $router->addRoute('/admin-don-hang', DonHangController::class, 'index');
 $router->addRoute('/detail-don-hang', DonHangController::class, 'detailDonHang');
 
 //Quản lý đánh giá
-$router->addRoute('/admin-danh-gia',DanhGiaController::class,'AllDanhGia');
-$router->addRoute('/admin-thong-ke',DanhGiaController::class,'thongKe');
+$router->addRoute('/admin-danh-gia', DanhGiaController::class, 'AllDanhGia');
+$router->addRoute('/admin-thong-ke', DanhGiaController::class, 'thongKe');
 
 //Quản lý tài khoản
 $router->addRoute('/admin-tai-khoan', TaiKhoanAdminController::class, 'index');
 $router->addRoute('/sua-tai-khoan', TaiKhoanAdminController::class, 'updateTaiKhoan');
-
+//Quản lý mã giảm giá
+$router->addRoute('/admin-giam-gia', GiamGiaController::class, 'index');
+$router->addRoute('/add-giam-gia', GiamGiaController::class, 'addGiamGia');
+$router->addRoute('/delete-giam-gia', GiamGiaController::class, 'deleteGiamGia');
+$router->addRoute('/return-giam-gia', GiamGiaController::class, 'returnGiamGia');
+$router->addRoute('/admin-giam-gia1', GiamGiaController::class, 'index1');
 
 return $router;
-
