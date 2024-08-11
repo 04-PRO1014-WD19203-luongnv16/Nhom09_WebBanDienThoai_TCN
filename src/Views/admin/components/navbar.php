@@ -21,7 +21,7 @@
                     <a href="/admin-danh-gia"><i class="menu-icon ti-email"></i>Quản lý đánh giá</a>
                 </li>
                 <li>
-                    <a href="/admin-ma-giam-gia" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-bar-chart"></i>Quản lý mã giảm giá</a>
+                    <a href="/admin-giam-gia"> <i class="menu-icon fa fa-bar-chart"></i>Quản lý mã giảm giá</a>
                 </li>
             </ul>
         </div>
